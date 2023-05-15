@@ -36,7 +36,7 @@ kubectl port-forward --namespace ddosify service/nginx-service $LOCAL_PORT:80
 
 ## Add New Engine (Optional):
 
-Currently, the ddosify chart deploys a single engine. To add more engines, you can upgrade the chart with the desired number of engine count as follows:
+Currently, the ddosify chart deploys a single engine. To add more engines, you can upgrade the chart with the desired number of engine count as follows. Before adding new engines, ensure that you have enabled the distributed mode by clicking the `Unlock the Distributed Mode` button in the Ddosify dashboard.
 
 ```bash
 ENGINE_COUNT=3
