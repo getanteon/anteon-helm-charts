@@ -39,27 +39,4 @@ spec:
           name: hammer
           imagePullPolicy: IfNotPresent
           resources: {}
-          volumeMounts:
-            - mountPath: /root/uuid
-              name: hammer-id
       restartPolicy: Always
-      volumes:
-        - name: hammer-id
-          persistentVolumeClaim:
-            claimName: hammer-id
-status: {}
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  namespace: ddosify
-  labels:
-    service: hammer-id
-  name: hammer-id
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 100Mi
-status: {}

@@ -34,8 +34,16 @@ kubectl port-forward --namespace ddosify service/nginx-service $LOCAL_PORT:80
 
 - Open the browser and navigate to `http://localhost:8014`
 
+- Change Engine Count (Optional):
+
+```bash
+ENGINE_COUNT=3
+helm upgrade --namespace ddosify ddosify ddosify/ddosify --set hammerReplicas=$ENGINE_COUNT --wait
+```
+
+
 - To uninstall the chart:
 
 ```bash
-helm delete ddosify
+helm delete ddosify --namespace ddosify
 ```
