@@ -3,12 +3,12 @@ entries:
   ddosify:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-05-15T20:15:29.405437+03:00"
+    created: "2023-05-15T20:26:45.373462+03:00"
     description: A Helm chart for Ddosify Self Hosted
-    digest: 7d774c0847c74ee1b89354bb061bcab6a8b3fd78b3d48b9ea9a246c8759ce9ee
+    digest: ff9e541a9fca0e4d20e710deeb969a0a30b1ff99ed1750eaafaac82b36fa7155
     name: ddosify
     type: application
     urls:
     - https://ddosify.github.io/ddosify-helm-charts/ddosify-1.0.0.tgz
     version: 1.0.0
-generated: "2023-05-15T20:15:29.401948+03:00"
+generated: "2023-05-15T20:26:45.373133+03:00"
