@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: rabbitmq-job
+  name: rabbitmq-job
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: rabbitmq-job
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        io.kompose.network/selfhosted-ddosify: "true"
+        service: rabbitmq-job
+    spec:
+      containers:
+        - image: rabbitmq:3.9.4
+          name: rabbitmq-job
+          ports:
+            - containerPort: 5672
+          resources: {}
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: rabbitmq-job
+  name: rabbitmq-job
+spec:
+  ports:
+    - name: "5672"
+      port: 5672
+      targetPort: 5672
+  selector:
+    service: rabbitmq-job
+status:
+  loadBalancer: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: rabbitmq-celery
+  name: rabbitmq-celery
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: rabbitmq-celery
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        io.kompose.network/selfhosted-ddosify: "true"
+        service: rabbitmq-celery
+    spec:
+      containers:
+        - image: rabbitmq:3.9.4
+          name: rabbitmq-celery
+          resources: {}
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: rabbitmq-celery
+  name: rabbitmq-celery
+spec:
+  ports:
+    - name: "5672"
+      port: 5672
+      targetPort: 5672
+  selector:
+    service: rabbitmq-celery
+status:
+  loadBalancer: {}

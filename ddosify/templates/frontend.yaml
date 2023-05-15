@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: frontend
+  name: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: frontend
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        io.kompose.network/selfhosted-ddosify: "true"
+        service: frontend
+    spec:
+      containers:
+        - image: ddosify/selfhosted_frontend:1.0.0
+          name: frontend
+          resources: {}
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: frontend
+  name: frontend
+spec:
+  ports:
+    - name: "3000"
+      port: 3000
+      targetPort: 3000
+  selector:
+    service: frontend
+status:
+  loadBalancer: {}
