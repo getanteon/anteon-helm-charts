@@ -40,9 +40,9 @@ spec:
                 configMapKeyRef:
                   key: POSTGRES_PASSWORD
                   name: env
-          image: ddosify/selfhosted_backend:latest
+          image: ddosify/selfhosted_backend:1.1.0
           name: backend
-          imagePullPolicy: Never
+          imagePullPolicy: IfNotPresent
           resources: {}
       restartPolicy: Always
 status: {}

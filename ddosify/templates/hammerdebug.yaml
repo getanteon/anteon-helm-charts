@@ -2,20 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: hammer
-  name: hammer
+    service: hammerdebug
+  name: hammerdebug
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: hammer
+      service: hammerdebug
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
         io.kompose.network/selfhosted-ddosify: "true"
-        service: hammer
+        service: hammerdebug
     spec:
       containers:
         - env:
@@ -34,18 +34,20 @@ spec:
                 configMapKeyRef:
                   key: DOCKER_INFLUXDB_INIT_USERNAME
                   name: env
+            - name: IS_DEBUG
+              value: "true"
           image: ddosify/selfhosted_hammer:1.1.0
-          name: hammer
           imagePullPolicy: IfNotPresent
+          name: hammerdebug
           resources: {}
           volumeMounts:
             - mountPath: /root/uuid
-              name: hammer-id
+              name: hammerdebug-id
       restartPolicy: Always
       volumes:
-        - name: hammer-id
+        - name: hammerdebug-id
           persistentVolumeClaim:
-            claimName: hammer-id
+            claimName: hammerdebug-id
 status: {}
 ---
 apiVersion: v1
@@ -53,8 +55,8 @@ kind: PersistentVolumeClaim
 metadata:
   
   labels:
-    service: hammer-id
-  name: hammer-id
+    service: hammerdebug-id
+  name: hammerdebug-id
 spec:
   accessModes:
     - ReadWriteOnce
