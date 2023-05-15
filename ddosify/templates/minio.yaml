@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: ddosify
   labels:
     service: minio
   name: minio
@@ -59,6 +60,7 @@ status: {}
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: ddosify
   labels:
     service: minio
   name: minio
@@ -75,7 +77,7 @@ status:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  
+  namespace: ddosify
   labels:
     service: minio-data
   name: minio-data

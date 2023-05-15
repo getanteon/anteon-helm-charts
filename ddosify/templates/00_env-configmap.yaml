@@ -6,7 +6,7 @@ data:
   POSTGRES_PASSWORD: ChangeMe
 kind: ConfigMap
 metadata:
-  
+  namespace: ddosify
   labels:
     service: backend-env
   name: env

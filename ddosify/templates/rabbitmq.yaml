@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: ddosify
   labels:
     service: rabbitmq-job
   name: rabbitmq-job
@@ -28,6 +29,7 @@ status: {}
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: ddosify
   labels:
     service: rabbitmq-job
   name: rabbitmq-job
@@ -44,6 +46,7 @@ status:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: ddosify
   labels:
     service: rabbitmq-celery
   name: rabbitmq-celery
@@ -69,6 +72,7 @@ status: {}
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: ddosify
   labels:
     service: rabbitmq-celery
   name: rabbitmq-celery

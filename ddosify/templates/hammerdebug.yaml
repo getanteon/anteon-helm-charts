@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: ddosify
   labels:
     service: hammerdebug
   name: hammerdebug
@@ -53,7 +54,7 @@ status: {}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  
+  namespace: ddosify
   labels:
     service: hammerdebug-id
   name: hammerdebug-id
