@@ -22,7 +22,7 @@ helm repo update
 - To install the ddosify chart:
 
 ```bash
-helm upgrade --install --namespace ddosify ddosify ddosify/ddosify
+helm upgrade --install --namespace ddosify ddosify ddosify/ddosify --wait
 ```
 
 - Port forward the ddosify service:
