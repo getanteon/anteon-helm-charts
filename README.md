@@ -21,11 +21,11 @@ helm repo add ddosify https://ddosify.github.io/helm-charts/
 - To install the ddosify chart:
 
 ```bash
-helm install my-ddosify ddosify/ddosify
+helm install ddosify ddosify/ddosify
 ```
 
 - To uninstall the chart:
 
 ```bash
-helm delete my-ddosify
+helm delete ddosify
 ```
