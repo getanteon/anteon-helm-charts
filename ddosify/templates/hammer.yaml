@@ -6,7 +6,7 @@ metadata:
     service: hammer
   name: hammer
 spec:
-  replicas: 1
+  replicas: {{ .Values.hammerReplicas }}
   selector:
     matchLabels:
       service: hammer

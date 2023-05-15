@@ -1,6 +1,6 @@
 # Ddosify Helm Charts
 
-This repository hosts the Helm charts for the [Ddosify Self Hosted](https://github.com/ddosify/ddosify/tree/master/selfhosted).
+This [repository](https://github.com/ddosify/ddosify-helm-charts) hosts the Helm charts for the [Ddosify Self Hosted](https://github.com/ddosify/ddosify/tree/master/selfhosted) and is accessible via [GitHub Pages](https://ddosify.github.io/ddosify-helm-charts/).
 
 ## What is Ddosify?
 Ddosify is a comprehensive performance testing platform, designed specifically to evaluate backend load and latency. It offers three distinct deployment options to cater to various needs: [Ddosify Engine](https://github.com/ddosify/ddosify/blob/master/engine_docs/README.md), [Ddosify Self-Hosted](https://github.com/ddosify/ddosify/tree/master/selfhosted), and [Ddosify Cloud](https://app.ddosify.com).
