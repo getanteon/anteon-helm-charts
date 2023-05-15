@@ -13,7 +13,7 @@ Ddosify is a comprehensive performance testing platform, designed specifically t
 - Once Helm has been set up correctly, add and update the repo as follows:
 
 ```bash
-helm repo add ddosify https://ddosify.github.io/helm-charts/
+helm repo add ddosify https://ddosify.github.io/ddosify-helm-charts/
 helm repo update
 ```
 
