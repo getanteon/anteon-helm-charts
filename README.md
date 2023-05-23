@@ -22,6 +22,7 @@ helm repo update
 - To install the ddosify chart:
 
 ```bash
+kubectl create namespace ddosify
 helm upgrade --install --namespace ddosify ddosify ddosify/ddosify --wait
 ```
 
