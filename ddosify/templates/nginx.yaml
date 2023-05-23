@@ -26,6 +26,7 @@ spec:
     metadata:
       labels:
         app: nginx
+        io.kompose.network/selfhosted-ddosify: "true"
     spec:
       containers:
       - name: nginx
