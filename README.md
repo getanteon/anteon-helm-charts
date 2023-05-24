@@ -49,3 +49,7 @@ helm upgrade --namespace ddosify ddosify ddosify/ddosify --set hammerReplicas=$E
 ```bash
 helm delete ddosify --namespace ddosify
 ```
+
+## Notes
+
+- For AWS EKS, Amazon EKS CSI Driver addon must be enabled to use the EBS storage class. For more information, see [Amazon EKS CSI Driver](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html).
