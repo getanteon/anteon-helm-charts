@@ -41,6 +41,7 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: postgres-data
+              subPath: postgres
             - name: scripts
               mountPath: /docker-entrypoint-initdb.d
       restartPolicy: Always

@@ -41,27 +41,4 @@ spec:
           imagePullPolicy: IfNotPresent
           name: hammerdebug
           resources: {}
-          volumeMounts:
-            - mountPath: /root/uuid
-              name: hammerdebug-id
       restartPolicy: Always
-      volumes:
-        - name: hammerdebug-id
-          persistentVolumeClaim:
-            claimName: hammerdebug-id
-status: {}
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  namespace: ddosify
-  labels:
-    service: hammerdebug-id
-  name: hammerdebug-id
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 100Mi
-status: {}
