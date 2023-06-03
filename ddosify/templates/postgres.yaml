@@ -25,7 +25,6 @@ spec:
   template:
     metadata:
       labels:
-        io.kompose.network/selfhosted-ddosify: "true"
         service: postgres
     spec:
       containers:

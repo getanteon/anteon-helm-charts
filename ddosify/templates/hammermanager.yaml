@@ -14,7 +14,6 @@ spec:
   template:
     metadata:
       labels:
-        io.kompose.network/selfhosted-ddosify: "true"
         service: hammermanager
     spec:
       containers:
@@ -68,7 +67,6 @@ spec:
   template:
     metadata:
       labels:
-        io.kompose.network/selfhosted-ddosify: "true"
         service: hammermanager-celery-beat
     spec:
       containers:
@@ -103,7 +101,6 @@ spec:
   template:
     metadata:
       labels:
-        io.kompose.network/selfhosted-ddosify: "true"
         service: hammermanager-celery-worker
     spec:
       containers:

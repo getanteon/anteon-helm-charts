@@ -28,7 +28,6 @@ spec:
   template:
     metadata:
       labels:
-        io.kompose.network/selfhosted-ddosify: "true"
         service: influxdb
     spec:
       containers:
