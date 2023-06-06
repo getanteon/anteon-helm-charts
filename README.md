@@ -35,6 +35,12 @@ kubectl port-forward --namespace ddosify service/nginx-service $LOCAL_PORT:80
 
 - Open the browser and navigate to `http://localhost:8014`
 
+- Upgrade the application to the latest version:
+
+```bash
+helm upgrade --namespace ddosify ddosify ddosify/ddosify --wait
+```
+
 ## Add New Engine (Optional):
 
 Currently, the ddosify chart deploys a single engine. To add more engines, you can upgrade the chart with the desired number of engine count as follows. Before adding new engines, ensure that you have enabled the distributed mode by clicking the `Unlock the Distributed Mode` button in the Ddosify dashboard.
