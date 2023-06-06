@@ -10,32 +10,40 @@ Ddosify is a comprehensive performance testing platform, designed specifically t
 
 [Helm](https://helm.sh/docs/intro/install/) must be installed to use the Ddosify charts.
 
-- Once Helm has been set up correctly, add and update the repo as follows:
+### Add and Update Repository
+
+Once Helm has been set up correctly, add and update the repo as follows:
 
 ```bash
 helm repo add ddosify https://ddosify.github.io/ddosify-helm-charts/
 helm repo update
 ```
 
-- You can then run `helm search repo ddosify` to see the charts.
+You can then run `helm search repo ddosify` to see the charts.
 
-- To install the ddosify chart:
+### Install Ddosify Chart
+
+To install the ddosify chart:
 
 ```bash
 kubectl create namespace ddosify
 helm upgrade --install --namespace ddosify ddosify ddosify/ddosify --wait
 ```
 
-- Port forward the ddosify service:
+### Accessing the Ddosify Dashboard (Port Forwarding)
+
+Port forward the Ddosify service:
 
 ```bash
 LOCAL_PORT=8014
 kubectl port-forward --namespace ddosify service/nginx-service $LOCAL_PORT:80
 ```
 
-- Open the browser and navigate to `http://localhost:8014`
+Open the browser and navigate to `http://localhost:8014`
 
-- Upgrade the application to the latest version:
+### Upgrading the Ddosify Chart
+
+Make sure to [update the chart repository](#add-and-update-repository) before upgrading the chart:
 
 ```bash
 helm upgrade --namespace ddosify ddosify ddosify/ddosify --wait
