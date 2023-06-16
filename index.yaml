@@ -2,8 +2,18 @@ apiVersion: v1
 entries:
   ddosify:
   - apiVersion: v2
+    appVersion: 1.1.3
+    created: "2023-06-17T02:09:37.808586+03:00"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: e0114750f1c6ce6d291af1eb667a122b84640f006c0cdaadf4cf91c0ebdd8b7b
+    name: ddosify
+    type: application
+    urls:
+    - https://ddosify.github.io/ddosify-helm-charts/ddosify-1.2.3.tgz
+    version: 1.2.3
+  - apiVersion: v2
     appVersion: 1.1.2
-    created: "2023-06-07T13:16:25.217635+03:00"
+    created: "2023-06-17T02:09:37.808081+03:00"
     description: A Helm chart for Ddosify Self Hosted
     digest: 29d1941089c2bf817390ceaf63b83f23e6034e426e6b7d4d6264c4444a474f4a
     name: ddosify
@@ -13,9 +23,9 @@ entries:
     version: 1.2.2
   - apiVersion: v2
     appVersion: 1.1.1
-    created: "2023-06-07T13:16:25.21736+03:00"
+    created: "2023-06-17T02:09:37.807672+03:00"
     description: A Helm chart for Ddosify Self Hosted
-    digest: 29aa16e3432c301325e315dbba6c3fde2881e4b8d0c3cb5178bb4801aa1d0328
+    digest: 0aacef90af7950595ab52219f58f29969d5f10672bb1f282676fcfeb7c72f54e
     name: ddosify
     type: application
     urls:
@@ -23,7 +33,7 @@ entries:
     version: 1.2.1
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2023-06-07T13:16:25.217071+03:00"
+    created: "2023-06-17T02:09:37.80729+03:00"
     description: A Helm chart for Ddosify Self Hosted
     digest: bc9961d7173754a6425d4e2fb5c2b1cb1bf85fb005576c46478e355973bf4f82
     name: ddosify
@@ -33,7 +43,7 @@ entries:
     version: 1.2.0
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2023-06-07T13:16:25.216789+03:00"
+    created: "2023-06-17T02:09:37.806587+03:00"
     description: A Helm chart for Ddosify Self Hosted
     digest: 8d53b981434f7ada54657d98021df92d14107a42042d814c19554d34bde989b1
     name: ddosify
@@ -43,7 +53,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-06-07T13:16:25.216484+03:00"
+    created: "2023-06-17T02:09:37.806107+03:00"
     description: A Helm chart for Ddosify Self Hosted
     digest: f3865407b3eb4cf20443f8261543ae857788fb8cb6c3a3c63ba326f8a7149368
     name: ddosify
@@ -51,4 +61,4 @@ entries:
     urls:
     - https://ddosify.github.io/ddosify-helm-charts/ddosify-1.0.0.tgz
     version: 1.0.0
-generated: "2023-06-07T13:16:25.216102+03:00"
+generated: "2023-06-17T02:09:37.805147+03:00"

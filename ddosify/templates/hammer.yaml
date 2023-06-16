@@ -34,7 +34,7 @@ spec:
                 configMapKeyRef:
                   key: DOCKER_INFLUXDB_INIT_USERNAME
                   name: env
-          image: ddosify/selfhosted_hammer:1.3.0
+          image: ddosify/selfhosted_hammer:1.4.0
           name: hammer
           imagePullPolicy: IfNotPresent
           resources: {}
