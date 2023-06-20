@@ -83,7 +83,7 @@ In this example, we are using the external InfluxDB Cloud and AWS RDS PostgreSQL
 helm upgrade --install --namespace ddosify ddosify ddosify/ddosify --values values-external_db.yaml --wait
 ```
 
-The recommended and tested version of PostgreSQL is `13.6` and InfluxDB is `2.6.1`. If you get any errors on different versions, please open an issue. We will try to fix it as soon as possible.
+The recommended and tested version of PostgreSQL is `13.6` and InfluxDB is `2.6.1`. If you get any errors on different versions, please open an issue. We will try to fix it as soon as possible. And the external databases should be close to the Kubernetes cluster to avoid latency.
 
 ## Cleanup
 
