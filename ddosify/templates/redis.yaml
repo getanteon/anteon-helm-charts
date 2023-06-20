@@ -21,14 +21,7 @@ spec:
         - image: redis:6.2.6
           name: redis
           resources: {}
-          volumeMounts:
-            - mountPath: /data
-              name: redis-data
       restartPolicy: Always
-      volumes:
-        - name: redis-data
-          persistentVolumeClaim:
-            claimName: redis-data
 status: {}
 ---
 apiVersion: v1
@@ -47,18 +40,3 @@ spec:
     service: redis
 status:
   loadBalancer: {}
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  namespace: ddosify
-  labels:
-    service: redis-data
-  name: redis-data
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 100Mi
-status: {}

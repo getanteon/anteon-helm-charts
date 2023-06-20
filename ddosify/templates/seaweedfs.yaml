@@ -66,5 +66,6 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 30Gi
+      storage: {{ .Values.pvc.seaweedfs.size | quote }}
+  storageClassName: {{ .Values.pvc.seaweedfs.storageClassName }}
 status: {}

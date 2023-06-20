@@ -107,6 +107,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 5Gi
+      storage: {{ .Values.pvc.influxDB.size | quote }}
+  storageClassName: {{ .Values.pvc.influxDB.storageClassName }}
 status: {}
 {{- end -}}

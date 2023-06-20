@@ -99,3 +99,14 @@ postgres:
   port: 5432
   username: "postgres"
   password: "ChangeMe"
+
+pvc:
+  influxDB:
+    storageClassName: ""
+    size: 5Gi
+  postgres:
+    storageClassName: ""
+    size: 5Gi
+  seaweedfs:
+    storageClassName: ""
+    size: 30Gi

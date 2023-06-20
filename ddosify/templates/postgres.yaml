@@ -83,6 +83,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 5Gi
+      storage: {{ .Values.pvc.postgres.size | quote }}
+  storageClassName: {{ .Values.pvc.postgres.storageClassName }}
 status: {}
 {{- end -}}
