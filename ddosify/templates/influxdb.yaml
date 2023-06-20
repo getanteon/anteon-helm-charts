@@ -1,3 +1,4 @@
+{{ if not .Values.influxDB.external }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -37,12 +38,11 @@ spec:
                 configMapKeyRef:
                   key: DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
                   name: env
-            - name: DOCKER_INFLUXDB_INIT_BUCKET
-              value: hammerBucket
-            - name: DOCKER_INFLUXDB_INIT_MODE
-              value: setup
             - name: DOCKER_INFLUXDB_INIT_ORG
-              value: ddosify
+              valueFrom:
+                configMapKeyRef:
+                  key: DOCKER_INFLUXDB_INIT_ORG
+                  name: env
             - name: DOCKER_INFLUXDB_INIT_PASSWORD
               valueFrom:
                 configMapKeyRef:
@@ -53,6 +53,10 @@ spec:
                 configMapKeyRef:
                   key: DOCKER_INFLUXDB_INIT_USERNAME
                   name: env
+            - name: DOCKER_INFLUXDB_INIT_BUCKET
+              value: hammerBucket
+            - name: DOCKER_INFLUXDB_INIT_MODE
+              value: setup
           image: influxdb:2.6.1
           name: influxdb
           ports:
@@ -105,3 +109,4 @@ spec:
     requests:
       storage: 5Gi
 status: {}
+{{- end -}}

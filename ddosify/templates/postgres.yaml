@@ -1,3 +1,4 @@
+{{ if not .Values.postgres.external }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -62,9 +63,9 @@ metadata:
   name: postgres
 spec:
   ports:
-    - name: "5432"
-      port: 5432
-      targetPort: 5432
+    - name: "{{ .Values.postgres.port }}"
+      port: {{ .Values.postgres.port }}
+      targetPort: {{ .Values.postgres.port }}
   selector:
     service: postgres
 status:
@@ -84,3 +85,4 @@ spec:
     requests:
       storage: 5Gi
 status: {}
+{{- end -}}

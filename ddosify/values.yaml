@@ -70,3 +70,32 @@ hammerReplicas: 1
 service:
   name: nginx-service
   port: 80
+
+influxDB:
+  # If you set external to true, this means that you will manage the influxdb server yourself
+  # Recommended influxDB version: 2.6.1
+  # You must set url, apiToken and org
+  # and you must create the buckets manually:
+  #   - hammerBucket
+  #   - hammerBucketDetailed
+  #   - hammerBucketIteration
+  # username and password are only used if external is false
+  external: false
+  url: "http://influxdb:8086"
+  apiToken: "5yR2qD5zCqqvjwCKKXojnPviQaB87w9JcGweVChXkhWRL"
+  org: "ddosify"
+  username: "admin" # only used if external is false
+  password: "ChangeMe" # only used if external is false
+
+postgres:
+  # If you set external to true, this means that you will manage the postgres server yourself
+  # Recommended postgres version: 13.6
+  # You must set host, port, username and password
+  # and you must create the databases manually
+  #   - backend
+  #   - hammermanager
+  external: false
+  host: "postgres"
+  port: 5432
+  username: "postgres"
+  password: "ChangeMe"

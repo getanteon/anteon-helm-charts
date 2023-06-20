@@ -20,27 +20,42 @@ spec:
         - args:
             - /workspace/start_scripts/start_app_onprem.sh
           env:
+            - name: INFLUXDB_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: INFLUXDB_URL
+                  name: env
             - name: DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
               valueFrom:
                 configMapKeyRef:
                   key: DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
                   name: env
-            - name: DOCKER_INFLUXDB_INIT_PASSWORD
+            - name: INFLUXDB_ORGANIZATION
               valueFrom:
                 configMapKeyRef:
-                  key: DOCKER_INFLUXDB_INIT_PASSWORD
+                  key: DOCKER_INFLUXDB_INIT_ORG
                   name: env
-            - name: DOCKER_INFLUXDB_INIT_USERNAME
+            - name: POSTGRES_HOST
               valueFrom:
                 configMapKeyRef:
-                  key: DOCKER_INFLUXDB_INIT_USERNAME
+                  key: POSTGRES_HOST
+                  name: env
+            - name: POSTGRES_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_PORT
+                  name: env
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_USER
                   name: env
             - name: POSTGRES_PASSWORD
               valueFrom:
                 configMapKeyRef:
                   key: POSTGRES_PASSWORD
                   name: env
-          image: ddosify/selfhosted_backend:1.3.0
+          image: ddosify/selfhosted_backend:1.3.2
           name: backend
           imagePullPolicy: IfNotPresent
           resources: {}
