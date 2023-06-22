@@ -102,11 +102,11 @@ postgres:
 
 pvc:
   influxDB:
-    storageClassName: ""
+    storageClassName: "standard"
     size: 5Gi
   postgres:
-    storageClassName: ""
+    storageClassName: "standard"
     size: 5Gi
   seaweedfs:
-    storageClassName: ""
+    storageClassName: "standard"
     size: 30Gi
