@@ -58,6 +58,33 @@ ENGINE_COUNT=3
 helm upgrade --namespace ddosify ddosify ddosify/ddosify --set hammerReplicas=$ENGINE_COUNT --wait
 ```
 
+## External Database (Optional):
+
+By default, the Ddosify chart deploys a PostgreSQL and InfluxDB. If you want to use them externally, you can write a custom values file (`values-external_db.yaml`) as follows:
+
+```yaml
+influxDB:
+  external: true
+  url: "https://us-east-1-1.aws.cloud2.influxdata.com"
+  apiToken: "<your-token>"
+  org: "<your-organization>"
+
+postgres:
+  external: true
+  host: "postgres-rds-test.xxxxxx.rds.amazonaws.com"
+  port: 5432
+  username: "postgres"
+  password: "<your-password>"
+```
+
+In this example, we are using the external InfluxDB Cloud and AWS RDS PostgreSQL. You must change the values according to your setup. Note that the external database must be accessible from the Kubernetes cluster. Then, you can install the chart with the custom values file as follows:
+
+```bash
+helm upgrade --install --namespace ddosify ddosify ddosify/ddosify --values values-external_db.yaml --wait
+```
+
+The recommended and tested version of PostgreSQL is `13.6` and InfluxDB is `2.6.1`. If you get any errors on different versions, please open an issue. We will try to fix it as soon as possible. And the external databases should be close to the Kubernetes cluster to avoid latency.
+
 ## Cleanup
 
 ```bash

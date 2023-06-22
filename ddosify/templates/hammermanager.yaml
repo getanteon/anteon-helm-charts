@@ -20,12 +20,27 @@ spec:
         - args:
             - /workspace/start_scripts/start_app.sh
           env:
+            - name: POSTGRES_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_HOST
+                  name: env
+            - name: POSTGRES_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_PORT
+                  name: env
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_USER
+                  name: env
             - name: POSTGRES_PASSWORD
               valueFrom:
                 configMapKeyRef:
                   key: POSTGRES_PASSWORD
                   name: env
-          image: ddosify/selfhosted_hammermanager:1.1.0
+          image: ddosify/selfhosted_hammermanager:1.2.2
           imagePullPolicy: IfNotPresent
           name: hammermanager
           ports:
@@ -73,12 +88,27 @@ spec:
         - args:
             - /workspace/start_scripts/start_celery_beat.sh
           env:
+            - name: POSTGRES_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_HOST
+                  name: env
+            - name: POSTGRES_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_PORT
+                  name: env
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_USER
+                  name: env
             - name: POSTGRES_PASSWORD
               valueFrom:
                 configMapKeyRef:
                   key: POSTGRES_PASSWORD
                   name: env
-          image: ddosify/selfhosted_hammermanager:1.1.0
+          image: ddosify/selfhosted_hammermanager:1.2.2
           imagePullPolicy: IfNotPresent
           name: hammermanager-celery-beat
           resources: {}
@@ -107,12 +137,27 @@ spec:
         - args:
             - /workspace/start_scripts/start_celery_worker.sh
           env:
+            - name: POSTGRES_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_HOST
+                  name: env
+            - name: POSTGRES_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_PORT
+                  name: env
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_USER
+                  name: env
             - name: POSTGRES_PASSWORD
               valueFrom:
                 configMapKeyRef:
                   key: POSTGRES_PASSWORD
                   name: env
-          image: ddosify/selfhosted_hammermanager:1.1.0
+          image: ddosify/selfhosted_hammermanager:1.2.2
           imagePullPolicy: IfNotPresent
           name: hammermanager-celery-worker
           resources: {}
