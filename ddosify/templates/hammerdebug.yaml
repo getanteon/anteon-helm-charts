@@ -36,7 +36,7 @@ spec:
                   name: env
             - name: IS_DEBUG
               value: "true"
-          image: ddosify/selfhosted_hammer:1.4.0
+          image: ddosify/selfhosted_hammer:1.4.1
           imagePullPolicy: IfNotPresent
           name: hammerdebug
           resources: {}
