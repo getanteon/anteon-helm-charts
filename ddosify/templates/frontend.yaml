@@ -17,7 +17,7 @@ spec:
         service: frontend
     spec:
       containers:
-        - image: ddosify/selfhosted_frontend:1.2.1
+        - image: ddosify/selfhosted_frontend:1.2.4
           name: frontend
           resources: {}
       restartPolicy: Always
