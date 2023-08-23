@@ -1,7 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: ddosify
   labels:
     service: hammermanager
   name: hammermanager
@@ -52,7 +51,6 @@ status: {}
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: ddosify
   labels:
     service: hammermanager
   name: hammermanager
@@ -69,7 +67,6 @@ status:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: ddosify
   labels:
     service: hammermanager-celery-beat
   name: hammermanager-celery-beat
@@ -118,7 +115,6 @@ status: {}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: ddosify
   labels:
     service: hammermanager-celery-worker
   name: hammermanager-celery-worker
