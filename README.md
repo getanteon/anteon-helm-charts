@@ -10,7 +10,7 @@ Ddosify is a comprehensive performance testing platform, designed specifically t
 
 [Helm](https://helm.sh/docs/intro/install/) must be installed to use the Ddosify charts.
 
-### Add and Update Repository
+## Add and Update Repository
 
 Once Helm has been set up correctly, add and update the repo as follows:
 
@@ -21,9 +21,9 @@ helm repo update
 
 You can then run `helm search repo ddosify` to see the charts.
 
-### Install Ddosify Chart
+## Ddosify Self Hosted Chart
 
-To install the ddosify chart:
+To install the Ddosify Self Hosted chart:
 
 ```bash
 kubectl create namespace ddosify
@@ -49,7 +49,7 @@ Make sure to [update the chart repository](#add-and-update-repository) before up
 helm upgrade --namespace ddosify ddosify ddosify/ddosify --wait
 ```
 
-## Add New Engine (Optional):
+### Add New Engine (Optional):
 
 Currently, the ddosify chart deploys a single engine. To add more engines, you can upgrade the chart with the desired number of engine count as follows. Before adding new engines, ensure that you have enabled the distributed mode by clicking the `Unlock the Distributed Mode` button in the Ddosify dashboard.
 
@@ -58,7 +58,7 @@ ENGINE_COUNT=3
 helm upgrade --namespace ddosify ddosify ddosify/ddosify --set hammerReplicas=$ENGINE_COUNT --wait
 ```
 
-## External Database (Optional):
+### External Database (Optional):
 
 By default, the Ddosify chart deploys a PostgreSQL and InfluxDB. If you want to use them externally, you can write a custom values file (`values-external_db.yaml`) as follows:
 
@@ -85,11 +85,28 @@ helm upgrade --install --namespace ddosify ddosify ddosify/ddosify --values valu
 
 The recommended and tested version of PostgreSQL is `13.6` and InfluxDB is `2.6.1`. If you get any errors on different versions, please open an issue. We will try to fix it as soon as possible. And the external databases should be close to the Kubernetes cluster to avoid latency.
 
-## Cleanup
+### Cleanup
 
 ```bash
 helm delete ddosify --namespace ddosify
 ```
+
+## Alaz Chart - Ddosify eBPF Agent
+
+Alaz is an open-source Ddosify eBPF agent that can inspect and collect Kubernetes (K8s) service traffic without the need for code instrumentation, sidecars, or service restarts. This is possible due to its use of eBPF technology. Alaz can create a Service Map that helps identify golden signals and problems like high latencies, 5xx errors, zombie services, SQL queries. Additionally, it can gather system information and resources via the Prometheus Node Exporter, which is readily available on the agent.
+
+To install the Alaz chart:
+
+```bash
+kubectl create namespace ddosify
+
+# Replace <your-monitoring-id> with your monitoring ID from the Ddosify Cloud.
+MONITORING_ID=<your-monitoring-id>
+# Replace <BACKEND_HOST> with your backend host for Ddosify Self Hosted. Backend host should be accessible from the Kubernetes cluster.
+BACKEND_HOST=<your-selfhosted-backend-host>
+helm upgrade --install --namespace ddosify alaz ddosify/alaz --set monitoringID=$MONITORING_ID --set backendHost=$BACKEND_HOST --wait
+```
+
 
 ## Notes
 

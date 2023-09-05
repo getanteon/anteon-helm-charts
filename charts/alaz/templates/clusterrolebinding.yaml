@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: alaz-role-binding
+  namespace: {{ .Values.namespace }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: alaz-role
+subjects:
+- kind: ServiceAccount
+  name: alaz-serviceaccount
+  namespace: {{ .Values.namespace }}
