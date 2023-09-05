@@ -11,7 +11,6 @@ data:
   POSTGRES_PASSWORD: {{ .Values.postgres.password | quote }}
 kind: ConfigMap
 metadata:
-  namespace: ddosify
   labels:
     service: backend-env
   name: env

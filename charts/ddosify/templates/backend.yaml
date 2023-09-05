@@ -1,7 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: ddosify
   labels:
     service: backend
   name: backend
@@ -65,7 +64,6 @@ status: {}
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: ddosify
   labels:
     service: backend
   name: backend

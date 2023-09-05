@@ -4,7 +4,6 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  namespace: ddosify
   name: {{ include "ddosify.fullname" . }}
   annotations:
     {{- toYaml .Values.ingress.annotations | nindent 4 }}
