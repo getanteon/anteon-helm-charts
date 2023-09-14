@@ -108,7 +108,7 @@ kubectl create namespace ddosify
 helm upgrade --install --namespace ddosify alaz ddosify/alaz --set monitoringID=$MONITORING_ID --set backendHost=$BACKEND_HOST
 ```
 
-For more installation methods, see [Alaz](https://github.com/ddosify/alaz).
+For more installation methods, see [Alaz (Ddosify eBPF Agent)](https://github.com/ddosify/alaz).
 
 ## Notes
 
