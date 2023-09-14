@@ -54,7 +54,7 @@ spec:
                 configMapKeyRef:
                   key: POSTGRES_PASSWORD
                   name: env
-          image: ddosify/selfhosted_backend:2.0.0
+          image: ddosify/selfhosted_backend:2.2.2
           name: backend
           imagePullPolicy: IfNotPresent
           resources: {}
@@ -76,3 +76,129 @@ spec:
     service: backend
 status:
   loadBalancer: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: backend-celery-beat
+  name: backend-celery-beat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: backend-celery-beat
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        service: backend-celery-beat
+    spec:
+      containers:
+        - args:
+            - /workspace/start_scripts/start_celery_beat.sh
+          env:
+            - name: INFLUXDB_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: INFLUXDB_URL
+                  name: env
+            - name: DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
+              valueFrom:
+                configMapKeyRef:
+                  key: DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
+                  name: env
+            - name: INFLUXDB_ORGANIZATION
+              valueFrom:
+                configMapKeyRef:
+                  key: DOCKER_INFLUXDB_INIT_ORG
+                  name: env
+            - name: POSTGRES_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_HOST
+                  name: env
+            - name: POSTGRES_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_PORT
+                  name: env
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_USER
+                  name: env
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_PASSWORD
+                  name: env
+          image: ddosify/selfhosted_backend:2.2.2
+          name: backend-celery-beat
+          imagePullPolicy: IfNotPresent
+          resources: {}
+      restartPolicy: Always
+status: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: backend-celery-worker
+  name: backend-celery-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: backend-celery-worker
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        service: backend-celery-worker
+    spec:
+      containers:
+        - args:
+            - /workspace/start_scripts/start_celery_worker.sh
+          env:
+            - name: INFLUXDB_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: INFLUXDB_URL
+                  name: env
+            - name: DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
+              valueFrom:
+                configMapKeyRef:
+                  key: DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
+                  name: env
+            - name: INFLUXDB_ORGANIZATION
+              valueFrom:
+                configMapKeyRef:
+                  key: DOCKER_INFLUXDB_INIT_ORG
+                  name: env
+            - name: POSTGRES_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_HOST
+                  name: env
+            - name: POSTGRES_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_PORT
+                  name: env
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_USER
+                  name: env
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_PASSWORD
+                  name: env
+          image: ddosify/selfhosted_backend:2.2.2
+          name: backend-celery-worker
+          imagePullPolicy: IfNotPresent
+          resources: {}
+      restartPolicy: Always
+status: {}

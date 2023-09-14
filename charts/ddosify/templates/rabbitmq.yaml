@@ -79,3 +79,43 @@ spec:
     service: rabbitmq-celery
 status:
   loadBalancer: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: rabbitmq-celery-backend
+  name: rabbitmq-celery-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: rabbitmq-celery-backend
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        service: rabbitmq-celery-backend
+    spec:
+      containers:
+        - image: rabbitmq:3.9.4
+          name: rabbitmq-celery-backend
+          resources: {}
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: rabbitmq-celery-backend
+  name: rabbitmq-celery-backend
+spec:
+  ports:
+    - name: "5672"
+      port: 5672
+      targetPort: 5672
+  selector:
+    service: rabbitmq-celery-backend
+status:
+  loadBalancer: {}
