@@ -98,15 +98,17 @@ Alaz is an open-source Ddosify eBPF agent that can inspect and collect Kubernete
 To install the Alaz chart:
 
 ```bash
+# Replace <MONITORING_ID> with your monitoring ID from the Ddosify UI. Change XXXXX with your monitoring ID.
+MONITORING_ID=XXXXX
+# Set BACKEND_HOST with your Ddosify Self Hosted Endpoint. If your Ddosify Self Hosted endpoint is http://localhost:8014, then BACKEND_HOST=http://localhost:8014/api
+BACKEND_HOST=XXXXX
+helm repo add ddosify https://ddosify.github.io/ddosify-helm-charts/
+helm repo update
 kubectl create namespace ddosify
-
-# Replace <your-monitoring-id> with your monitoring ID from the Ddosify Cloud.
-MONITORING_ID=<your-monitoring-id>
-# Replace <BACKEND_HOST> with your backend host for Ddosify Self Hosted. Backend host should be accessible from the Kubernetes cluster.
-BACKEND_HOST=<your-selfhosted-backend-host>
-helm upgrade --install --namespace ddosify alaz ddosify/alaz --set monitoringID=$MONITORING_ID --set backendHost=$BACKEND_HOST --wait
+helm upgrade --install --namespace ddosify alaz ddosify/alaz --set monitoringID=$MONITORING_ID --set backendHost=$BACKEND_HOST
 ```
 
+For more installation methods, see [Alaz](https://github.com/ddosify/alaz).
 
 ## Notes
 
