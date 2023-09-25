@@ -3,14 +3,20 @@ kind: DaemonSet
 metadata:
   name: alaz-daemonset
   namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "alaz.labels" . | nindent 4 }}
 spec:
   selector:
     matchLabels:
-      app: alaz
+      {{- include "alaz.selectorLabels" . | nindent 6 }}
   template:
     metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       labels:
-        app: alaz
+        {{- include "alaz.selectorLabels" . | nindent 8 }}
     spec:
       hostPID: true
       containers:
@@ -33,19 +39,19 @@ spec:
         - --no-collector.hwmon
         - --collector.filesystem.ignored-mount-points=^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/pods/.+)($|/)
         - --collector.netclass.ignored-devices=^(veth.*)$
-        image: ddosify/alaz:v0.1.3
-        imagePullPolicy: IfNotPresent
+        image: {{ .Values.image }}
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
         name: alaz-pod
         ports:
-        - containerPort: 8181
+        - containerPort: {{ .Values.containerPort }}
           protocol: TCP
         resources:
           limits:
-            cpu: "1"
-            memory: 1Gi
+            cpu: {{ .Values.resources.limits.cpu }}
+            memory: {{ .Values.resources.limits.memory }}
           requests:
-            cpu: 500m
-            memory: 400Mi
+            cpu: {{ .Values.resources.requests.cpu }}
+            memory: {{ .Values.resources.requests.memory }}
         securityContext:
           privileged: true 
         terminationMessagePath: /dev/termination-log
