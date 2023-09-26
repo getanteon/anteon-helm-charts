@@ -12,7 +12,13 @@ resources:
     cpu: 500m
     memory: 400Mi
 
-image: ddosify/alaz:v0.1.3
+image: ddosify/alaz:v0.1.4
 imagePullPolicy: IfNotPresent
 containerPort: 8181
 podAnnotations: {}
+
+# enable prometheus node exporter metrics (cpu, memory, network, disk, etc.)
+metricsEnabled: true
+
+# enable eBPF for k8s network data to create a service map
+eBPFEnabled: true

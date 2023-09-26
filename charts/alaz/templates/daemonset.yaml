@@ -21,8 +21,10 @@ spec:
       hostPID: true
       containers:
       - env:
-        - name: METRICS_BACKEND
-          value: "true"
+        - name: METRICS_ENABLED
+          value: {{ .Values.metricsEnabled }}
+        - name: EBPF_ENABLED
+          value: {{ .Values.eBPFEnabled }}
         - name: BACKEND_HOST
           value: {{ .Values.backendHost }}
         - name: LOG_LEVEL
