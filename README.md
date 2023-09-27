@@ -1,6 +1,6 @@
 # Ddosify Helm Charts
 
-This [repository](https://github.com/ddosify/ddosify-helm-charts) hosts the Helm charts for the Ddosify and is accessible via [GitHub Pages](https://ddosify.github.io/ddosify-helm-charts/).
+This [repository](https://github.com/ddosify/ddosify-helm-charts) hosts the Helm charts for the Ddosify.
 
 There are two charts available in this repository:
 
