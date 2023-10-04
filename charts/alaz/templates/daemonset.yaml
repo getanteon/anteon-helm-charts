@@ -22,9 +22,9 @@ spec:
       containers:
       - env:
         - name: METRICS_ENABLED
-          value: {{ .Values.metricsEnabled }}
+          value: "{{ .Values.metricsEnabled }}"
         - name: EBPF_ENABLED
-          value: {{ .Values.eBPFEnabled }}
+          value: "{{ .Values.eBPFEnabled }}"
         - name: BACKEND_HOST
           value: {{ .Values.backendHost }}
         - name: LOG_LEVEL
