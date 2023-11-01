@@ -54,7 +54,7 @@ spec:
                 configMapKeyRef:
                   key: POSTGRES_PASSWORD
                   name: env
-          image: ddosify/selfhosted_backend:2.3.0
+          image: ddosify/selfhosted_backend:2.3.1
           name: backend
           imagePullPolicy: IfNotPresent
           resources: {}
@@ -133,7 +133,7 @@ spec:
                 configMapKeyRef:
                   key: POSTGRES_PASSWORD
                   name: env
-          image: ddosify/selfhosted_backend:2.3.0
+          image: ddosify/selfhosted_backend:2.3.1
           name: backend-celery-beat
           imagePullPolicy: IfNotPresent
           resources: {}
@@ -196,7 +196,7 @@ spec:
                 configMapKeyRef:
                   key: POSTGRES_PASSWORD
                   name: env
-          image: ddosify/selfhosted_backend:2.3.0
+          image: ddosify/selfhosted_backend:2.3.1
           name: backend-celery-worker
           imagePullPolicy: IfNotPresent
           resources: {}
