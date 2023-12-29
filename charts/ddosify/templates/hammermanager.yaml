@@ -39,7 +39,7 @@ spec:
                 configMapKeyRef:
                   key: POSTGRES_PASSWORD
                   name: env
-          image: ddosify/selfhosted_hammermanager:1.2.2
+          image: ddosify/selfhosted_hammermanager:1.2.3
           imagePullPolicy: IfNotPresent
           name: hammermanager
           ports:
@@ -105,7 +105,7 @@ spec:
                 configMapKeyRef:
                   key: POSTGRES_PASSWORD
                   name: env
-          image: ddosify/selfhosted_hammermanager:1.2.2
+          image: ddosify/selfhosted_hammermanager:1.2.3
           imagePullPolicy: IfNotPresent
           name: hammermanager-celery-beat
           resources: {}
@@ -153,7 +153,7 @@ spec:
                 configMapKeyRef:
                   key: POSTGRES_PASSWORD
                   name: env
-          image: ddosify/selfhosted_hammermanager:1.2.2
+          image: ddosify/selfhosted_hammermanager:1.2.3
           imagePullPolicy: IfNotPresent
           name: hammermanager-celery-worker
           resources: {}
