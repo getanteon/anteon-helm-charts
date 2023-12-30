@@ -101,6 +101,20 @@ The recommended and tested version of PostgreSQL is `13.6` and InfluxDB is `2.6.
 helm delete ddosify --namespace ddosify
 ```
 
+### Telemetry Data
+
+Ddosify collects telemetry data to improve the product. You can disable it by setting the `ANONYMOUS_TELEMETRY_ENABLED` environment variable to `False` in the [backend](./charts/ddosify/templates/backend.yaml) deployment.
+
+```yaml
+...
+env:
+  - name: ANONYMOUS_TELEMETRY_ENABLED
+    value: "False"
+...
+```
+
+Check the example telemetry data that Ddosify collects from [here](https://github.com/ddosify/ddosify/tree/master/selfhosted#example-data).
+
 ## Alaz Chart - Ddosify eBPF Agent
 
 [Alaz](https://github.com/ddosify/alaz) is an open-source Ddosify eBPF agent that can inspect and collect Kubernetes (K8s) service traffic without the need for code instrumentation, sidecars, or service restarts. This is possible due to its use of eBPF technology. Alaz can create a Service Map that helps identify golden signals and problems like high latencies, 5xx errors, zombie services, SQL queries. Additionally, it can gather system information and resources via the Prometheus Node Exporter, which is readily available on the agent.
