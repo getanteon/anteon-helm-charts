@@ -196,6 +196,16 @@ entries:
   ddosify:
   - apiVersion: v2
     appVersion: 2.1.1
+    created: "2024-01-06T20:31:39.214452036Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: 1b9eb3c1168bfbfa5d6a90fedabd98bd126c260348401b798be7eb585a7877af
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.5.2/ddosify-1.5.2.tgz
+    version: 1.5.2
+  - apiVersion: v2
+    appVersion: 2.1.1
     created: "2023-12-30T10:55:35.359072526Z"
     description: A Helm chart for Ddosify Self Hosted
     digest: d88247588604097e466c9ae6a9b5d922721a951c34f7c8fc57d7f17ef420302d
@@ -334,4 +344,4 @@ entries:
     urls:
     - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.3.3/ddosify-1.3.3.tgz
     version: 1.3.3
-generated: "2024-01-03T15:35:56.950763357Z"
+generated: "2024-01-06T20:31:39.214611543Z"
