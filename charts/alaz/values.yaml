@@ -21,4 +21,7 @@ podAnnotations: {}
 metricsEnabled: true
 
 # enable eBPF for k8s network data to create a service map
-eBPFEnabled: true
+serviceMapEnabled: true
+
+# enable distributed tracing using eBPF
+distTracingEnabled: true

@@ -159,7 +159,8 @@ The following table lists the configurable parameters of the Alaz chart and thei
 | `containerPort` | Container port for debugging and profiling Alaz | int | `8181` |
 | `podAnnotations` | Annotations to add to the pod | object | `{}` |
 | `metricsEnabled` | Enable prometheus node exporter metrics (cpu, memory, network, disk, etc.) | bool | `true` |
-| `eBPFEnabled` | Enable eBPF for K8s network data to create a service map | bool | `true` |
+| `serviceMapEnabled` | Enable service map for K8s network traffic using eBPF | bool | `true` |
+| `distTracingEnabled` | Enable distributed tracing using eBPF | bool | `true` |
 
 You can override these default values by creating a `values.yaml` file and specifying your own values or using the `--set` flag during installation.
 

@@ -23,8 +23,10 @@ spec:
       - env:
         - name: METRICS_ENABLED
           value: "{{ .Values.metricsEnabled }}"
-        - name: EBPF_ENABLED
-          value: "{{ .Values.eBPFEnabled }}"
+        - name: SERVICE_MAP_ENABLED
+          value: "{{ .Values.serviceMapEnabled }}"
+        - name: DIST_TRACING_ENABLED
+          value: "{{ .Values.distTracingEnabled }}"
         - name: BACKEND_HOST
           value: {{ .Values.backendHost }}
         - name: LOG_LEVEL
