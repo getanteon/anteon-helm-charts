@@ -1,6 +1,6 @@
 # Credit: https://github.com/helm/chart-releaser-action#example-workflow
 
-name: Release Charts
+name: Release RedHat Charts
 
 on:
   push:
