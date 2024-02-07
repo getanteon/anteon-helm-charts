@@ -10,6 +10,7 @@ spec:
   serviceAccountName: alaz-serviceaccount
   containers:
   - name: test
-    image: bitnami/kubectl
-    command: ['kubectl', 'get', 'pods', '-l', 'app.kubernetes.io/name={{ include "alaz.name" . }}', '-o', 'jsonpath={..status.conditions[?(@.type=="Ready")].status}']
+    image: registry.access.redhat.com/ubi9/ubi-minimal:9.3-1552
+    command: ['sh', '-c', 'curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.29.0/bin/linux/amd64/kubectl && chmod +x kubectl && mv kubectl /usr/local/bin/ && kubectl version',
+              'kubectl get pods -l app.kubernetes.io/name={{ include "alaz.name" . }} -o jsonpath={..status.conditions[?(@.type=="Ready")].status}']
   restartPolicy: Never
