@@ -1,7 +1,7 @@
 namespace: ddosify
 
 backendHost: https://api.ddosify.com:443
-monitoringID: <monitoringID>  # required
+monitoringID: ""  # required
 logLevel: 1   # zero log levels: -1: trace, 0: debug, 1: info, 2: warn, 3: error, 4: fatal, 5: panic
 
 resources:
@@ -12,7 +12,7 @@ resources:
     cpu: 500m
     memory: 400Mi
 
-image: ddosify/alaz:v0.5.0
+image: ddosify/alaz:v0.5.2
 imagePullPolicy: IfNotPresent
 containerPort: 8181
 podAnnotations: {}

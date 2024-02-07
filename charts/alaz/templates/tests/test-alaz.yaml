@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "alaz.fullname" . }}-test-api"
+  namespace: {{ .Values.namespace }}
+  annotations:
+    "helm.sh/hook": test
+    "helm.sh/hook-delete-policy": hook-succeeded,hook-failed
+spec:
+  serviceAccountName: alaz-serviceaccount
+  containers:
+  - name: test
+    image: bitnami/kubectl
+    command: ['kubectl', 'get', 'pods', '-l', 'app.kubernetes.io/name={{ include "alaz.name" . }}', '-o', 'jsonpath={..status.conditions[?(@.type=="Ready")].status}']
+  restartPolicy: Never

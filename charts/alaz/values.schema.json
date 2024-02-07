@@ -1,0 +1,103 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Alaz Helm Chart Values",
+    "description": "Validation schema for values of Alaz Helm chart",
+    "type": "object",
+    "properties": {
+      "namespace": {
+        "type": "string",
+        "description": "Namespace to deploy the chart",
+        "default": "ddosify"
+      },
+      "backendHost": {
+        "type": "string",
+        "format": "uri",
+        "description": "Backend host URL to send the collected data",
+        "default": "https://api.ddosify.com:443"
+      },
+      "monitoringID": {
+        "type": "string",
+        "description": "Monitoring ID (required). You can get it from Ddosify Platform"
+      },
+      "logLevel": {
+        "type": "integer",
+        "description": "Zero log level",
+        "enum": [0, 1, 2, 3, 4, 5, 6],
+        "default": 1
+      },
+      "resources": {
+        "type": "object",
+        "properties": {
+          "limits": {
+            "type": "object",
+            "properties": {
+              "cpu": {
+                "type": "string",
+                "pattern": "^\\d+m?$",
+                "default": "1"
+              },
+              "memory": {
+                "type": "string",
+                "pattern": "^\\d+(Mi|Gi)$",
+                "default": "1Gi"
+              }
+            }
+          },
+          "requests": {
+            "type": "object",
+            "properties": {
+              "cpu": {
+                "type": "string",
+                "pattern": "^\\d+m?$",
+                "default": "500m"
+              },
+              "memory": {
+                "type": "string",
+                "pattern": "^\\d+(Mi|Gi)$",
+                "default": "400Mi"
+              }
+            }
+          }
+        }
+      },
+      "image": {
+        "type": "string",
+        "description": "Alaz Docker image",
+        "default": "ddosify/alaz:v0.1.4"
+      },
+      "imagePullPolicy": {
+        "type": "string",
+        "enum": ["Always", "Never", "IfNotPresent"],
+        "default": "IfNotPresent"
+      },
+      "containerPort": {
+        "type": "integer",
+        "description": "Container port for debugging and profiling Alaz",
+        "default": 8181
+      },
+      "podAnnotations": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "default": {}
+      },
+      "metricsEnabled": {
+        "type": "boolean",
+        "description": "Enable Prometheus node exporter metrics",
+        "default": true
+      },
+      "serviceMapEnabled": {
+        "type": "boolean",
+        "description": "Enable service map for K8s network traffic using eBPF",
+        "default": true
+      },
+      "distTracingEnabled": {
+        "type": "boolean",
+        "description": "Enable distributed tracing using eBPF",
+        "default": true
+      }
+    },
+    "required": ["namespace", "backendHost", "monitoringID", "logLevel", "resources", "image", "imagePullPolicy", "containerPort", "metricsEnabled", "serviceMapEnabled", "distTracingEnabled"]
+  }
+  
