@@ -1,5 +1,6 @@
 apiVersion: v2
 name: ddosify
+home: https://ddosify.com
 description: A Helm chart for Ddosify Self Hosted
 
 # A chart can be either an 'application' or a 'library' chart.
@@ -22,3 +23,16 @@ version: 1.5.4
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
 appVersion: "2.1.3"
+
+keywords:
+  - ebpf
+  - helm
+  - kubernetes
+  - ddosify
+  - alaz
+  - service map
+  - distributed tracing
+  - observability
+  - monitoring
+  - performance testing
+  - load testing
