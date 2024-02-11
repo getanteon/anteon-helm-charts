@@ -30,7 +30,7 @@ The following table lists the configurable parameters of the Alaz chart and thei
 | Parameter | Description | Type | Default |
 | --- | --- | --- | --- |
 | `monitoringID` | **CHANGE**: Monitoring ID (required). You can get it from Ddosify UI, Cluster Detail Page. | string | `""` |
-| `backendHost` | Backend host URL to send the collected data. Default is [Ddosify Cloud](https://app.ddosify.com/). If you have Ddosify Self-Hosted installed, you can give the backend URL. | string | `https://api.ddosify.com:443` |
+| `backendHost` | Backend host URL to send the collected data. Default is [Ddosify Cloud](https://app.ddosify.com/). If you have Ddosify Self-Hosted installed, you can give the backend URL. | string | `https://api-alaz.ddosify.com:443` |
 | `namespace` | Namespace to deploy the chart | string | `ddosify` |
 | `logLevel` | [Zero log](https://github.com/rs/zerolog) level (0: trace, 1: debug, 2: info, 3: warn, 4: error, 5: fatal, 6: panic) | int | `1` |
 | `resources.limits.cpu` | CPU limit | string | `1` |

@@ -13,7 +13,7 @@
         "type": "string",
         "format": "uri",
         "description": "Backend host URL to send the collected data",
-        "default": "https://api.ddosify.com:443"
+        "default": "https://api-alaz.ddosify.com:443"
       },
       "monitoringID": {
         "type": "string",
