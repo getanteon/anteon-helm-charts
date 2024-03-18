@@ -39,7 +39,7 @@ spec:
                 configMapKeyRef:
                   key: POSTGRES_PASSWORD
                   name: env
-          image: ddosify/selfhosted_alaz_backend:1.0.4
+          image: ddosify/selfhosted_alaz_backend:1.0.5
           name: alaz-backend
           imagePullPolicy: IfNotPresent
           resources: {}
@@ -103,7 +103,7 @@ spec:
                 configMapKeyRef:
                   key: POSTGRES_PASSWORD
                   name: env
-          image: ddosify/selfhosted_alaz_backend:1.0.4
+          image: ddosify/selfhosted_alaz_backend:1.0.5
           name: alaz-backend-celery-beat
           imagePullPolicy: IfNotPresent
           resources: {}
@@ -151,7 +151,7 @@ spec:
                 configMapKeyRef:
                   key: POSTGRES_PASSWORD
                   name: env
-          image: ddosify/selfhosted_alaz_backend:1.0.4
+          image: ddosify/selfhosted_alaz_backend:1.0.5
           name: alaz-backend-celery-worker-1
           imagePullPolicy: IfNotPresent
           resources: {}
@@ -199,7 +199,7 @@ spec:
                 configMapKeyRef:
                   key: POSTGRES_PASSWORD
                   name: env
-          image: ddosify/selfhosted_alaz_backend:1.0.4
+          image: ddosify/selfhosted_alaz_backend:1.0.5
           name: alaz-backend-celery-worker-2
           imagePullPolicy: IfNotPresent
           resources: {}
