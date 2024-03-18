@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.25.3-alpine
+        image: nginx:1.25.4-alpine
         ports:
         - containerPort: 80
         volumeMounts:
@@ -47,15 +47,19 @@ data:
     upstream frontend {
       server frontend:3000;
     }
-    
+
     upstream backend {
       server backend:8008;
     }
-    
+
+    upstream alaz-backend {
+      server alaz-backend:8008;
+    }
+
     server {
       listen 80;
       client_max_body_size 96M;
-    
+
       location / {
         proxy_pass http://frontend;
         proxy_set_header Host $host;
@@ -63,9 +67,17 @@ data:
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
       }
-    
+
       location /api/ {
         proxy_pass http://backend;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+      }
+
+      location /api-alaz/ {
+        proxy_pass http://alaz-backend;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;

@@ -16,7 +16,7 @@ spec:
         service: rabbitmq-job
     spec:
       containers:
-        - image: rabbitmq:3.9.4
+        - image: rabbitmq:3.13.0
           name: rabbitmq-job
           ports:
             - containerPort: 5672
@@ -58,7 +58,7 @@ spec:
         service: rabbitmq-celery
     spec:
       containers:
-        - image: rabbitmq:3.9.4
+        - image: rabbitmq:3.13.0
           name: rabbitmq-celery
           resources: {}
       restartPolicy: Always
@@ -98,7 +98,7 @@ spec:
         service: rabbitmq-celery-backend
     spec:
       containers:
-        - image: rabbitmq:3.9.4
+        - image: rabbitmq:3.13.0
           name: rabbitmq-celery-backend
           resources: {}
       restartPolicy: Always
@@ -117,5 +117,45 @@ spec:
       targetPort: 5672
   selector:
     service: rabbitmq-celery-backend
+status:
+  loadBalancer: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: rabbitmq-celery-alaz-backend
+  name: rabbitmq-celery-alaz-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: rabbitmq-celery-alaz-backend
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        service: rabbitmq-celery-alaz-backend
+    spec:
+      containers:
+        - image: rabbitmq:3.13.0
+          name: rabbitmq-celery-alaz-backend
+          resources: {}
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: rabbitmq-celery-alaz-backend
+  name: rabbitmq-celery-alaz-backend
+spec:
+  ports:
+    - name: "5672"
+      port: 5672
+      targetPort: 5672
+  selector:
+    service: rabbitmq-celery-alaz-backend
 status:
   loadBalancer: {}

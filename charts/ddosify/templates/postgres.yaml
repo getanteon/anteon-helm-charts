@@ -6,6 +6,7 @@ metadata:
 data:
   init.sql: |
     CREATE DATABASE backend;
+    CREATE DATABASE alazbackend;
     CREATE DATABASE hammermanager;
 ---
 apiVersion: apps/v1
