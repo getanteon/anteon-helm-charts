@@ -4,8 +4,8 @@ This [repository](https://github.com/ddosify/ddosify-helm-charts) hosts the Helm
 
 There are two charts available in this repository:
 
-- 🏠 [Ddosify Platform Self-Hosted Chart](#ddosify-platform-self-hosted-chart)
-- 🐝 [Alaz Chart - Ddosify eBPF Agent](#alaz-chart---ddosify-ebpf-agent)
+- 🏠 [Ddosify Platform Self-Hosted Chart](./charts/ddosify/README.md): Deploy the Ddosify Observability Platform to your Kubernetes cluster. 
+- 🐝 [Alaz Chart - Ddosify eBPF Agent](./charts/alaz/README.md): Deploy the Ddosify eBPF agent (Alaz) to your Kubernetes cluster that you want to monitor. Alaz sends the collected data to the Ddosify platform.
 
 ## What is Ddosify?
 
@@ -20,19 +20,6 @@ Ddosify is an [open-source](https://github.com/ddosify/ddosify) Kubernetes Monit
 
 - Kubernetes 1.19+
 - [Helm](https://helm.sh/docs/intro/install/) must be installed to use the Ddosify charts.
-
-## Ddosify Platform Self-Hosted Chart
-
-With the Ddosify Self-Hosted chart, you can deploy the Ddosify platform to your Kubernetes cluster. 
-
-Check the [Ddosify Self-Hosted](./charts/ddosify/README.md) chart for the installation and configuration details.
-
-
-## Alaz Chart - Ddosify eBPF Agent
-
-With the Alaz chart, you can deploy the Ddosify eBPF agent to your Kubernetes cluster that you want to monitor. Alaz sends the collected data to the Ddosify platform.
-
-Check the [Alaz](./charts/alaz/README.md) chart for the installation and configuration details.
 
 
 ## Communication
