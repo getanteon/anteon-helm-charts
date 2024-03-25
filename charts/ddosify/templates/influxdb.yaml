@@ -30,32 +30,10 @@ spec:
         service: influxdb
     spec:
       containers:
-        - env:
-            - name: DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
-              valueFrom:
-                configMapKeyRef:
-                  key: DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
-                  name: env
-            - name: DOCKER_INFLUXDB_INIT_ORG
-              valueFrom:
-                configMapKeyRef:
-                  key: DOCKER_INFLUXDB_INIT_ORG
-                  name: env
-            - name: DOCKER_INFLUXDB_INIT_PASSWORD
-              valueFrom:
-                configMapKeyRef:
-                  key: DOCKER_INFLUXDB_INIT_PASSWORD
-                  name: env
-            - name: DOCKER_INFLUXDB_INIT_USERNAME
-              valueFrom:
-                configMapKeyRef:
-                  key: DOCKER_INFLUXDB_INIT_USERNAME
-                  name: env
-            - name: DOCKER_INFLUXDB_INIT_BUCKET
-              value: hammerBucket
-            - name: DOCKER_INFLUXDB_INIT_MODE
-              value: setup
-          image: influxdb:2.6.1
+        - envFrom:
+            - configMapRef:
+                name: env
+          image: {{ .Values.images.influxdb }}
           name: influxdb
           ports:
             - containerPort: 8086

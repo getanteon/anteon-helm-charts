@@ -35,6 +35,8 @@ influxDB:
   org: "ddosify"
   username: "admin" # only used if external is false
   password: "ChangeMe" # only used if external is false
+  initBuckerName: "hammerBucket"
+  initMode: "setup"
 
 postgres:
   # If you set external to true, this means that you will manage the postgres server yourself
@@ -59,3 +61,18 @@ pvc:
   seaweedfs:
     storageClassName: ""
     size: 30Gi
+
+images:
+  alazBackend: ddosify/selfhosted_alaz_backend:1.0.6
+  backend: ddosify/selfhosted_backend:2.6.11
+  frontend: ddosify/selfhosted_frontend:2.7.4
+  hammer: ddosify/selfhosted_hammer:1.4.2
+  hammermanager: ddosify/selfhosted_hammermanager:1.2.4
+  influxdb: influxdb:2.6.1
+  nginx: nginx:1.25.4-alpine
+  postgres: postgres:13.6-alpine
+  prometheus: prom/prometheus:v2.37.9
+  rabbitmq: rabbitmq:3.13.0-alpine
+  redis: redis:7.2.4-alpine
+  seaweedfs: chrislusf/seaweedfs:3.56
+  initContainerBusybox: busybox:1.36.1

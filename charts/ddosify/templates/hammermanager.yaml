@@ -15,30 +15,16 @@ spec:
       labels:
         service: hammermanager
     spec:
+      initContainers:
+        - name: check-dependencies
+          image: {{ .Values.images.initContainerBusybox }}
+          command: ['sh', '-c', 'until nc -z postgres {{ .Values.postgres.port }}; do echo waiting for dependencies; sleep 2; done;']
       containers:
         - args:
             - /workspace/start_scripts/start_app.sh
-          env:
-            - name: POSTGRES_HOST
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_HOST
-                  name: env
-            - name: POSTGRES_PORT
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_PORT
-                  name: env
-            - name: POSTGRES_USER
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_USER
-                  name: env
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_PASSWORD
-                  name: env
+          envFrom:
+            - configMapRef:
+                name: env
           image: ddosify/selfhosted_hammermanager:1.2.4
           imagePullPolicy: IfNotPresent
           name: hammermanager
@@ -81,30 +67,16 @@ spec:
       labels:
         service: hammermanager-celery-beat
     spec:
+      initContainers:
+        - name: check-dependencies
+          image: {{ .Values.images.initContainerBusybox }}
+          command: ['sh', '-c', 'until nc -z hammermanager 8001 && nc -z rabbitmq-celery 5672 && nc -z rabbitmq-job 5672; do echo waiting for dependencies; sleep 2; done;']
       containers:
         - args:
             - /workspace/start_scripts/start_celery_beat.sh
-          env:
-            - name: POSTGRES_HOST
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_HOST
-                  name: env
-            - name: POSTGRES_PORT
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_PORT
-                  name: env
-            - name: POSTGRES_USER
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_USER
-                  name: env
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_PASSWORD
-                  name: env
+          envFrom:
+            - configMapRef:
+                name: env
           image: ddosify/selfhosted_hammermanager:1.2.4
           imagePullPolicy: IfNotPresent
           name: hammermanager-celery-beat
@@ -129,30 +101,16 @@ spec:
       labels:
         service: hammermanager-celery-worker
     spec:
+      initContainers:
+        - name: check-dependencies
+          image: {{ .Values.images.initContainerBusybox }}
+          command: ['sh', '-c', 'until nc -z hammermanager 8001 && nc -z rabbitmq-celery 5672 && nc -z rabbitmq-job 5672; do echo waiting for dependencies; sleep 2; done;']
       containers:
         - args:
             - /workspace/start_scripts/start_celery_worker.sh
-          env:
-            - name: POSTGRES_HOST
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_HOST
-                  name: env
-            - name: POSTGRES_PORT
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_PORT
-                  name: env
-            - name: POSTGRES_USER
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_USER
-                  name: env
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_PASSWORD
-                  name: env
+          envFrom:
+            - configMapRef:
+                name: env
           image: ddosify/selfhosted_hammermanager:1.2.4
           imagePullPolicy: IfNotPresent
           name: hammermanager-celery-worker

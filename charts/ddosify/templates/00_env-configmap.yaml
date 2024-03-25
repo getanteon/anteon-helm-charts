@@ -4,6 +4,8 @@ data:
   DOCKER_INFLUXDB_INIT_USERNAME: {{ .Values.influxDB.username | quote }}
   DOCKER_INFLUXDB_INIT_PASSWORD: {{ .Values.influxDB.password | quote }}
   DOCKER_INFLUXDB_INIT_ORG: {{ .Values.influxDB.org | quote }}
+  DOCKER_INFLUXDB_INIT_BUCKET: {{ .Values.influxDB.initBuckerName | quote }}
+  DOCKER_INFLUXDB_INIT_MODE: {{ .Values.influxDB.initMode | quote }}
   INFLUXDB_URL: {{ .Values.influxDB.url | quote }}
   POSTGRES_HOST: {{ .Values.postgres.host | quote }}
   POSTGRES_PORT: {{ .Values.postgres.port | quote }}

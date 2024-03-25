@@ -16,26 +16,18 @@ spec:
       labels:
         service: hammerdebug
     spec:
+      initContainers:
+        - name: check-dependencies
+          image: {{ .Values.images.initContainerBusybox }}
+          command: ['sh', '-c', 'until nc -z hammermanager 8001; do echo waiting for dependencies; sleep 2; done;']
       containers:
         - env:
-            - name: INFLUXDB_URL
-              valueFrom:
-                configMapKeyRef:
-                  key: INFLUXDB_URL
-                  name: env
-            - name: DOCKER_INFLUXDB_INIT_ORG
-              valueFrom:
-                configMapKeyRef:
-                  key: DOCKER_INFLUXDB_INIT_ORG
-                  name: env
-            - name: DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
-              valueFrom:
-                configMapKeyRef:
-                  key: DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
-                  name: env
             - name: IS_DEBUG
               value: "true"
-          image: ddosify/selfhosted_hammer:1.4.2
+          envFrom:
+            - configMapRef:
+                name: env
+          image: {{ .Values.images.hammer }}
           imagePullPolicy: IfNotPresent
           name: hammerdebug
           resources: {}

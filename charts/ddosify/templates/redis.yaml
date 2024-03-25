@@ -17,8 +17,8 @@ spec:
         service: redis-backend
     spec:
       containers:
-        - image: redis:7.2.4
-          name: redis-backend
+        - name: redis-backend
+          image: {{ .Values.images.redis }}
           resources: {}
       restartPolicy: Always
 status: {}
@@ -58,8 +58,8 @@ spec:
         service: redis-alaz-backend
     spec:
       containers:
-        - image: redis:7.2.4
-          name: redis-alaz-backend
+        - name: redis-alaz-backend
+          image: {{ .Values.images.redis }}
           resources: {}
       restartPolicy: Always
 status: {}

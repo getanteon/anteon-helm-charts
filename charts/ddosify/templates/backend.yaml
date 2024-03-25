@@ -15,46 +15,17 @@ spec:
       labels:
         service: backend
     spec:
+      initContainers:
+        - name: check-dependencies
+          image: {{ .Values.images.initContainerBusybox }}
+          command: ['sh', '-c', 'until nc -z postgres {{ .Values.postgres.port }}; do echo waiting for dependencies; sleep 2; done;']
       containers:
         - args:
             - /workspace/start_scripts/start_app_onprem.sh
-          env:
-            - name: INFLUXDB_URL
-              valueFrom:
-                configMapKeyRef:
-                  key: INFLUXDB_URL
-                  name: env
-            - name: DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
-              valueFrom:
-                configMapKeyRef:
-                  key: DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
-                  name: env
-            - name: INFLUXDB_ORGANIZATION
-              valueFrom:
-                configMapKeyRef:
-                  key: DOCKER_INFLUXDB_INIT_ORG
-                  name: env
-            - name: POSTGRES_HOST
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_HOST
-                  name: env
-            - name: POSTGRES_PORT
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_PORT
-                  name: env
-            - name: POSTGRES_USER
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_USER
-                  name: env
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_PASSWORD
-                  name: env
-          image: ddosify/selfhosted_backend:2.6.9
+          envFrom:
+            - configMapRef:
+                name: env
+          image: {{ .Values.images.backend }}
           name: backend
           imagePullPolicy: IfNotPresent
           resources: {}
@@ -94,46 +65,17 @@ spec:
       labels:
         service: backend-celery-beat
     spec:
+      initContainers:
+        - name: check-dependencies
+          image: {{ .Values.images.initContainerBusybox }}
+          command: ['sh', '-c', 'until nc -z backend 8008 && nc -z rabbitmq-celery-backend 5672; do echo waiting for dependencies; sleep 2; done;']
       containers:
         - args:
             - /workspace/start_scripts/start_celery_beat.sh
-          env:
-            - name: INFLUXDB_URL
-              valueFrom:
-                configMapKeyRef:
-                  key: INFLUXDB_URL
-                  name: env
-            - name: DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
-              valueFrom:
-                configMapKeyRef:
-                  key: DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
-                  name: env
-            - name: INFLUXDB_ORGANIZATION
-              valueFrom:
-                configMapKeyRef:
-                  key: DOCKER_INFLUXDB_INIT_ORG
-                  name: env
-            - name: POSTGRES_HOST
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_HOST
-                  name: env
-            - name: POSTGRES_PORT
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_PORT
-                  name: env
-            - name: POSTGRES_USER
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_USER
-                  name: env
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_PASSWORD
-                  name: env
-          image: ddosify/selfhosted_backend:2.6.9
+          envFrom:
+            - configMapRef:
+                name: env
+          image: {{ .Values.images.backend }}
           name: backend-celery-beat
           imagePullPolicy: IfNotPresent
           resources: {}
@@ -157,46 +99,17 @@ spec:
       labels:
         service: backend-celery-worker
     spec:
+      initContainers:
+        - name: check-dependencies
+          image: {{ .Values.images.initContainerBusybox }}
+          command: ['sh', '-c', 'until nc -z backend 8008 && nc -z rabbitmq-celery-backend 5672; do echo waiting for dependencies; sleep 2; done;']
       containers:
         - args:
             - /workspace/start_scripts/start_celery_worker.sh
-          env:
-            - name: INFLUXDB_URL
-              valueFrom:
-                configMapKeyRef:
-                  key: INFLUXDB_URL
-                  name: env
-            - name: DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
-              valueFrom:
-                configMapKeyRef:
-                  key: DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
-                  name: env
-            - name: INFLUXDB_ORGANIZATION
-              valueFrom:
-                configMapKeyRef:
-                  key: DOCKER_INFLUXDB_INIT_ORG
-                  name: env
-            - name: POSTGRES_HOST
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_HOST
-                  name: env
-            - name: POSTGRES_PORT
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_PORT
-                  name: env
-            - name: POSTGRES_USER
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_USER
-                  name: env
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_PASSWORD
-                  name: env
-          image: ddosify/selfhosted_backend:2.6.9
+          envFrom:
+            - configMapRef:
+                name: env
+          image: {{ .Values.images.backend }}
           name: backend-celery-worker
           imagePullPolicy: IfNotPresent
           resources: {}

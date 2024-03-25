@@ -21,7 +21,7 @@ spec:
             - server
             - -s3
             - -dir=/data
-          image: chrislusf/seaweedfs:3.56
+          image: {{ .Values.images.seaweedfs }}
           name: seaweedfs
           ports:
             - containerPort: 8333

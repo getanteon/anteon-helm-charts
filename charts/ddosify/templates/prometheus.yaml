@@ -38,7 +38,7 @@ spec:
     spec:
       containers:
         - name: prometheus
-          image: prom/prometheus:v2.37.9
+          image: {{ .Values.images.prometheus }}
           args:
             - "--config.file=/prometheus/prometheus.yml"
             - "--storage.tsdb.path=/prometheus"

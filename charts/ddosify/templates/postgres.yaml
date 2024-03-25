@@ -34,7 +34,7 @@ spec:
                 configMapKeyRef:
                   key: POSTGRES_PASSWORD
                   name: env
-          image: postgres:13.6
+          image: {{ .Values.images.postgres }}
           name: postgres
           resources: {}
           volumeMounts:
