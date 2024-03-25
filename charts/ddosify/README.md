@@ -63,6 +63,21 @@ The following table lists the configurable parameters of the Ddosify chart and t
 | `pvc.postgres.size` | Size of the persistent volume claim for Postgres. | string | `5Gi` |
 | `pvc.seaweedfs.storageClassName` | Storage class name for SeaweedFS persistent volume claim. | string | `""` |
 | `pvc.seaweedfs.size` | Size of the persistent volume claim for SeaweedFS. | string | `30Gi` |
+| `images.alazBackend` | Alaz Backend Docker image | string | `ddosify/selfhosted_alaz_backend:x.y.z` |
+| `images.backend` | Backend Docker image | string | `ddosify/selfhosted_backend:x.y.z` |
+| `images.frontend` | Frontend Docker image | string | `ddosify/selfhosted_frontend:x.y.z` |
+| `images.hammer` | Hammer Docker image | string | `ddosify/selfhosted_hammer:x.y.z` |
+| `images.hammermanager` | Hammer Manager Docker image | string | `ddosify/selfhosted_hammermanager:x.y.z` |
+| `images.influxdb` | InfluxDB Docker image | string | `influxdb:x.y.z` |
+| `images.nginx` | Nginx Docker image | string | `nginx:x.y.z` |
+| `images.postgres` | Postgres Docker image | string | `postgres:x.y.z` |
+| `images.prometheus` | Prometheus Docker image | string | `prom/prometheus:x.y.z` |
+| `images.rabbitmq` | RabbitMQ Docker image | string | `rabbitmq:x.y.z` |
+| `images.redis` | Redis Docker image | string | `redis:x.y.z` |
+| `images.seaweedfs` | SeaweedFS Docker image | string | `chrislusf/seaweedfs:x.y.z` |
+| `images.initContainerBusybox` | Init Container Busybox Docker image | string | `busybox:x.y.z` |
+
+**Note:** The default versions of the `images.*` are placeholders. You can find the current versions of the images on the [values.yaml](./values.yaml) file.
 
 
 ## Add New Engine (Optional):
