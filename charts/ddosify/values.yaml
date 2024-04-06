@@ -68,7 +68,7 @@ images:
   frontend: ddosify/selfhosted_frontend:2.7.4
   hammer: ddosify/selfhosted_hammer:1.4.2
   hammermanager: ddosify/selfhosted_hammermanager:1.2.4
-  influxdb: influxdb:2.6.1
+  influxdb: influxdb:2.6.1-alpine
   nginx: nginx:1.25.4-alpine
   postgres: postgres:13.6-alpine
   prometheus: prom/prometheus:v2.37.9
