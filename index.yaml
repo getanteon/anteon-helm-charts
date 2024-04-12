@@ -579,6 +579,29 @@ entries:
   ddosify:
   - apiVersion: v2
     appVersion: 2.3.3
+    created: "2024-04-12T23:20:30.548507346Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: 1c7421c4ad9be909381e6ac7175bdc01957259c97b75eda2895f6b6fece31ab7
+    home: https://ddosify.com
+    keywords:
+    - ebpf
+    - helm
+    - kubernetes
+    - ddosify
+    - alaz
+    - service map
+    - distributed tracing
+    - observability
+    - monitoring
+    - performance testing
+    - load testing
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.7.4/ddosify-1.7.4.tgz
+    version: 1.7.4
+  - apiVersion: v2
+    appVersion: 2.3.3
     created: "2024-04-06T20:41:02.589824203Z"
     description: A Helm chart for Ddosify Self Hosted
     digest: 2089b7991e3c8681c22c443e3a426e64f6dd257907b929aee414ebbc9d85a917
@@ -839,4 +862,4 @@ entries:
     urls:
     - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.3.3/ddosify-1.3.3.tgz
     version: 1.3.3
-generated: "2024-04-06T20:41:02.590030135Z"
+generated: "2024-04-12T23:20:30.548810249Z"
