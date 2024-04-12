@@ -44,8 +44,9 @@ The following table lists the configurable parameters of the Ddosify chart and t
 | `ingress.hosts` | List of hosts for ingress, each with specific paths and pathTypes. | array | `[{"host": "ddosify.local", "paths": [{"path": "/", "pathType": "Prefix"}]}]` |
 | `ingress.tls` | TLS configuration for ingress. Uncomment and configure as needed. | array | `[]` |
 | `hammerReplicas` | Number of replicas for the hammer (load generator) service. If you want to increase the engine size for performance testing, increase this value. | integer | `1` |
-| `service.name` | The name of the outside service. You can forward the traffic with `kubectl port-forward` command to access the Ddosify dashboard. | string | `"nginx-service"` |
-| `service.port` | Port number the outside service operates on. | integer | `80` |
+| `service.name` | The name of the outside service (nginx). You can forward the traffic with `kubectl port-forward` command to access the Ddosify dashboard. | string | `"nginx-service"` |
+| `service.port` | Port number the outside service (nginx) operates on. | integer | `80` |
+| `service.nodePort` | Node port number for the outside service (nginx). | integer | `30000` |
 | `influxDB.external` | Determines if InfluxDB is externally managed. | boolean | `false` |
 | `influxDB.url` | URL for InfluxDB, required if `external` is `true`. | string | `"http://influxdb:8086"` |
 | `influxDB.apiToken` | API token for InfluxDB, required if `external` is `true`. | string | `"5yR2qD5zCqqvjwCKKXojnPviQaB87w9JcGweVChXkhWRL"` |

@@ -19,6 +19,7 @@ hammerReplicas: 1
 service:
   name: nginx-service
   port: 80
+  nodePort: 30000
 
 influxDB:
   # If you set external to true, this means that you will manage the influxdb server yourself
