@@ -32,7 +32,7 @@ helm repo update
 helm upgrade --namespace ddosify ddosify ddosify/ddosify --wait
 ```
 
-## Ddosify Chart Configuration Parameters
+## Ddosify Chart Configuration Parameters
 
 The following table lists the configurable parameters of the Ddosify chart and their default values.
 
