@@ -110,13 +110,13 @@ The following table lists the configurable parameters of the Ddosify chart and t
 | `images.frontend` | Frontend Docker image | string | `ddosify/selfhosted_frontend:x.y.z` |
 | `images.hammer` | Hammer Docker image | string | `ddosify/selfhosted_hammer:x.y.z` |
 | `images.hammermanager` | Hammer Manager Docker image | string | `ddosify/selfhosted_hammermanager:x.y.z` |
-| `images.influxdb` | InfluxDB Docker image | string | `influxdb:x.y.z` |
-| `images.nginx` | Nginx Docker image | string | `nginx:x.y.z` |
-| `images.postgres` | Postgres Docker image | string | `postgres:x.y.z` |
+| `images.influxdb` | InfluxDB Docker image | string | `influxdb:x.y.z-alpine` |
+| `images.nginx` | Nginx Docker image | string | `nginx:x.y.z-alpine` |
+| `images.postgres` | Postgres Docker image | string | `postgres:x.y-alpine` |
 | `images.prometheus` | Prometheus Docker image | string | `prom/prometheus:x.y.z` |
-| `images.rabbitmq` | RabbitMQ Docker image | string | `rabbitmq:x.y.z` |
-| `images.redis` | Redis Docker image | string | `redis:x.y.z` |
-| `images.seaweedfs` | SeaweedFS Docker image | string | `chrislusf/seaweedfs:x.y.z` |
+| `images.rabbitmq` | RabbitMQ Docker image | string | `rabbitmq:x.y.z-alpine` |
+| `images.redis` | Redis Docker image | string | `redis:x.y.z-alpine` |
+| `images.seaweedfs` | SeaweedFS Docker image | string | `chrislusf/seaweedfs:x.y` |
 | `images.initContainerBusybox` | Init Container Busybox Docker image | string | `busybox:x.y.z` |
 
 **Note:** The default versions of the `images.*` are placeholders. You can find the current versions of the images on the [values.yaml](./values.yaml) file.
