@@ -117,6 +117,49 @@ helm upgrade --install --namespace ddosify ddosify ddosify/ddosify --values valu
 
 The recommended and tested version of PostgreSQL is `13.6` and InfluxDB is `2.6.1`. If you get any errors on different versions, please open an issue. We will try to fix it as soon as possible. To avoid the latency, the external databases should be as close as possible to the Kubernetes cluster.
 
+## Storage Class (Optional):
+
+If you want to use a specific storage class for the persistent volume claims, you can set the storage class name. To list all the storage classes in the cluster, run the following command:
+
+```bash
+kubectl get storageclass
+```
+
+There are three persistent volume claims in the Ddosify chart: `InfluxDB`, `Postgres`, and `SeaweedFS`. In this example, we are using the `nfs-client` storage class. 
+
+You can set the storage class name for each PVC in two ways.
+
+### (Option 1) Set the Storage Class Name in the Helm Command
+
+You can set the storage class name in the Helm command as follows:
+
+```bash
+helm upgrade --install --namespace ddosify ddosify ddosify/ddosify \
+  --set pvc.influxDB.storageClassName="nfs-client" \
+  --set pvc.postgres.storageClassName="nfs-client" \
+  --set pvc.seaweedfs.storageClassName="nfs-client" --wait
+```
+
+### (Option 2) Write a Custom Values File
+
+You can write a custom values file (`values-storageclass.yaml`) as follows:
+
+```yaml
+pvc:
+  influxDB:
+    storageClassName: "nfs-client"
+  postgres:
+    storageClassName: "nfs-client"
+  seaweedfs:
+    storageClassName: "nfs-client"
+```
+
+Then, you can install the chart with the custom values file as follows:
+
+```bash
+helm upgrade --install --namespace ddosify ddosify ddosify/ddosify --values values-storageclass.yaml --wait
+```
+
 ## Cleanup
 
 ```bash
