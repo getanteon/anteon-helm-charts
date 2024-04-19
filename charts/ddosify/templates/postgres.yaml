@@ -34,6 +34,8 @@ spec:
                 configMapKeyRef:
                   key: POSTGRES_PASSWORD
                   name: env
+            - name: PGDATA
+              value: /var/lib/postgresql/data/postgres
           image: {{ .Values.images.postgres }}
           name: postgres
           resources: {}
