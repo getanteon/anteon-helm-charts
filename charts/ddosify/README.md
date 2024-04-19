@@ -22,6 +22,47 @@ kubectl port-forward --namespace ddosify service/nginx-service $LOCAL_PORT:80
 
 Open the browser and navigate to http://localhost:8014.
 
+## Accessing the Ddosify Dashboard (Ingress)
+
+To access the Ddosify dashboard via Ingress, set the `ingress.enabled` parameter to `true` in the `values.yaml` file. Set `ingress.className` to the ingress class name like `nginx` or `kong`. 
+
+For example, to enable the Ingress and use the `kong` ingress controller, set the following values in the `values-kong-ingress.yaml` file:
+
+```yaml
+ingress:
+  enabled: true
+  className: "kong"
+  annotations:
+    cert-manager.io/cluster-issuer: acme
+    konghq.com/https-redirect-status-code: '302'
+    konghq.com/protocols: https
+  hosts:
+    - host: xxxx-xxxx.elb.eu-central-1.amazonaws.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+   - secretName: something-cert
+     hosts:
+       - xxxx-xxxx.elb.eu-central-1.amazonaws.com
+```
+
+In this example, we are using the `kong` ingress controller with the `cert-manager` for SSL termination. You must change the values according to your setup. Then, install the chart with the custom values file as follows:
+
+```bash
+helm upgrade --install --namespace ddosify ddosify ddosify/ddosify --values values-kong-ingress.yaml --wait
+```
+
+After the installation, you can access the Ddosify dashboard via the Ingress URL. To get the Ingress URL, run the following command:
+
+```bash
+kubectl get ingress -n ddosify
+```
+
+> [!TIP]
+> Check [How to Securely Expose Your Kubernetes Application using NGINX Ingress](https://ddosify.com/blog/how-to-securely-expose-your-kubernetes-application-using-nginx-ingress/) blog post for more information about the Ingress configuration with NGINX and Let's Encrypt.
+
+
 ## Upgrading the Ddosify Chart
 
 To upgrade the Ddosify chart, run the following commands:
