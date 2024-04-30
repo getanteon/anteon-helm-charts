@@ -7,17 +7,17 @@
       "namespace": {
         "type": "string",
         "description": "Namespace to deploy the chart",
-        "default": "ddosify"
+        "default": "anteon"
       },
       "backendHost": {
         "type": "string",
         "format": "uri",
         "description": "Backend host URL to send the collected data",
-        "default": "https://api-alaz.ddosify.com:443"
+        "default": "https://api-alaz.getanteon.com:443"
       },
       "monitoringID": {
         "type": "string",
-        "description": "Monitoring ID (required). You can get it from Ddosify Platform"
+        "description": "Monitoring ID (required). You can get it from Anteon Platform"
       },
       "logLevel": {
         "type": "integer",
@@ -63,7 +63,7 @@
       "image": {
         "type": "string",
         "description": "Alaz Docker image",
-        "default": "ddosify/alaz:v0.1.4"
+        "default": "anteon/alaz:v0.1.4"
       },
       "imagePullPolicy": {
         "type": "string",

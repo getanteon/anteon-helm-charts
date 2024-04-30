@@ -8,8 +8,8 @@ data:
     #!/bin/bash
 
     set -e
-    influx bucket create -n hammerBucketDetailed -o ddosify
-    influx bucket create -n hammerBucketIteration -o ddosify
+    influx bucket create -n hammerBucketDetailed -o anteon
+    influx bucket create -n hammerBucketIteration -o anteon
 ---
 apiVersion: apps/v1
 kind: Deployment

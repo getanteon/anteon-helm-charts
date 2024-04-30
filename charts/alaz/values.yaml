@@ -1,6 +1,6 @@
-namespace: ddosify
+namespace: anteon
 
-backendHost: https://api-alaz.ddosify.com:443
+backendHost: https://api-alaz.getanteon.com:443
 monitoringID: ""  # required
 logLevel: 1   # zero log levels: -1: trace, 0: debug, 1: info, 2: warn, 3: error, 4: fatal, 5: panic
 
@@ -12,7 +12,7 @@ resources:
     cpu: 500m
     memory: 400Mi
 
-image: ddosify/alaz:v0.7.3
+image: anteon/alaz:v0.7.3
 imagePullPolicy: IfNotPresent
 containerPort: 8181
 podAnnotations: {}

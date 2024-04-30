@@ -1,30 +1,30 @@
-# Ddosify Self-Hosted Chart
+# Anteon Self-Hosted Chart
 
-[Ddosify Self-Hosted](https://github.com/ddosify/ddosify/tree/master/selfhosted) features a web-based user interface, distributed load generation, and **Kubernetes Monitoring** capabilities. While it shares many of the same functionalities as Ddosify Cloud, the Self-Hosted version is designed to be deployed within your own infrastructure for enhanced control and customization.
+[Anteon Self-Hosted](https://github.com/getanteon/anteon/tree/master/selfhosted) features a web-based user interface, distributed load generation, and **Kubernetes Monitoring** capabilities. While it shares many of the same functionalities as Anteon Cloud, the Self-Hosted version is designed to be deployed within your own infrastructure for enhanced control and customization.
 
-To install the Ddosify Self-Hosted chart via Helm, run the following commands:
+To install the Anteon Self-Hosted chart via Helm, run the following commands:
 
 ```bash
-helm repo add ddosify https://ddosify.github.io/ddosify-helm-charts/
+helm repo add anteon https://getanteon.github.io/anteon-helm-charts/
 helm repo update
-kubectl create namespace ddosify
-helm upgrade --install --namespace ddosify ddosify ddosify/ddosify --wait
+kubectl create namespace anteon
+helm upgrade --install --namespace anteon anteon-selfhosted anteon/anteon --wait
 ```
 
-## Accessing the Ddosify Dashboard (Port Forwarding)
+## Accessing the Anteon Dashboard (Port Forwarding)
 
-Port forward the Ddosify nginx reverse proxy service to access the Ddosify dashboard:
+Port forward the Anteon nginx reverse proxy service to access the Anteon dashboard:
 
 ```bash
 LOCAL_PORT=8014
-kubectl port-forward --namespace ddosify service/nginx-service $LOCAL_PORT:80
+kubectl port-forward --namespace anteon service/nginx-service $LOCAL_PORT:80
 ```
 
 Open the browser and navigate to http://localhost:8014.
 
-## Accessing the Ddosify Dashboard (Ingress)
+## Accessing the Anteon Dashboard (Ingress)
 
-To access the Ddosify dashboard via Ingress, set the `ingress.enabled` parameter to `true` in the `values.yaml` file. Set `ingress.className` to the ingress class name like `nginx` or `kong`. 
+To access the Anteon dashboard via Ingress, set the `ingress.enabled` parameter to `true` in the `values.yaml` file. Set `ingress.className` to the ingress class name like `nginx` or `kong`. 
 
 For example, to enable the Ingress and use the `kong` ingress controller, set the following values in the `values-kong-ingress.yaml` file:
 
@@ -50,48 +50,48 @@ ingress:
 In this example, we are using the `kong` ingress controller with the `cert-manager` for SSL termination. You must change the values according to your setup. Then, install the chart with the custom values file as follows:
 
 ```bash
-helm upgrade --install --namespace ddosify ddosify ddosify/ddosify --values values-kong-ingress.yaml --wait
+helm upgrade --install --namespace anteon anteon-selfhosted anteon/anteon --values values-kong-ingress.yaml --wait
 ```
 
-After the installation, you can access the Ddosify dashboard via the Ingress URL. To get the Ingress URL, run the following command:
+After the installation, you can access the Anteon dashboard via the Ingress URL. To get the Ingress URL, run the following command:
 
 ```bash
-kubectl get ingress -n ddosify
+kubectl get ingress -n anteon
 ```
 
 > [!TIP]
-> Check [How to Securely Expose Your Kubernetes Application using NGINX Ingress](https://ddosify.com/blog/how-to-securely-expose-your-kubernetes-application-using-nginx-ingress/) blog post for more information about the Ingress configuration with NGINX and Let's Encrypt.
+> Check [How to Securely Expose Your Kubernetes Application using NGINX Ingress](https://getanteon.com/blog/how-to-securely-expose-your-kubernetes-application-using-nginx-ingress) blog post for more information about the Ingress configuration with NGINX and Let's Encrypt.
 
 
-## Upgrading the Ddosify Chart
+## Upgrading the Anteon Chart
 
-To upgrade the Ddosify chart, run the following commands:
+To upgrade the Anteon chart, run the following commands:
 
 ```bash
-helm repo add ddosify https://ddosify.github.io/ddosify-helm-charts/
+helm repo add anteon https://getanteon.github.io/anteon-helm-charts/
 helm repo update
-helm upgrade --namespace ddosify ddosify ddosify/ddosify --wait
+helm upgrade --install --namespace anteon anteon-selfhosted anteon/anteon --wait
 ```
 
-## Ddosify Chart Configuration Parameters
+## Anteon Chart Configuration Parameters
 
-The following table lists the configurable parameters of the Ddosify chart and their default values.
+The following table lists the configurable parameters of the Anteon chart and their default values.
 
 | Parameter | Description | Type | Default |
 |-----------|-------------|------|---------|
 | `ingress.enabled` | Enable or disable ingress. | boolean | `false` |
 | `ingress.className` | Define the ingress class name like `nginx` or `kong`. | string | `""` |
 | `ingress.annotations` | Annotations for the ingress, can include multiple comments for configuration. | object | `{}` |
-| `ingress.hosts` | List of hosts for ingress, each with specific paths and pathTypes. | array | `[{"host": "ddosify.local", "paths": [{"path": "/", "pathType": "Prefix"}]}]` |
+| `ingress.hosts` | List of hosts for ingress, each with specific paths and pathTypes. | array | `[{"host": "anteon.local", "paths": [{"path": "/", "pathType": "Prefix"}]}]` |
 | `ingress.tls` | TLS configuration for ingress. Uncomment and configure as needed. | array | `[]` |
 | `hammerReplicas` | Number of replicas for the hammer (load generator) service. If you want to increase the engine size for performance testing, increase this value. | integer | `1` |
-| `service.name` | The name of the outside service (nginx). You can forward the traffic with `kubectl port-forward` command to access the Ddosify dashboard. | string | `"nginx-service"` |
+| `service.name` | The name of the outside service (nginx). You can forward the traffic with `kubectl port-forward` command to access the Anteon dashboard. | string | `"nginx-service"` |
 | `service.port` | Port number the outside service (nginx) operates on. | integer | `80` |
 | `service.nodePort` | Node port number for the outside service (nginx). | integer | `30000` |
 | `influxDB.external` | Determines if InfluxDB is externally managed. | boolean | `false` |
 | `influxDB.url` | URL for InfluxDB, required if `external` is `true`. | string | `"http://influxdb:8086"` |
 | `influxDB.apiToken` | API token for InfluxDB, required if `external` is `true`. | string | `"5yR2qD5zCqqvjwCKKXojnPviQaB87w9JcGweVChXkhWRL"` |
-| `influxDB.org` | Organization for InfluxDB, required if `external` is `true`. | string | `"ddosify"` |
+| `influxDB.org` | Organization for InfluxDB, required if `external` is `true`. | string | `"anteon"` |
 | `influxDB.username` | InfluxDB username, used only if `external` is `false`. | string | `"admin"` |
 | `influxDB.password` | InfluxDB password, used only if `external` is `false`. | string | `"ChangeMe"` |
 | `postgres.external` | Determines if the Postgres server is externally managed. | boolean | `false` |
@@ -105,11 +105,11 @@ The following table lists the configurable parameters of the Ddosify chart and t
 | `pvc.postgres.size` | Size of the persistent volume claim for Postgres. | string | `5Gi` |
 | `pvc.seaweedfs.storageClassName` | Storage class name for SeaweedFS persistent volume claim. | string | `""` |
 | `pvc.seaweedfs.size` | Size of the persistent volume claim for SeaweedFS. | string | `30Gi` |
-| `images.alazBackend` | Alaz Backend Docker image | string | `ddosify/selfhosted_alaz_backend:x.y.z` |
-| `images.backend` | Backend Docker image | string | `ddosify/selfhosted_backend:x.y.z` |
-| `images.frontend` | Frontend Docker image | string | `ddosify/selfhosted_frontend:x.y.z` |
-| `images.hammer` | Hammer Docker image | string | `ddosify/selfhosted_hammer:x.y.z` |
-| `images.hammermanager` | Hammer Manager Docker image | string | `ddosify/selfhosted_hammermanager:x.y.z` |
+| `images.alazBackend` | Alaz Backend Docker image | string | `anteon/selfhosted_alaz_backend:x.y.z` |
+| `images.backend` | Backend Docker image | string | `anteon/selfhosted_backend:x.y.z` |
+| `images.frontend` | Frontend Docker image | string | `anteon/selfhosted_frontend:x.y.z` |
+| `images.hammer` | Hammer Docker image | string | `anteon/selfhosted_hammer:x.y.z` |
+| `images.hammermanager` | Hammer Manager Docker image | string | `anteon/selfhosted_hammermanager:x.y.z` |
 | `images.influxdb` | InfluxDB Docker image | string | `influxdb:x.y.z-alpine` |
 | `images.nginx` | Nginx Docker image | string | `nginx:x.y.z-alpine` |
 | `images.postgres` | Postgres Docker image | string | `postgres:x.y-alpine` |
@@ -124,16 +124,16 @@ The following table lists the configurable parameters of the Ddosify chart and t
 
 ## Add New Engine (Optional):
 
-Currently, the Ddosify chart deploys a single engine (load generator). To add more engines, you can upgrade the chart with the desired number of engine count as follows. Before adding new engines, ensure that you have enabled the distributed mode by clicking the `Unlock the Distributed Mode` button in the Ddosify UI.
+Currently, the Anteon chart deploys a single engine (load generator). To add more engines, you can upgrade the chart with the desired number of engine count as follows. Before adding new engines, ensure that you have enabled the distributed mode by clicking the `Unlock the Distributed Mode` button in the Anteon UI.
 
 ```bash
 ENGINE_COUNT=3
-helm upgrade --namespace ddosify ddosify ddosify/ddosify --set hammerReplicas=$ENGINE_COUNT --wait
+helm upgrade --namespace anteon anteon-selfhosted anteon/anteon --set hammerReplicas=$ENGINE_COUNT --wait
 ```
 
 ## External Database (Optional):
 
-By default, the Ddosify chart deploys a PostgreSQL and InfluxDB. If you want to use them externally, you can write a custom values file (`values-external_db.yaml`) as follows:
+By default, the Anteon chart deploys a PostgreSQL and InfluxDB. If you want to use them externally, you can write a custom values file (`values-external_db.yaml`) as follows:
 
 ```yaml
 influxDB:
@@ -153,7 +153,7 @@ postgres:
 In this example, we are using the external InfluxDB Cloud and AWS RDS PostgreSQL. You must change the values according to your setup. Note that the external database must be accessible from the Kubernetes cluster. Then, you can install the chart with the custom values file as follows:
 
 ```bash
-helm upgrade --install --namespace ddosify ddosify ddosify/ddosify --values values-external_db.yaml --wait
+helm upgrade --install --namespace anteon anteon-selfhosted anteon/anteon --values values-external_db.yaml --wait
 ```
 
 The recommended and tested version of PostgreSQL is `13.6` and InfluxDB is `2.6.1`. If you get any errors on different versions, please open an issue. We will try to fix it as soon as possible. To avoid the latency, the external databases should be as close as possible to the Kubernetes cluster.
@@ -166,7 +166,7 @@ If you want to use a specific storage class for the persistent volume claims, yo
 kubectl get storageclass
 ```
 
-There are three persistent volume claims in the Ddosify chart: `InfluxDB`, `Postgres`, and `SeaweedFS`. In this example, we are using the `nfs-client` storage class. 
+There are three persistent volume claims in the Anteon chart: `InfluxDB`, `Postgres`, and `SeaweedFS`. In this example, we are using the `nfs-client` storage class. 
 
 You can set the storage class name for each PVC in two ways.
 
@@ -175,7 +175,7 @@ You can set the storage class name for each PVC in two ways.
 You can set the storage class name in the Helm command as follows:
 
 ```bash
-helm upgrade --install --namespace ddosify ddosify ddosify/ddosify \
+helm upgrade --install --namespace anteon anteon-selfhosted anteon/anteon \
   --set pvc.influxDB.storageClassName="nfs-client" \
   --set pvc.postgres.storageClassName="nfs-client" \
   --set pvc.seaweedfs.storageClassName="nfs-client" --wait
@@ -198,18 +198,18 @@ pvc:
 Then, you can install the chart with the custom values file as follows:
 
 ```bash
-helm upgrade --install --namespace ddosify ddosify ddosify/ddosify --values values-storageclass.yaml --wait
+helm upgrade --install --namespace anteon anteon-selfhosted anteon/anteon --values values-storageclass.yaml --wait
 ```
 
 ## Cleanup
 
 ```bash
-helm delete ddosify --namespace ddosify
+helm delete anteon-selfhosted --namespace anteon
 ```
 
 ## Telemetry Data
 
-Ddosify collects telemetry data to improve the product. You can disable it by setting the `ANONYMOUS_TELEMETRY_ENABLED` environment variable to `False` in the [backend](./charts/ddosify/templates/backend.yaml) deployment.
+Anteon collects telemetry data to improve the product. You can disable it by setting the `ANONYMOUS_TELEMETRY_ENABLED` environment variable to `False` in the [backend](./charts/anteon/templates/backend.yaml) deployment.
 
 ```yaml
 ...
@@ -219,7 +219,7 @@ env:
 ...
 ```
 
-Check the example telemetry data that Ddosify collects from [here](https://github.com/ddosify/ddosify/tree/master/selfhosted#example-data).
+Check the example telemetry data that Anteon collects from [here](https://github.com/getanteon/anteon/tree/master/selfhosted#example-data).
 
 # Notes
 
