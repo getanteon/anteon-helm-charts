@@ -13,6 +13,7 @@ rules:
   - replicasets
   - deployments
   - daemonsets
+  - statefulsets
   verbs:
   - "get"
   - "list"
