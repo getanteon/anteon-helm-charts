@@ -1,6 +1,933 @@
 apiVersion: v1
 entries:
+  alaz:
+  - annotations:
+      charts.openshift.io/name: Alaz is an open-source Anteon eBPF agent that can
+        inspect and collect Kubernetes (K8s) service traffic without the need for
+        code instrumentation, sidecars, or service restarts. Alaz can create a Service
+        Map that helps identify golden signals and problems like high latencies, 5xx
+        errors, zombie services, SQL queries. Additionally, it can gather system information
+        and resources via the Prometheus Node Exporter, which is readily available
+        on the agent.
+      charts.openshift.io/versions: '>=4.5'
+    apiVersion: v2
+    appVersion: v0.7.3
+    created: "2024-05-01T08:38:18.721585116Z"
+    description: Alaz is an open-source Anteon eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. Alaz can create a Service Map that helps identify
+      golden signals and problems like high latencies, 5xx errors, zombie services,
+      SQL queries. Additionally, it can gather system information and resources via
+      the Prometheus Node Exporter, which is readily available on the agent.
+    digest: d45db30f54662f62c616adaf150e19c615a4fb55305ee783f6526b4c974bd17f
+    home: https://getanteon.com
+    icon: https://d2uj9largygsoq.cloudfront.net/docker/ddosify-square-icon-db.svg
+    keywords:
+    - ebpf
+    - helm
+    - kubernetes
+    - ddosify
+    - anteon
+    - alaz
+    - service map
+    - distributed tracing
+    - observability
+    - monitoring
+    kubeVersion: '>=1.16.0-0'
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/getanteon/anteon-helm-charts/releases/download/alaz-0.7.4/alaz-0.7.4.tgz
+    version: 0.7.4
+  - annotations:
+      charts.openshift.io/name: Alaz is an open-source Ddosify eBPF agent that can
+        inspect and collect Kubernetes (K8s) service traffic without the need for
+        code instrumentation, sidecars, or service restarts. Alaz can create a Service
+        Map that helps identify golden signals and problems like high latencies, 5xx
+        errors, zombie services, SQL queries. Additionally, it can gather system information
+        and resources via the Prometheus Node Exporter, which is readily available
+        on the agent.
+      charts.openshift.io/versions: '>=4.5'
+    apiVersion: v2
+    appVersion: v0.7.3
+    created: "2024-03-22T23:12:15.302837831Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. Alaz can create a Service Map that helps identify
+      golden signals and problems like high latencies, 5xx errors, zombie services,
+      SQL queries. Additionally, it can gather system information and resources via
+      the Prometheus Node Exporter, which is readily available on the agent.
+    digest: af5eae2be48bb1104dd6392d2ff7ae085eedb37d3c1cb785412465c64c37e5cc
+    home: https://ddosify.com
+    icon: https://d2uj9largygsoq.cloudfront.net/docker/ddosify-square-icon-db.svg
+    keywords:
+    - ebpf
+    - helm
+    - kubernetes
+    - ddosify
+    - alaz
+    - service map
+    - distributed tracing
+    - observability
+    - monitoring
+    kubeVersion: '>=1.16.0-0'
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.7.3/alaz-0.7.3.tgz
+    version: 0.7.3
+  - annotations:
+      charts.openshift.io/name: Alaz is an open-source Ddosify eBPF agent that can
+        inspect and collect Kubernetes (K8s) service traffic without the need for
+        code instrumentation, sidecars, or service restarts. Alaz can create a Service
+        Map that helps identify golden signals and problems like high latencies, 5xx
+        errors, zombie services, SQL queries. Additionally, it can gather system information
+        and resources via the Prometheus Node Exporter, which is readily available
+        on the agent.
+      charts.openshift.io/versions: '>=4.5'
+    apiVersion: v2
+    appVersion: v0.7.2
+    created: "2024-03-20T16:15:11.012775116Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. Alaz can create a Service Map that helps identify
+      golden signals and problems like high latencies, 5xx errors, zombie services,
+      SQL queries. Additionally, it can gather system information and resources via
+      the Prometheus Node Exporter, which is readily available on the agent.
+    digest: 5658f928d60f87a31dcf04c05ac6506f582f4ca2a70e95f367bffa9e83a53e2f
+    home: https://ddosify.com
+    icon: https://d2uj9largygsoq.cloudfront.net/docker/ddosify-square-icon-db.svg
+    keywords:
+    - ebpf
+    - helm
+    - kubernetes
+    - ddosify
+    - alaz
+    - service map
+    - distributed tracing
+    - observability
+    - monitoring
+    kubeVersion: '>=1.16.0-0'
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.7.2/alaz-0.7.2.tgz
+    version: 0.7.2
+  - annotations:
+      charts.openshift.io/name: Alaz is an open-source Ddosify eBPF agent that can
+        inspect and collect Kubernetes (K8s) service traffic without the need for
+        code instrumentation, sidecars, or service restarts. Alaz can create a Service
+        Map that helps identify golden signals and problems like high latencies, 5xx
+        errors, zombie services, SQL queries. Additionally, it can gather system information
+        and resources via the Prometheus Node Exporter, which is readily available
+        on the agent.
+      charts.openshift.io/versions: '>=4.5'
+    apiVersion: v2
+    appVersion: v0.7.1
+    created: "2024-03-19T13:41:59.192610715Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. Alaz can create a Service Map that helps identify
+      golden signals and problems like high latencies, 5xx errors, zombie services,
+      SQL queries. Additionally, it can gather system information and resources via
+      the Prometheus Node Exporter, which is readily available on the agent.
+    digest: 7d5a7b9668162781eba0cd4cc41a926d89f8339121763383ff81746902d08327
+    home: https://ddosify.com
+    icon: https://d2uj9largygsoq.cloudfront.net/docker/ddosify-square-icon-db.svg
+    keywords:
+    - ebpf
+    - helm
+    - kubernetes
+    - ddosify
+    - alaz
+    - service map
+    - distributed tracing
+    - observability
+    - monitoring
+    kubeVersion: '>=1.16.0-0'
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.7.1/alaz-0.7.1.tgz
+    version: 0.7.1
+  - annotations:
+      charts.openshift.io/name: Alaz is an open-source Ddosify eBPF agent that can
+        inspect and collect Kubernetes (K8s) service traffic without the need for
+        code instrumentation, sidecars, or service restarts. Alaz can create a Service
+        Map that helps identify golden signals and problems like high latencies, 5xx
+        errors, zombie services, SQL queries. Additionally, it can gather system information
+        and resources via the Prometheus Node Exporter, which is readily available
+        on the agent.
+      charts.openshift.io/versions: '>=4.5'
+    apiVersion: v2
+    appVersion: v0.7.0
+    created: "2024-03-18T19:26:22.214866105Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. Alaz can create a Service Map that helps identify
+      golden signals and problems like high latencies, 5xx errors, zombie services,
+      SQL queries. Additionally, it can gather system information and resources via
+      the Prometheus Node Exporter, which is readily available on the agent.
+    digest: 97044c55d132562898af35f2b39c9c252d5ac2b03a56d2972f64d006e32576aa
+    home: https://ddosify.com
+    icon: https://d2uj9largygsoq.cloudfront.net/docker/ddosify-square-icon-db.svg
+    keywords:
+    - ebpf
+    - helm
+    - kubernetes
+    - ddosify
+    - alaz
+    - service map
+    - distributed tracing
+    - observability
+    - monitoring
+    kubeVersion: '>=1.16.0-0'
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.7.0/alaz-0.7.0.tgz
+    version: 0.7.0
+  - annotations:
+      charts.openshift.io/name: Alaz is an open-source Ddosify eBPF agent that can
+        inspect and collect Kubernetes (K8s) service traffic without the need for
+        code instrumentation, sidecars, or service restarts. Alaz can create a Service
+        Map that helps identify golden signals and problems like high latencies, 5xx
+        errors, zombie services, SQL queries. Additionally, it can gather system information
+        and resources via the Prometheus Node Exporter, which is readily available
+        on the agent.
+      charts.openshift.io/versions: '>=4.5'
+    apiVersion: v2
+    appVersion: v0.6.6
+    created: "2024-03-07T23:31:56.365157739Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. Alaz can create a Service Map that helps identify
+      golden signals and problems like high latencies, 5xx errors, zombie services,
+      SQL queries. Additionally, it can gather system information and resources via
+      the Prometheus Node Exporter, which is readily available on the agent.
+    digest: 537cde0cbab539b813ee10cae53ebfd64c916482b297ac65d16846fdec571e5b
+    home: https://ddosify.com
+    icon: https://d2uj9largygsoq.cloudfront.net/docker/ddosify-square-icon-db.svg
+    keywords:
+    - ebpf
+    - helm
+    - kubernetes
+    - ddosify
+    - alaz
+    - service map
+    - distributed tracing
+    - observability
+    - monitoring
+    kubeVersion: '>=1.16.0-0'
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.6.6/alaz-0.6.6.tgz
+    version: 0.6.6
+  - annotations:
+      charts.openshift.io/name: Alaz is an open-source Ddosify eBPF agent that can
+        inspect and collect Kubernetes (K8s) service traffic without the need for
+        code instrumentation, sidecars, or service restarts. Alaz can create a Service
+        Map that helps identify golden signals and problems like high latencies, 5xx
+        errors, zombie services, SQL queries. Additionally, it can gather system information
+        and resources via the Prometheus Node Exporter, which is readily available
+        on the agent.
+      charts.openshift.io/versions: '>=4.5'
+    apiVersion: v2
+    appVersion: v0.6.5
+    created: "2024-02-25T12:10:13.217929668Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. Alaz can create a Service Map that helps identify
+      golden signals and problems like high latencies, 5xx errors, zombie services,
+      SQL queries. Additionally, it can gather system information and resources via
+      the Prometheus Node Exporter, which is readily available on the agent.
+    digest: 92198ffc6bf2287d6ecb1abe2f8d0d58a822aba060a294d237f43bc7430f1c8a
+    home: https://ddosify.com
+    icon: https://d2uj9largygsoq.cloudfront.net/docker/ddosify-square-icon-db.svg
+    keywords:
+    - ebpf
+    - helm
+    - kubernetes
+    - ddosify
+    - alaz
+    - service map
+    - distributed tracing
+    - observability
+    - monitoring
+    kubeVersion: '>=1.16.0-0'
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.6.5/alaz-0.6.5.tgz
+    version: 0.6.5
+  - annotations:
+      charts.openshift.io/name: Alaz is an open-source Ddosify eBPF agent that can
+        inspect and collect Kubernetes (K8s) service traffic without the need for
+        code instrumentation, sidecars, or service restarts. Alaz can create a Service
+        Map that helps identify golden signals and problems like high latencies, 5xx
+        errors, zombie services, SQL queries. Additionally, it can gather system information
+        and resources via the Prometheus Node Exporter, which is readily available
+        on the agent.
+      charts.openshift.io/versions: '>=4.5'
+    apiVersion: v2
+    appVersion: v0.6.2
+    created: "2024-02-20T09:07:12.876639622Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. Alaz can create a Service Map that helps identify
+      golden signals and problems like high latencies, 5xx errors, zombie services,
+      SQL queries. Additionally, it can gather system information and resources via
+      the Prometheus Node Exporter, which is readily available on the agent.
+    digest: 5010a79125cef487952122b1ae7513dd051f5cbfb8bfa187f75ca81acd2a0141
+    home: https://ddosify.com
+    icon: https://d2uj9largygsoq.cloudfront.net/docker/ddosify-square-icon-db.svg
+    keywords:
+    - ebpf
+    - helm
+    - kubernetes
+    - ddosify
+    - alaz
+    - service map
+    - distributed tracing
+    - observability
+    - monitoring
+    kubeVersion: '>=1.16.0-0'
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.6.2/alaz-0.6.2.tgz
+    version: 0.6.2
+  - annotations:
+      charts.openshift.io/name: Alaz is an open-source Ddosify eBPF agent that can
+        inspect and collect Kubernetes (K8s) service traffic without the need for
+        code instrumentation, sidecars, or service restarts. Alaz can create a Service
+        Map that helps identify golden signals and problems like high latencies, 5xx
+        errors, zombie services, SQL queries. Additionally, it can gather system information
+        and resources via the Prometheus Node Exporter, which is readily available
+        on the agent.
+      charts.openshift.io/versions: '>=4.5'
+    apiVersion: v2
+    appVersion: v0.6.1
+    created: "2024-02-13T18:33:43.057221529Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. Alaz can create a Service Map that helps identify
+      golden signals and problems like high latencies, 5xx errors, zombie services,
+      SQL queries. Additionally, it can gather system information and resources via
+      the Prometheus Node Exporter, which is readily available on the agent.
+    digest: 62f4747b288945f394ad18bbc0c98d5d02e75ab3786a49e32cf79913b678dc01
+    home: https://ddosify.com
+    icon: https://d2uj9largygsoq.cloudfront.net/docker/ddosify-square-icon-db.svg
+    keywords:
+    - ebpf
+    - helm
+    - kubernetes
+    - ddosify
+    - alaz
+    - service map
+    - distributed tracing
+    - observability
+    - monitoring
+    kubeVersion: '>=1.16.0-0'
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.6.1/alaz-0.6.1.tgz
+    version: 0.6.1
+  - annotations:
+      charts.openshift.io/name: Alaz is an open-source Ddosify eBPF agent that can
+        inspect and collect Kubernetes (K8s) service traffic without the need for
+        code instrumentation, sidecars, or service restarts. Alaz can create a Service
+        Map that helps identify golden signals and problems like high latencies, 5xx
+        errors, zombie services, SQL queries. Additionally, it can gather system information
+        and resources via the Prometheus Node Exporter, which is readily available
+        on the agent.
+      charts.openshift.io/versions: '>=4.5'
+    apiVersion: v2
+    appVersion: v0.6.0
+    created: "2024-02-11T22:48:46.161987505Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. Alaz can create a Service Map that helps identify
+      golden signals and problems like high latencies, 5xx errors, zombie services,
+      SQL queries. Additionally, it can gather system information and resources via
+      the Prometheus Node Exporter, which is readily available on the agent.
+    digest: d501ade65578c13a6df0244cc913714de8e2189838a1091ce4ee07dcb998d480
+    home: https://ddosify.com
+    icon: https://d2uj9largygsoq.cloudfront.net/docker/ddosify-square-icon-db.svg
+    keywords:
+    - ebpf
+    - helm
+    - kubernetes
+    - ddosify
+    - alaz
+    - service map
+    - distributed tracing
+    - observability
+    - monitoring
+    kubeVersion: '>=1.16.0-0'
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.6.0/alaz-0.6.0.tgz
+    version: 0.6.0
+  - apiVersion: v2
+    appVersion: v0.5.0
+    created: "2024-02-03T18:10:16.893479679Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. This is possible due to its use of eBPF technology.
+      Alaz can create a Service Map that helps identify golden signals and problems
+      like high latencies, 5xx errors, zombie services, SQL queries. Additionally,
+      it can gather system information and resources via the Prometheus Node Exporter,
+      which is readily available on the agent.
+    digest: 8c4674400a043eaf1593a1dbf3ff4bcbdcfcb867362ffa52ad0daa694db080a9
+    icon: https://d2uj9largygsoq.cloudfront.net/docker/ddosify-square-icon-db.svg
+    kubeVersion: '>=1.16.0-0'
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.5.1/alaz-0.5.1.tgz
+    version: 0.5.1
+  - apiVersion: v2
+    appVersion: v0.5.0
+    created: "2024-01-23T12:41:45.086131082Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. This is possible due to its use of eBPF technology.
+      Alaz can create a Service Map that helps identify golden signals and problems
+      like high latencies, 5xx errors, zombie services, SQL queries. Additionally,
+      it can gather system information and resources via the Prometheus Node Exporter,
+      which is readily available on the agent.
+    digest: 01155528f372bb037e35da4a597f073fbf558bf50656a5fa83425ab884249b98
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.5.0/alaz-0.5.0.tgz
+    version: 0.5.0
+  - apiVersion: v2
+    appVersion: v0.4.0
+    created: "2024-01-11T07:58:59.306183267Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. This is possible due to its use of eBPF technology.
+      Alaz can create a Service Map that helps identify golden signals and problems
+      like high latencies, 5xx errors, zombie services, SQL queries. Additionally,
+      it can gather system information and resources via the Prometheus Node Exporter,
+      which is readily available on the agent.
+    digest: cd18076a24c2b1cdff0c54c65121480e4fba6ed60ab5f68fea2bb725677958b6
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.4.0/alaz-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v2
+    appVersion: v0.3.5
+    created: "2024-01-03T15:35:56.950679751Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. This is possible due to its use of eBPF technology.
+      Alaz can create a Service Map that helps identify golden signals and problems
+      like high latencies, 5xx errors, zombie services, SQL queries. Additionally,
+      it can gather system information and resources via the Prometheus Node Exporter,
+      which is readily available on the agent.
+    digest: 66070f6228b1317d03fc24ce64e135eae27569c21e576abbbdd835dc080a48bb
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.3.5/alaz-0.3.5.tgz
+    version: 0.3.5
+  - apiVersion: v2
+    appVersion: v0.3.4
+    created: "2023-12-26T12:36:34.637654891Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. This is possible due to its use of eBPF technology.
+      Alaz can create a Service Map that helps identify golden signals and problems
+      like high latencies, 5xx errors, zombie services, SQL queries. Additionally,
+      it can gather system information and resources via the Prometheus Node Exporter,
+      which is readily available on the agent.
+    digest: 4707a76e4190c1546023fbb28e598d499c7bc3aad4cfd4c861424f328b2362ba
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.3.4/alaz-0.3.4.tgz
+    version: 0.3.4
+  - apiVersion: v2
+    appVersion: v0.3.3
+    created: "2023-12-21T12:41:41.300289684Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. This is possible due to its use of eBPF technology.
+      Alaz can create a Service Map that helps identify golden signals and problems
+      like high latencies, 5xx errors, zombie services, SQL queries. Additionally,
+      it can gather system information and resources via the Prometheus Node Exporter,
+      which is readily available on the agent.
+    digest: db3de5b4cbd055aa859c1c053c75d335bc82030c73716162fcd2d169157393ed
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.3.3/alaz-0.3.3.tgz
+    version: 0.3.3
+  - apiVersion: v2
+    appVersion: v0.3.0
+    created: "2023-11-28T01:01:12.51488917Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. This is possible due to its use of eBPF technology.
+      Alaz can create a Service Map that helps identify golden signals and problems
+      like high latencies, 5xx errors, zombie services, SQL queries. Additionally,
+      it can gather system information and resources via the Prometheus Node Exporter,
+      which is readily available on the agent.
+    digest: 54870856722d36e62c7daf19de1ffc6f8eb62662ca2e2c0816412d23d7918b1d
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.3.0/alaz-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
+    appVersion: v0.2.2
+    created: "2023-10-30T21:16:19.6586577Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. This is possible due to its use of eBPF technology.
+      Alaz can create a Service Map that helps identify golden signals and problems
+      like high latencies, 5xx errors, zombie services, SQL queries. Additionally,
+      it can gather system information and resources via the Prometheus Node Exporter,
+      which is readily available on the agent.
+    digest: a7eebe177dc201861e1e6efcab0d177fe133ec8e8f47ad93a91608ae4c8d0b48
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.2.6/alaz-0.2.6.tgz
+    version: 0.2.6
+  - apiVersion: v2
+    appVersion: v0.2.1
+    created: "2023-10-27T23:36:09.112208253Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. This is possible due to its use of eBPF technology.
+      Alaz can create a Service Map that helps identify golden signals and problems
+      like high latencies, 5xx errors, zombie services, SQL queries. Additionally,
+      it can gather system information and resources via the Prometheus Node Exporter,
+      which is readily available on the agent.
+    digest: c2a5a1530e36fdcc4a55d291dc7ca44a374abee2b2271318263110a643dda6b1
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.2.5/alaz-0.2.5.tgz
+    version: 0.2.5
+  - apiVersion: v2
+    appVersion: v0.2.0
+    created: "2023-10-19T23:35:12.055638176Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. This is possible due to its use of eBPF technology.
+      Alaz can create a Service Map that helps identify golden signals and problems
+      like high latencies, 5xx errors, zombie services, SQL queries. Additionally,
+      it can gather system information and resources via the Prometheus Node Exporter,
+      which is readily available on the agent.
+    digest: 9df7ea7ab75922118536bbdb56c7d835d442796a3ef9e1d807a2487b8d917905
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.2.4/alaz-0.2.4.tgz
+    version: 0.2.4
+  - apiVersion: v2
+    appVersion: v0.1.4
+    created: "2023-10-04T12:39:43.963989275Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. This is possible due to its use of eBPF technology.
+      Alaz can create a Service Map that helps identify golden signals and problems
+      like high latencies, 5xx errors, zombie services, SQL queries. Additionally,
+      it can gather system information and resources via the Prometheus Node Exporter,
+      which is readily available on the agent.
+    digest: 64df31803416717696300b200679bc405cdcabc390bd03c3b4d98fd55aed4636
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.2.3/alaz-0.2.3.tgz
+    version: 0.2.3
+  - apiVersion: v2
+    appVersion: v0.1.4
+    created: "2023-09-26T21:01:45.902586794Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. This is possible due to its use of eBPF technology.
+      Alaz can create a Service Map that helps identify golden signals and problems
+      like high latencies, 5xx errors, zombie services, SQL queries. Additionally,
+      it can gather system information and resources via the Prometheus Node Exporter,
+      which is readily available on the agent.
+    digest: 501884f0613a55136cc53af6ff1768f967ae035c4f9f89efc3ca83d98c79848e
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.2.2/alaz-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
+    appVersion: v0.1.3
+    created: "2023-09-25T15:24:28.010185013Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. This is possible due to its use of eBPF technology.
+      Alaz can create a Service Map that helps identify golden signals and problems
+      like high latencies, 5xx errors, zombie services, SQL queries. Additionally,
+      it can gather system information and resources via the Prometheus Node Exporter,
+      which is readily available on the agent.
+    digest: 7281d2976176ad376ec0d5fe67695ada6c21dc590508a17d552cd05437ac3882
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.2.1/alaz-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: 0.2.0
+    created: "2023-08-29T19:19:06.95948845Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. This is possible due to its use of eBPF technology.
+      Alaz can create a Service Map that helps identify golden signals and problems
+      like high latencies, 5xx errors, zombie services, SQL queries. Additionally,
+      it can gather system information and resources via the Prometheus Node Exporter,
+      which is readily available on the agent.
+    digest: b93ece3daaa011d00aec52feaafe013a8101fad1e4931ffc468bb0bbf1ce6e6a
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.2.0/alaz-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2023-08-28T22:27:48.651127857Z"
+    description: Alaz is an open-source Ddosify eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. This is possible due to its use of eBPF technology.
+      Alaz can create a Service Map that helps identify golden signals and problems
+      like high latencies, 5xx errors, zombie services, SQL queries. Additionally,
+      it can gather system information and resources via the Prometheus Node Exporter,
+      which is readily available on the agent.
+    digest: 33fd7558daa8412337c676042087475fb64666a84505197c715d6dcddb13b3f6
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.1.0/alaz-0.1.0.tgz
+    version: 0.1.0
+  anteon:
+  - apiVersion: v2
+    appVersion: 2.3.3
+    created: "2024-05-01T08:38:18.835383577Z"
+    description: A Helm chart for Anteon Self Hosted
+    digest: 8a4762f886f1600d5791747a58e84a6113c812359db7baa5b3b6485ebe54f7ee
+    home: https://getanteon.com
+    keywords:
+    - ebpf
+    - helm
+    - kubernetes
+    - ddosify
+    - anteon
+    - alaz
+    - service map
+    - distributed tracing
+    - observability
+    - monitoring
+    - performance testing
+    - load testing
+    name: anteon
+    type: application
+    urls:
+    - https://github.com/getanteon/anteon-helm-charts/releases/download/anteon-1.7.6/anteon-1.7.6.tgz
+    version: 1.7.6
   ddosify:
+  - apiVersion: v2
+    appVersion: 2.3.3
+    created: "2024-04-19T13:36:37.54456772Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: 85640bb7675b27f351cab206be718c837cb9f633bcb1185a309e534061436695
+    home: https://ddosify.com
+    keywords:
+    - ebpf
+    - helm
+    - kubernetes
+    - ddosify
+    - alaz
+    - service map
+    - distributed tracing
+    - observability
+    - monitoring
+    - performance testing
+    - load testing
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.7.5/ddosify-1.7.5.tgz
+    version: 1.7.5
+  - apiVersion: v2
+    appVersion: 2.3.3
+    created: "2024-04-12T23:20:30.548507346Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: 1c7421c4ad9be909381e6ac7175bdc01957259c97b75eda2895f6b6fece31ab7
+    home: https://ddosify.com
+    keywords:
+    - ebpf
+    - helm
+    - kubernetes
+    - ddosify
+    - alaz
+    - service map
+    - distributed tracing
+    - observability
+    - monitoring
+    - performance testing
+    - load testing
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.7.4/ddosify-1.7.4.tgz
+    version: 1.7.4
+  - apiVersion: v2
+    appVersion: 2.3.3
+    created: "2024-04-06T20:41:02.589824203Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: 2089b7991e3c8681c22c443e3a426e64f6dd257907b929aee414ebbc9d85a917
+    home: https://ddosify.com
+    keywords:
+    - ebpf
+    - helm
+    - kubernetes
+    - ddosify
+    - alaz
+    - service map
+    - distributed tracing
+    - observability
+    - monitoring
+    - performance testing
+    - load testing
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.7.3/ddosify-1.7.3.tgz
+    version: 1.7.3
+  - apiVersion: v2
+    appVersion: 2.3.1
+    created: "2024-03-25T17:15:42.759077746Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: 50905259825e921f8bd45e35cca85b0bf8a9600f1f861c44eeb680924e49ebd0
+    home: https://ddosify.com
+    keywords:
+    - ebpf
+    - helm
+    - kubernetes
+    - ddosify
+    - alaz
+    - service map
+    - distributed tracing
+    - observability
+    - monitoring
+    - performance testing
+    - load testing
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.7.2/ddosify-1.7.2.tgz
+    version: 1.7.2
+  - apiVersion: v2
+    appVersion: 2.2.1
+    created: "2024-03-18T21:07:42.294104228Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: 4e04906074ce40792950b92a41bb34866e7194081bb235e10a66642d5bb648f6
+    home: https://ddosify.com
+    keywords:
+    - ebpf
+    - helm
+    - kubernetes
+    - ddosify
+    - alaz
+    - service map
+    - distributed tracing
+    - observability
+    - monitoring
+    - performance testing
+    - load testing
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.7.1/ddosify-1.7.1.tgz
+    version: 1.7.1
+  - apiVersion: v2
+    appVersion: 2.2.0
+    created: "2024-03-18T19:16:12.454375623Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: 64fea780bfe0a9a31f07d72aab079d376a0f087b2856ff3da13d6e6a9100d02b
+    home: https://ddosify.com
+    keywords:
+    - ebpf
+    - helm
+    - kubernetes
+    - ddosify
+    - alaz
+    - service map
+    - distributed tracing
+    - observability
+    - monitoring
+    - performance testing
+    - load testing
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.7.0/ddosify-1.7.0.tgz
+    version: 1.7.0
+  - apiVersion: v2
+    appVersion: 2.1.3
+    created: "2024-02-02T16:52:48.939971825Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: e40a1a5a8143877ac522c1813b59359a554db23009cad7f3a9d62e2e9dee631e
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.5.4/ddosify-1.5.4.tgz
+    version: 1.5.4
+  - apiVersion: v2
+    appVersion: 2.1.2
+    created: "2024-01-18T22:50:34.687431504Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: 2a09e43d7ffe7ba1900e13ee834f6f5a77aa882e85aa889f820f239232ab0f6a
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.5.3/ddosify-1.5.3.tgz
+    version: 1.5.3
+  - apiVersion: v2
+    appVersion: 2.1.1
+    created: "2024-01-06T20:31:39.214452036Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: 1b9eb3c1168bfbfa5d6a90fedabd98bd126c260348401b798be7eb585a7877af
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.5.2/ddosify-1.5.2.tgz
+    version: 1.5.2
+  - apiVersion: v2
+    appVersion: 2.1.1
+    created: "2023-12-30T10:55:35.359072526Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: d88247588604097e466c9ae6a9b5d922721a951c34f7c8fc57d7f17ef420302d
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.5.1/ddosify-1.5.1.tgz
+    version: 1.5.1
+  - apiVersion: v2
+    appVersion: 2.1.0
+    created: "2023-12-29T20:43:48.739705579Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: 7e0cc5e38b269925bb8a0093e20bbd2ef865aa9d0376773d52c2f7c0e9e1b6d9
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.5.0/ddosify-1.5.0.tgz
+    version: 1.5.0
+  - apiVersion: v2
+    appVersion: 2.0.8
+    created: "2023-11-01T22:46:13.780375491Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: 6de9511c5bd087d8c4643a1136fc969252813612dfab85e524402a690caba937
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.4.8/ddosify-1.4.8.tgz
+    version: 1.4.8
+  - apiVersion: v2
+    appVersion: 2.0.7
+    created: "2023-11-01T22:33:00.270811532Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: 83dc779236199855578d399c7982cdfcd35007837ff4001af3b4b8ea6de3cdac
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.4.7/ddosify-1.4.7.tgz
+    version: 1.4.7
+  - apiVersion: v2
+    appVersion: 2.0.6
+    created: "2023-10-30T21:19:24.169109474Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: a47ab084d6e0aedc8f44525e5fae2356e24b7fc749ae5a74fd2d6014fe2f8e47
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.4.6/ddosify-1.4.6.tgz
+    version: 1.4.6
+  - apiVersion: v2
+    appVersion: 2.0.5
+    created: "2023-10-20T19:43:22.322933241Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: 7f71ab0efc3839d164db807eb561c737e8e9ea9c32dd745e0f7e926b6c6a12d2
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.4.5/ddosify-1.4.5.tgz
+    version: 1.4.5
+  - apiVersion: v2
+    appVersion: 2.0.4
+    created: "2023-10-17T22:50:49.30571539Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: 458a89f33127d179800a07ca16480bc31e1560c4bcc243dfe7bd0834dc646df8
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.4.4/ddosify-1.4.4.tgz
+    version: 1.4.4
+  - apiVersion: v2
+    appVersion: 2.0.3
+    created: "2023-10-17T00:03:26.434176582Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: ad6179b83beb06cdc5a118cbae9458f5f4e8117afa98145f42739c1dee5fc151
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.4.3/ddosify-1.4.3.tgz
+    version: 1.4.3
+  - apiVersion: v2
+    appVersion: 2.0.2
+    created: "2023-09-14T23:09:11.343498074Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: b537ab1850efc834393c2926c57581ed7396ddcd5c71d153d20ee94f4ac4f509
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.4.2/ddosify-1.4.2.tgz
+    version: 1.4.2
+  - apiVersion: v2
+    appVersion: 2.0.1
+    created: "2023-09-05T22:36:01.038607913Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: 28584b6a8d12a00d7d4d3a40be7836d4262bee19b5b47c71db17135209ed5ce5
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.4.1/ddosify-1.4.1.tgz
+    version: 1.4.1
+  - apiVersion: v2
+    appVersion: 2.0.0
+    created: "2023-09-01T22:35:11.815005074Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: 45fe06da1bfa3fd26921c351392fa05837749d05cf2f77ca17540e40d8eab9be
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.4.0/ddosify-1.4.0.tgz
+    version: 1.4.0
+  - apiVersion: v2
+    appVersion: 1.2.4
+    created: "2023-07-30T14:54:04.618652953Z"
+    description: A Helm chart for Ddosify Self Hosted
+    digest: 44e0ed8b9049e977d159162cc3d949e50decd41b5487944fb96147831591b54a
+    name: ddosify
+    type: application
+    urls:
+    - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.3.5/ddosify-1.3.5.tgz
+    version: 1.3.5
   - apiVersion: v2
     appVersion: 1.2.4
     created: "2023-07-26T15:56:14.340109687Z"
@@ -21,4 +948,4 @@ entries:
     urls:
     - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.3.3/ddosify-1.3.3.tgz
     version: 1.3.3
-generated: "2023-07-26T15:56:14.340116987Z"
+generated: "2024-05-01T08:38:18.835701458Z"
