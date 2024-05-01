@@ -50,6 +50,9 @@ ingress:
 In this example, we are using the `kong` ingress controller with the `cert-manager` for SSL termination. You must change the values according to your setup. Then, install the chart with the custom values file as follows:
 
 ```bash
+helm repo add anteon https://getanteon.github.io/anteon-helm-charts/
+helm repo update
+kubectl create namespace anteon
 helm upgrade --install --namespace anteon anteon-selfhosted anteon/anteon --values values-kong-ingress.yaml --wait
 ```
 
@@ -129,6 +132,10 @@ The following table lists the configurable parameters of the Anteon chart and th
 Currently, the Anteon chart deploys a single engine (load generator). To add more engines, you can upgrade the chart with the desired number of engine count as follows. Before adding new engines, ensure that you have enabled the distributed mode by clicking the `Unlock the Distributed Mode` button in the Anteon UI.
 
 ```bash
+helm repo add anteon https://getanteon.github.io/anteon-helm-charts/
+helm repo update
+kubectl create namespace anteon
+
 ENGINE_COUNT=3
 helm upgrade --namespace anteon anteon-selfhosted anteon/anteon --set hammerReplicas=$ENGINE_COUNT --wait
 ```
@@ -155,6 +162,9 @@ postgres:
 In this example, we are using the external InfluxDB Cloud and AWS RDS PostgreSQL. You must change the values according to your setup. Note that the external database must be accessible from the Kubernetes cluster. Then, you can install the chart with the custom values file as follows:
 
 ```bash
+helm repo add anteon https://getanteon.github.io/anteon-helm-charts/
+helm repo update
+kubectl create namespace anteon
 helm upgrade --install --namespace anteon anteon-selfhosted anteon/anteon --values values-external_db.yaml --wait
 ```
 
@@ -177,6 +187,9 @@ You can set the storage class name for each PVC in two ways.
 You can set the storage class name in the Helm command as follows:
 
 ```bash
+helm repo add anteon https://getanteon.github.io/anteon-helm-charts/
+helm repo update
+kubectl create namespace anteon
 helm upgrade --install --namespace anteon anteon-selfhosted anteon/anteon \
   --set pvc.influxDB.storageClassName="nfs-client" \
   --set pvc.postgres.storageClassName="nfs-client" \
@@ -200,6 +213,9 @@ pvc:
 Then, you can install the chart with the custom values file as follows:
 
 ```bash
+helm repo add anteon https://getanteon.github.io/anteon-helm-charts/
+helm repo update
+kubectl create namespace anteon
 helm upgrade --install --namespace anteon anteon-selfhosted anteon/anteon --values values-storageclass.yaml --wait
 ```
 
@@ -208,6 +224,9 @@ helm upgrade --install --namespace anteon anteon-selfhosted anteon/anteon --valu
 If you want to create a default Kubernetes cluster in the Anteon UI, you can set the `backend.defaultMonitoringID` and `backend.defaultClusterName` parameters in the Helm command.
 
 ```bash
+helm repo add anteon https://getanteon.github.io/anteon-helm-charts/
+helm repo update
+kubectl create namespace anteon
 helm upgrade --install --namespace anteon anteon-selfhosted anteon/anteon --set backend.defaultMonitoringID=53f8601a-37cb-4f85-abd3-9b563217e593 --set backend.defaultClusterName="default-cluster" --wait
 ```
 
