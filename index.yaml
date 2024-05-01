@@ -2,6 +2,44 @@ apiVersion: v1
 entries:
   alaz:
   - annotations:
+      charts.openshift.io/name: Alaz is an open-source Anteon eBPF agent that can
+        inspect and collect Kubernetes (K8s) service traffic without the need for
+        code instrumentation, sidecars, or service restarts. Alaz can create a Service
+        Map that helps identify golden signals and problems like high latencies, 5xx
+        errors, zombie services, SQL queries. Additionally, it can gather system information
+        and resources via the Prometheus Node Exporter, which is readily available
+        on the agent.
+      charts.openshift.io/versions: '>=4.5'
+    apiVersion: v2
+    appVersion: v0.7.3
+    created: "2024-05-01T08:38:18.721585116Z"
+    description: Alaz is an open-source Anteon eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. Alaz can create a Service Map that helps identify
+      golden signals and problems like high latencies, 5xx errors, zombie services,
+      SQL queries. Additionally, it can gather system information and resources via
+      the Prometheus Node Exporter, which is readily available on the agent.
+    digest: d45db30f54662f62c616adaf150e19c615a4fb55305ee783f6526b4c974bd17f
+    home: https://getanteon.com
+    icon: https://d2uj9largygsoq.cloudfront.net/docker/ddosify-square-icon-db.svg
+    keywords:
+    - ebpf
+    - helm
+    - kubernetes
+    - ddosify
+    - anteon
+    - alaz
+    - service map
+    - distributed tracing
+    - observability
+    - monitoring
+    kubeVersion: '>=1.16.0-0'
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/getanteon/anteon-helm-charts/releases/download/alaz-0.7.4/alaz-0.7.4.tgz
+    version: 0.7.4
+  - annotations:
       charts.openshift.io/name: Alaz is an open-source Ddosify eBPF agent that can
         inspect and collect Kubernetes (K8s) service traffic without the need for
         code instrumentation, sidecars, or service restarts. Alaz can create a Service
@@ -576,6 +614,31 @@ entries:
     urls:
     - https://github.com/ddosify/ddosify-helm-charts/releases/download/alaz-0.1.0/alaz-0.1.0.tgz
     version: 0.1.0
+  anteon:
+  - apiVersion: v2
+    appVersion: 2.3.3
+    created: "2024-05-01T08:38:18.835383577Z"
+    description: A Helm chart for Anteon Self Hosted
+    digest: 8a4762f886f1600d5791747a58e84a6113c812359db7baa5b3b6485ebe54f7ee
+    home: https://getanteon.com
+    keywords:
+    - ebpf
+    - helm
+    - kubernetes
+    - ddosify
+    - anteon
+    - alaz
+    - service map
+    - distributed tracing
+    - observability
+    - monitoring
+    - performance testing
+    - load testing
+    name: anteon
+    type: application
+    urls:
+    - https://github.com/getanteon/anteon-helm-charts/releases/download/anteon-1.7.6/anteon-1.7.6.tgz
+    version: 1.7.6
   ddosify:
   - apiVersion: v2
     appVersion: 2.3.3
@@ -885,4 +948,4 @@ entries:
     urls:
     - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.3.3/ddosify-1.3.3.tgz
     version: 1.3.3
-generated: "2024-04-19T13:36:37.544791731Z"
+generated: "2024-05-01T08:38:18.835701458Z"
