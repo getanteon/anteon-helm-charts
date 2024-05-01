@@ -10,7 +10,7 @@ There are two charts available in this repository:
 ## What is Anteon?
 
 <p align="center">
-<img src="assets/anteon_service_map.png" alt="Anteon Kubernetes Monitoring Service Map" />
+<img src="https://raw.githubusercontent.com/getanteon/anteon-helm-charts/master/assets/anteon_service_map.png" alt="Anteon Kubernetes Monitoring Service Map" />
 <i>Anteon automatically generates Service Map of your K8s cluster without code instrumentation or sidecars with eBPF. So you can easily find the bottlenecks in your system. Red lines indicate the high latency between services.</i>
 </p>
 
