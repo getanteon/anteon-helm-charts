@@ -12,7 +12,7 @@ resources:
     cpu: 500m
     memory: 400Mi
 
-image: ddosify/alaz:v0.7.3
+image: ddosify/alaz:v0.8.0
 imagePullPolicy: IfNotPresent
 containerPort: 8181
 podAnnotations: {}
@@ -20,8 +20,13 @@ podAnnotations: {}
 # enable prometheus node exporter metrics (cpu, memory, network, disk, etc.)
 metricsEnabled: true
 
-# enable eBPF for k8s network data to create a service map
-serviceMapEnabled: true
+# enable tracing (service map and distributed tracing) using eBPF
+tracingEnabled: true
 
-# enable distributed tracing using eBPF
-distTracingEnabled: true
+# enable logs
+logsEnabled: false
+
+# exclude namespaces from tracing, metrics and logs. 
+# Regex pattern to exclude namespaces.
+# Example: "^anteon.*" 
+excludedNamespaces: ""

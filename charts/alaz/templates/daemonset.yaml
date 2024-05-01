@@ -21,16 +21,18 @@ spec:
       hostPID: true
       containers:
       - env:
+        - name: TRACING_ENABLED
+          value: "{{ .Values.tracingEnabled }}"
         - name: METRICS_ENABLED
           value: "{{ .Values.metricsEnabled }}"
-        - name: SERVICE_MAP_ENABLED
-          value: "{{ .Values.serviceMapEnabled }}"
-        - name: DIST_TRACING_ENABLED
-          value: "{{ .Values.distTracingEnabled }}"
+        - name: LOGS_ENABLED
+          value: "{{ .Values.logsEnabled }}"
         - name: BACKEND_HOST
           value: {{ .Values.backendHost }}
         - name: LOG_LEVEL
           value: "{{ .Values.logLevel }}"
+        - name: EXCLUDE_NAMESPACES
+          value: "{{ .Values.excludedNamespaces }}"
         - name: MONITORING_ID
           value: {{ .Values.monitoringID }}
         - name: NODE_NAME

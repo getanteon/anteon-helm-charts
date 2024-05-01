@@ -42,7 +42,8 @@ The following table lists the configurable parameters of the Alaz chart and thei
 | `containerPort` | Container port for debugging and profiling Alaz | int | `8181` |
 | `podAnnotations` | Annotations to add to the pod | object | `{}` |
 | `metricsEnabled` | Enable prometheus node exporter metrics (cpu, memory, network, disk, etc.) | bool | `true` |
-| `serviceMapEnabled` | Enable service map for K8s network traffic using eBPF | bool | `true` |
-| `distTracingEnabled` | Enable distributed tracing using eBPF | bool | `true` |
+| `tracingEnabled` | Enable tracing (service map and distributed tracing) using eBPF | bool | `true` |
+| `logsEnabled` | Enable logging | bool | `false` |
+| `excludedNamespaces` | Namespaces to exclude from monitoring with regex format. For example: `"^anteon.*"` to exclude all namespaces starting with "anteon" | string | `""` |
 
 You can override these default values by creating a `values.yaml` file and specifying your own values or using the `--set` flag during installation.
