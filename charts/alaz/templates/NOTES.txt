@@ -1,5 +1,5 @@
-This is a Helm Chart for the Alaz - Ddosify eBPF Agent
+This is a Helm Chart for the Alaz - Anteon eBPF Agent
 
-Alaz is an open-source Ddosify eBPF agent that can inspect and collect Kubernetes (K8s) service traffic without the need for code instrumentation, sidecars, or service restarts. This is possible due to its use of eBPF technology. Alaz can create a Service Map that helps identify golden signals and problems like high latencies, 5xx errors, zombie services, SQL queries. Additionally, it can gather system information and resources via the Prometheus Node Exporter, which is readily available on the agent.
+Alaz is an open-source Anteon eBPF agent that can inspect and collect Kubernetes (K8s) service traffic without the need for code instrumentation, sidecars, or service restarts. This is possible due to its use of eBPF technology. Alaz can create a Service Map that helps identify golden signals and problems like high latencies, 5xx errors, zombie services, SQL queries. Additionally, it can gather system information and resources via the Prometheus Node Exporter, which is readily available on the agent.
 
-If you like Alaz, please give us a star 🌟 on GitHub: https://github.com/ddosify/alaz
+If you like Alaz, please give us a star 🌟 on GitHub: https://github.com/getanteon/alaz

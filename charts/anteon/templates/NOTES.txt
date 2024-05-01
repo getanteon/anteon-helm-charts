@@ -1,0 +1,19 @@
+This is a Helm Chart for the Anteon Self-Hosted Kubernetes Monitoring and Performance Testing Tool.
+
+Anteon is an open-source Kubernetes Monitoring and Performance Testing tool with Self-hosted and SaaS options. It uses eBPF technology to collect metrics from the Kubernetes cluster, so you do not need to change your code, restart the services, or add any sidecars to your services.
+
+Check out the Anteon GitHub repository (https://github.com/getanteon/anteon) for more information.
+
+To access the Anteon UI, you need to forward the nginx service port to a local port on your machine. You can do this by running the following command:
+
+1. Forward the nginx service port to a local port (8014):
+
+LOCAL_PORT=8014
+kubectl port-forward --namespace anteon service/nginx-service $LOCAL_PORT:80
+
+2. Access the Application:
+Visit http://localhost:8014 in your browser to see the application running.
+
+3. To stop the port forwarding command or terminate the session, press Ctrl+C in your terminal.
+
+If you like Anteon, please give us a star 🌟 on GitHub: https://github.com/getanteon/anteon

@@ -5,7 +5,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: ddosify.local
+    - host: anteon.local
       paths:
         - path: /
           pathType: Prefix
@@ -67,7 +67,7 @@ images:
   alazBackend: ddosify/selfhosted_alaz_backend:1.0.6
   backend: ddosify/selfhosted_backend:2.6.11
   frontend: ddosify/selfhosted_frontend:2.7.4
-  hammer: ddosify/selfhosted_hammer:1.4.2
+  hammer: ddosify/selfhosted_hammer:1.4.3
   hammermanager: ddosify/selfhosted_hammermanager:1.2.4
   influxdb: influxdb:2.6.1-alpine
   nginx: nginx:1.25.4-alpine
