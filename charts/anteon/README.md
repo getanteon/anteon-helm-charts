@@ -105,11 +105,11 @@ The following table lists the configurable parameters of the Anteon chart and th
 | `pvc.postgres.size` | Size of the persistent volume claim for Postgres. | string | `5Gi` |
 | `pvc.seaweedfs.storageClassName` | Storage class name for SeaweedFS persistent volume claim. | string | `""` |
 | `pvc.seaweedfs.size` | Size of the persistent volume claim for SeaweedFS. | string | `30Gi` |
-| `images.alazBackend` | Alaz Backend Docker image | string | `anteon/selfhosted_alaz_backend:x.y.z` |
-| `images.backend` | Backend Docker image | string | `anteon/selfhosted_backend:x.y.z` |
-| `images.frontend` | Frontend Docker image | string | `anteon/selfhosted_frontend:x.y.z` |
-| `images.hammer` | Hammer Docker image | string | `anteon/selfhosted_hammer:x.y.z` |
-| `images.hammermanager` | Hammer Manager Docker image | string | `anteon/selfhosted_hammermanager:x.y.z` |
+| `images.alazBackend` | Alaz Backend Docker image | string | `ddosify/selfhosted_alaz_backend:x.y.z` |
+| `images.backend` | Backend Docker image | string | `ddosify/selfhosted_backend:x.y.z` |
+| `images.frontend` | Frontend Docker image | string | `ddosify/selfhosted_frontend:x.y.z` |
+| `images.hammer` | Hammer Docker image | string | `ddosify/selfhosted_hammer:x.y.z` |
+| `images.hammermanager` | Hammer Manager Docker image | string | `ddosify/selfhosted_hammermanager:x.y.z` |
 | `images.influxdb` | InfluxDB Docker image | string | `influxdb:x.y.z-alpine` |
 | `images.nginx` | Nginx Docker image | string | `nginx:x.y.z-alpine` |
 | `images.postgres` | Postgres Docker image | string | `postgres:x.y-alpine` |

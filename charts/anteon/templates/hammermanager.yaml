@@ -25,7 +25,7 @@ spec:
           envFrom:
             - configMapRef:
                 name: env
-          image: anteon/selfhosted_hammermanager:1.2.4
+          image: {{ .Values.images.hammermanager }}
           imagePullPolicy: IfNotPresent
           name: hammermanager
           ports:
@@ -77,7 +77,7 @@ spec:
           envFrom:
             - configMapRef:
                 name: env
-          image: anteon/selfhosted_hammermanager:1.2.4
+          image: {{ .Values.images.hammermanager }}
           imagePullPolicy: IfNotPresent
           name: hammermanager-celery-beat
           resources: {}
@@ -111,7 +111,7 @@ spec:
           envFrom:
             - configMapRef:
                 name: env
-          image: anteon/selfhosted_hammermanager:1.2.4
+          image: {{ .Values.images.hammermanager }}
           imagePullPolicy: IfNotPresent
           name: hammermanager-celery-worker
           resources: {}

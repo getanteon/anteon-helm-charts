@@ -12,7 +12,7 @@ resources:
     cpu: 500m
     memory: 400Mi
 
-image: anteon/alaz:v0.7.3
+image: ddosify/alaz:v0.7.3
 imagePullPolicy: IfNotPresent
 containerPort: 8181
 podAnnotations: {}

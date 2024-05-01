@@ -63,7 +63,7 @@
       "image": {
         "type": "string",
         "description": "Alaz Docker image",
-        "default": "anteon/alaz:v0.1.4"
+        "default": "ddosify/alaz:v0.1.4"
       },
       "imagePullPolicy": {
         "type": "string",
