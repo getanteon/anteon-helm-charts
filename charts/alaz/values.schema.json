@@ -87,17 +87,22 @@
         "description": "Enable Prometheus node exporter metrics",
         "default": true
       },
-      "serviceMapEnabled": {
+      "tracingEnabled": {
         "type": "boolean",
-        "description": "Enable service map for K8s network traffic using eBPF",
+        "description": "Enable tracing (service map and distributed tracing) using eBPF",
         "default": true
       },
-      "distTracingEnabled": {
+      "logsEnabled": {
         "type": "boolean",
-        "description": "Enable distributed tracing using eBPF",
-        "default": true
+        "description": "Enable logs collection",
+        "default": false
+      },
+      "excludedNamespaces": {
+        "type": "string",
+        "description": "Exclude namespaces from tracing, metrics and logs with regex pattern. Example: Example: '^anteon.*'",
+        "default": ""
       }
     },
-    "required": ["namespace", "backendHost", "monitoringID", "logLevel", "resources", "image", "imagePullPolicy", "containerPort", "metricsEnabled", "serviceMapEnabled", "distTracingEnabled"]
+    "required": ["namespace", "backendHost", "monitoringID", "logLevel", "resources", "image", "imagePullPolicy", "containerPort", "metricsEnabled", "tracingEnabled", "logsEnabled"]
   }
   
