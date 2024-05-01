@@ -63,17 +63,27 @@ pvc:
     storageClassName: ""
     size: 30Gi
 
+backend:
+  # The defaultMonitoringID is used to create a default cluster with defaultClusterName with the specified monitoring ID.
+  # If the defaultMonitoringID is not provided, no default cluster will be created.
+  # defaultMonitoringID format is uuid
+  defaultMonitoringID: ""
+  
+  # The defaultClusterName is used to create a cluster with the specified name after the self-hosted setup.
+  # If the defaultMonitoringID is not provided, no default cluster will be created.
+  defaultClusterName: "default-cluster"
+
 images:
-  alazBackend: ddosify/selfhosted_alaz_backend:1.0.6
-  backend: ddosify/selfhosted_backend:2.6.11
-  frontend: ddosify/selfhosted_frontend:2.7.4
+  alazBackend: ddosify/selfhosted_alaz_backend:2.0.0
+  backend: ddosify/selfhosted_backend:3.0.0
+  frontend: ddosify/selfhosted_frontend:3.0.1
   hammer: ddosify/selfhosted_hammer:1.4.3
-  hammermanager: ddosify/selfhosted_hammermanager:1.2.4
+  hammermanager: ddosify/selfhosted_hammermanager:2.0.0
   influxdb: influxdb:2.6.1-alpine
   nginx: nginx:1.25.4-alpine
   postgres: postgres:13.6-alpine
   prometheus: prom/prometheus:v2.37.9
   rabbitmq: rabbitmq:3.13.0-alpine
   redis: redis:7.2.4-alpine
-  seaweedfs: chrislusf/seaweedfs:3.56
+  seaweedfs: chrislusf/seaweedfs:3.64
   initContainerBusybox: busybox:1.36.1

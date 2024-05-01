@@ -11,6 +11,10 @@ data:
   POSTGRES_PORT: {{ .Values.postgres.port | quote }}
   POSTGRES_USER: {{ .Values.postgres.username | quote }}
   POSTGRES_PASSWORD: {{ .Values.postgres.password | quote }}
+  {{- if .Values.backend.defaultMonitoringID }}
+  DEFAULT_CLUSTER_NAME: {{ .Values.backend.defaultClusterName }}
+  DEFAULT_MONITORING_ID: {{ .Values.backend.defaultMonitoringID }}
+  {{- end }}
 kind: ConfigMap
 metadata:
   labels:

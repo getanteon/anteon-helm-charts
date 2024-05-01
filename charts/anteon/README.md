@@ -105,6 +105,8 @@ The following table lists the configurable parameters of the Anteon chart and th
 | `pvc.postgres.size` | Size of the persistent volume claim for Postgres. | string | `5Gi` |
 | `pvc.seaweedfs.storageClassName` | Storage class name for SeaweedFS persistent volume claim. | string | `""` |
 | `pvc.seaweedfs.size` | Size of the persistent volume claim for SeaweedFS. | string | `30Gi` |
+| `backend.defaultMonitoringID` | Default monitoring ID (uuid) for the Kubernetes cluster. [More](#default-kubernetes-cluster-creation---monitoring-id-optional). | string | `""` |
+| `backend.defaultClusterName` | Default cluster name for the Kubernetes cluster. [More](#default-kubernetes-cluster-creation---monitoring-id-optional). | string | `"default-cluster"` |
 | `images.alazBackend` | Alaz Backend Docker image | string | `ddosify/selfhosted_alaz_backend:x.y.z` |
 | `images.backend` | Backend Docker image | string | `ddosify/selfhosted_backend:x.y.z` |
 | `images.frontend` | Frontend Docker image | string | `ddosify/selfhosted_frontend:x.y.z` |
@@ -200,6 +202,16 @@ Then, you can install the chart with the custom values file as follows:
 ```bash
 helm upgrade --install --namespace anteon anteon-selfhosted anteon/anteon --values values-storageclass.yaml --wait
 ```
+
+## Default Kubernetes Cluster Creation - Monitoring ID (Optional):
+
+If you want to create a default Kubernetes cluster in the Anteon UI, you can set the `backend.defaultMonitoringID` and `backend.defaultClusterName` parameters in the Helm command.
+
+```bash
+helm upgrade --install --namespace anteon anteon-selfhosted anteon/anteon --set backend.defaultMonitoringID=53f8601a-37cb-4f85-abd3-9b563217e593 --set backend.defaultClusterName="default-cluster" --wait
+```
+
+In this example, we are creating a default Kubernetes cluster with the monitoring ID `53f8601a-37cb-4f85-abd3-9b563217e593` and the cluster name `default-cluster`. You must change the values according to your setup. You should set a uuid for the `backend.defaultMonitoringID` parameter. This creates only one default cluster. If you want to create more clusters, you can do it from the Anteon UI.
 
 ## Cleanup
 
