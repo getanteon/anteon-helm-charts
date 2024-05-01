@@ -76,7 +76,7 @@ backend:
 images:
   alazBackend: ddosify/selfhosted_alaz_backend:2.0.0
   backend: ddosify/selfhosted_backend:3.0.0
-  frontend: ddosify/selfhosted_frontend:3.0.1
+  frontend: ddosify/selfhosted_frontend:3.0.2
   hammer: ddosify/selfhosted_hammer:1.4.3
   hammermanager: ddosify/selfhosted_hammermanager:2.0.0
   influxdb: influxdb:2.6.1-alpine
