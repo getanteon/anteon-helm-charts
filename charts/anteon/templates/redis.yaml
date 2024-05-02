@@ -5,7 +5,7 @@ metadata:
     service: redis-backend
   name: redis-backend
 spec:
-  replicas: 1
+  replicas: {{ .Values.redisBackend.replicas }}
   selector:
     matchLabels:
       service: redis-backend
@@ -23,6 +23,7 @@ spec:
       restartPolicy: Always
 status: {}
 ---
+{{- if ne (int .Values.redisBackend.replicas) 0 -}}
 apiVersion: v1
 kind: Service
 metadata:
@@ -39,6 +40,7 @@ spec:
 status:
   loadBalancer: {}
 ---
+{{- end -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -46,7 +48,7 @@ metadata:
     service: redis-alaz-backend
   name: redis-alaz-backend
 spec:
-  replicas: 1
+  replicas: {{ .Values.redisAlazBackend.replicas }}
   selector:
     matchLabels:
       service: redis-alaz-backend
@@ -64,6 +66,7 @@ spec:
       restartPolicy: Always
 status: {}
 ---
+{{- if ne (int .Values.redisAlazBackend.replicas) 0 -}}
 apiVersion: v1
 kind: Service
 metadata:
@@ -79,3 +82,4 @@ spec:
     service: redis-alaz-backend
 status:
   loadBalancer: {}
+{{- end -}}

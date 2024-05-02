@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: rabbitmq-job
-  name: rabbitmq-job
+    service: rabbitmq
+  name: rabbitmq
 spec:
-  replicas: 1
+  replicas: {{ .Values.rabbitmq.replicas }}
   selector:
     matchLabels:
-      service: rabbitmq-job
+      service: rabbitmq
   strategy: {}
   template:
     metadata:
       labels:
-        service: rabbitmq-job
+        service: rabbitmq
     spec:
       containers:
-        - name: rabbitmq-job
+        - name: rabbitmq
           image: {{ .Values.images.rabbitmq }}
           ports:
             - containerPort: 5672
@@ -24,138 +24,20 @@ spec:
       restartPolicy: Always
 status: {}
 ---
+{{- if ne (int .Values.rabbitmq.replicas) 0 -}}
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    service: rabbitmq-job
-  name: rabbitmq-job
+    service: rabbitmq
+  name: rabbitmq
 spec:
   ports:
     - name: "5672"
       port: 5672
       targetPort: 5672
   selector:
-    service: rabbitmq-job
+    service: rabbitmq
 status:
   loadBalancer: {}
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  labels:
-    service: rabbitmq-celery
-  name: rabbitmq-celery
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      service: rabbitmq-celery
-  strategy: {}
-  template:
-    metadata:
-      labels:
-        service: rabbitmq-celery
-    spec:
-      containers:
-        - name: rabbitmq-celery
-          image: {{ .Values.images.rabbitmq }}
-          resources: {}
-      restartPolicy: Always
-status: {}
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    service: rabbitmq-celery
-  name: rabbitmq-celery
-spec:
-  ports:
-    - name: "5672"
-      port: 5672
-      targetPort: 5672
-  selector:
-    service: rabbitmq-celery
-status:
-  loadBalancer: {}
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  labels:
-    service: rabbitmq-celery-backend
-  name: rabbitmq-celery-backend
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      service: rabbitmq-celery-backend
-  strategy: {}
-  template:
-    metadata:
-      labels:
-        service: rabbitmq-celery-backend
-    spec:
-      containers:
-        - name: rabbitmq-celery-backend
-          image: {{ .Values.images.rabbitmq }}
-          resources: {}
-      restartPolicy: Always
-status: {}
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    service: rabbitmq-celery-backend
-  name: rabbitmq-celery-backend
-spec:
-  ports:
-    - name: "5672"
-      port: 5672
-      targetPort: 5672
-  selector:
-    service: rabbitmq-celery-backend
-status:
-  loadBalancer: {}
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  labels:
-    service: rabbitmq-celery-alaz-backend
-  name: rabbitmq-celery-alaz-backend
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      service: rabbitmq-celery-alaz-backend
-  strategy: {}
-  template:
-    metadata:
-      labels:
-        service: rabbitmq-celery-alaz-backend
-    spec:
-      containers:
-        - name: rabbitmq-celery-alaz-backend
-          image: {{ .Values.images.rabbitmq }}
-          resources: {}
-      restartPolicy: Always
-status: {}
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    service: rabbitmq-celery-alaz-backend
-  name: rabbitmq-celery-alaz-backend
-spec:
-  ports:
-    - name: "5672"
-      port: 5672
-      targetPort: 5672
-  selector:
-    service: rabbitmq-celery-alaz-backend
-status:
-  loadBalancer: {}
+{{- end -}}

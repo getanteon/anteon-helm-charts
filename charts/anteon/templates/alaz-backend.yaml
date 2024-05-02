@@ -5,7 +5,7 @@ metadata:
     service: alaz-backend
   name: alaz-backend
 spec:
-  replicas: 3
+  replicas: {{ .Values.alazBackend.replicas }}
   selector:
     matchLabels:
       service: alaz-backend
@@ -18,7 +18,7 @@ spec:
       initContainers:
         - name: check-dependencies
           image: {{ .Values.images.initContainerBusybox }}
-          command: ['sh', '-c', 'until nc -z postgres {{ .Values.postgres.port }} && nc -z backend 8008; do echo waiting for dependencies; sleep 2; done;']
+          command: ['sh', '-c', 'until nc -z -w4 postgres {{ .Values.postgres.port }} && nc -z backend 8008; do echo waiting for dependencies; sleep 1; done;']
       containers:
         - args:
             - /workspace/start_scripts/start_app_onprem.sh
@@ -55,7 +55,7 @@ metadata:
     service: alaz-backend-celery-beat
   name: alaz-backend-celery-beat
 spec:
-  replicas: 1
+  replicas: {{ .Values.alazBackend.celeryBeatReplicas }}
   selector:
     matchLabels:
       service: alaz-backend-celery-beat
@@ -68,7 +68,7 @@ spec:
       initContainers:
         - name: check-dependencies
           image: {{ .Values.images.initContainerBusybox }}
-          command: ['sh', '-c', 'until nc -z alaz-backend 8008 && nc -z rabbitmq-celery-alaz-backend 5672; do echo waiting for dependencies; sleep 2; done;']
+          command: ['sh', '-c', 'until nc -z -w4 alaz-backend 8008 && nc -z rabbitmq 5672; do echo waiting for dependencies; sleep 1; done;']
       containers:
         - args:
             - /workspace/start_scripts/start_celery_beat.sh
@@ -89,7 +89,7 @@ metadata:
     service: alaz-backend-celery-worker-1
   name: alaz-backend-celery-worker-1
 spec:
-  replicas: 1
+  replicas: {{ .Values.alazBackend.celeryWorkerReplicas }}
   selector:
     matchLabels:
       service: alaz-backend-celery-worker-1
@@ -102,7 +102,7 @@ spec:
       initContainers:
         - name: check-dependencies
           image: {{ .Values.images.initContainerBusybox }}
-          command: ['sh', '-c', 'until nc -z alaz-backend 8008 && nc -z rabbitmq-celery-alaz-backend 5672; do echo waiting for dependencies; sleep 2; done;']
+          command: ['sh', '-c', 'until nc -z -w4 alaz-backend 8008 && nc -z rabbitmq 5672; do echo waiting for dependencies; sleep 1; done;']
       containers:
         - args:
             - /workspace/start_scripts/start_celery_worker.sh
@@ -111,40 +111,6 @@ spec:
                 name: env
           image: {{ .Values.images.alazBackend }}
           name: alaz-backend-celery-worker-1
-          imagePullPolicy: IfNotPresent
-          resources: {}
-      restartPolicy: Always
-status: {}
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  labels:
-    service: alaz-backend-celery-worker-2
-  name: alaz-backend-celery-worker-2
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      service: alaz-backend-celery-worker-2
-  strategy: {}
-  template:
-    metadata:
-      labels:
-        service: alaz-backend-celery-worker-2
-    spec:
-      initContainers:
-        - name: check-dependencies
-          image: {{ .Values.images.initContainerBusybox }}
-          command: ['sh', '-c', 'until nc -z alaz-backend 8008 && nc -z rabbitmq-celery-alaz-backend 5672; do echo waiting for dependencies; sleep 2; done;']
-      containers:
-        - args:
-            - /workspace/start_scripts/start_celery_worker.sh
-          envFrom:
-            - configMapRef:
-                name: env
-          image: {{ .Values.images.alazBackend }}
-          name: alaz-backend-celery-worker-2
           imagePullPolicy: IfNotPresent
           resources: {}
       restartPolicy: Always

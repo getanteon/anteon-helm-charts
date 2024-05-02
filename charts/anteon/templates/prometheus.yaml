@@ -27,7 +27,7 @@ metadata:
   labels:
     app: prometheus
 spec:
-  replicas: 1
+  replicas: {{ .Values.prometheus.replicas }}
   selector:
     matchLabels:
       app: prometheus
@@ -60,6 +60,7 @@ spec:
         - name: prometheus-storage
           emptyDir: {}
 ---
+{{- if ne (int .Values.prometheus.replicas) 0 -}}
 apiVersion: v1
 kind: Service
 metadata:
@@ -74,3 +75,4 @@ spec:
       nodePort: 30090
   selector:
     app: prometheus
+{{- end -}}

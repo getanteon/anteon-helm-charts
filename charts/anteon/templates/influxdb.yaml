@@ -18,7 +18,7 @@ metadata:
     service: influxdb
   name: influxdb
 spec:
-  replicas: 1
+  replicas: {{ .Values.influxDB.replicas }}
   selector:
     matchLabels:
       service: influxdb
@@ -54,6 +54,7 @@ spec:
             defaultMode: 0777
 status: {}
 ---
+{{- if ne (int .Values.influxDB.replicas) 0 -}}
 apiVersion: v1
 kind: Service
 metadata:
@@ -84,4 +85,5 @@ spec:
       storage: {{ .Values.pvc.influxDB.size | quote }}
   storageClassName: {{ .Values.pvc.influxDB.storageClassName }}
 status: {}
+{{- end -}}
 {{- end -}}

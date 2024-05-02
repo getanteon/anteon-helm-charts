@@ -14,12 +14,11 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-hammerReplicas: 1
-
 service:
   name: nginx-service
   port: 80
   nodePort: 30000
+  replicas: 1
 
 influxDB:
   # If you set external to true, this means that you will manage the influxdb server yourself
@@ -38,6 +37,7 @@ influxDB:
   password: "ChangeMe" # only used if external is false
   initBuckerName: "hammerBucket"
   initMode: "setup"
+  replicas: 1
 
 postgres:
   # If you set external to true, this means that you will manage the postgres server yourself
@@ -51,6 +51,7 @@ postgres:
   port: 5432
   username: "postgres"
   password: "ChangeMe"
+  replicas: 1
 
 pvc:
   influxDB:
@@ -63,7 +64,15 @@ pvc:
     storageClassName: ""
     size: 30Gi
 
+alazBackend:
+  replicas: 3
+  celeryBeatReplicas: 1
+  celeryWorkerReplicas: 2
+
 backend:
+  replicas: 3
+  celeryBeatReplicas: 1
+  celeryWorkerReplicas: 1
   # The defaultMonitoringID is used to create a default cluster with defaultClusterName with the specified monitoring ID.
   # If the defaultMonitoringID is not provided, no default cluster will be created.
   # defaultMonitoringID format is uuid
@@ -73,17 +82,46 @@ backend:
   # If the defaultMonitoringID is not provided, no default cluster will be created.
   defaultClusterName: "default-cluster"
 
+frontend:
+  replicas: 1
+
+hammer:
+  replicas: 1
+
+hammerdebug:
+  replicas: 1
+
+hammermanager:
+  replicas: 1
+  celeryBeatreplicas: 1
+  celeryWorkerreplicas: 1
+
+prometheus:
+  replicas: 1
+
+rabbitmq:
+  replicas: 1
+
+redisBackend:
+  replicas: 1
+
+redisAlazBackend:
+  replicas: 1
+
+seaweedfs:
+  replicas: 1
+
 images:
-  alazBackend: ddosify/selfhosted_alaz_backend:2.0.0
-  backend: ddosify/selfhosted_backend:3.0.0
-  frontend: ddosify/selfhosted_frontend:3.0.2
-  hammer: ddosify/selfhosted_hammer:1.4.3
-  hammermanager: ddosify/selfhosted_hammermanager:2.0.0
+  alazBackend: ddosify/selfhosted_alaz_backend:2.0.1
+  backend: ddosify/selfhosted_backend:3.0.1
+  frontend: ddosify/selfhosted_frontend:3.0.3
+  hammer: ddosify/selfhosted_hammer:2.0.0
+  hammermanager: ddosify/selfhosted_hammermanager:2.0.1
   influxdb: influxdb:2.6.1-alpine
-  nginx: nginx:1.25.4-alpine
-  postgres: postgres:13.6-alpine
+  nginx: nginx:1.25.5-alpine
+  postgres: postgres:16.2-alpine
   prometheus: prom/prometheus:v2.37.9
-  rabbitmq: rabbitmq:3.13.0-alpine
+  rabbitmq: rabbitmq:3.13.1-alpine
   redis: redis:7.2.4-alpine
   seaweedfs: chrislusf/seaweedfs:3.64
   initContainerBusybox: busybox:1.36.1

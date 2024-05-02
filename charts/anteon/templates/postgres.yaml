@@ -16,7 +16,7 @@ metadata:
     service: postgres
   name: postgres
 spec:
-  replicas: 1
+  replicas: {{ .Values.postgres.replicas }}
   selector:
     matchLabels:
       service: postgres
@@ -55,6 +55,7 @@ spec:
             name: init-db-script
 status: {}
 ---
+{{- if ne (int .Values.postgres.replicas) 0 -}}
 apiVersion: v1
 kind: Service
 metadata:
@@ -85,4 +86,5 @@ spec:
       storage: {{ .Values.pvc.postgres.size | quote }}
   storageClassName: {{ .Values.pvc.postgres.storageClassName }}
 status: {}
+{{- end -}}
 {{- end -}}

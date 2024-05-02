@@ -87,21 +87,25 @@ The following table lists the configurable parameters of the Anteon chart and th
 | `ingress.annotations` | Annotations for the ingress, can include multiple comments for configuration. | object | `{}` |
 | `ingress.hosts` | List of hosts for ingress, each with specific paths and pathTypes. | array | `[{"host": "anteon.local", "paths": [{"path": "/", "pathType": "Prefix"}]}]` |
 | `ingress.tls` | TLS configuration for ingress. Uncomment and configure as needed. | array | `[]` |
-| `hammerReplicas` | Number of replicas for the hammer (load generator) service. If you want to increase the engine size for performance testing, increase this value. | integer | `1` |
+| `hammer.replicas` | Number of replicas for the hammer (load generator) service. If you want to increase the engine size for performance testing, increase this value. | integer | `1` |
+| `hammerdebug.replicas` | Number of replicas for the hammer debug service. | integer | `1` |
 | `service.name` | The name of the outside service (nginx). You can forward the traffic with `kubectl port-forward` command to access the Anteon dashboard. | string | `"nginx-service"` |
 | `service.port` | Port number the outside service (nginx) operates on. | integer | `80` |
 | `service.nodePort` | Node port number for the outside service (nginx). | integer | `30000` |
+| `service.replicas` | Number of replicas for the outside service (nginx). | integer | `1` |
 | `influxDB.external` | Determines if InfluxDB is externally managed. | boolean | `false` |
 | `influxDB.url` | URL for InfluxDB, required if `external` is `true`. | string | `"http://influxdb:8086"` |
 | `influxDB.apiToken` | API token for InfluxDB, required if `external` is `true`. | string | `"5yR2qD5zCqqvjwCKKXojnPviQaB87w9JcGweVChXkhWRL"` |
 | `influxDB.org` | Organization for InfluxDB, required if `external` is `true`. | string | `"anteon"` |
 | `influxDB.username` | InfluxDB username, used only if `external` is `false`. | string | `"admin"` |
 | `influxDB.password` | InfluxDB password, used only if `external` is `false`. | string | `"ChangeMe"` |
+| `influxDB.replicas` | Number of replicas for InfluxDB. | integer | `1` |
 | `postgres.external` | Determines if the Postgres server is externally managed. | boolean | `false` |
 | `postgres.host` | Host for Postgres, required if `external` is `true`. | string | `"postgres"` |
 | `postgres.port` | Port for Postgres, required if `external` is `true`. | integer | `5432` |
 | `postgres.username` | Username for Postgres, required if `external` is `true`. | string | `"postgres"` |
 | `postgres.password` | Password for Postgres, required if `external` is `true`. | string | `"ChangeMe"` |
+| `postgres.replicas` | Number of replicas for Postgres. | integer | `1` |
 | `pvc.influxDB.storageClassName` | Storage class name for InfluxDB persistent volume claim. | string | `""` |
 | `pvc.influxDB.size` | Size of the persistent volume claim for InfluxDB. | string | `5Gi` |
 | `pvc.postgres.storageClassName` | Storage class name for Postgres persistent volume claim. | string | `""` |
@@ -123,6 +127,22 @@ The following table lists the configurable parameters of the Anteon chart and th
 | `images.redis` | Redis Docker image | string | `redis:x.y.z-alpine` |
 | `images.seaweedfs` | SeaweedFS Docker image | string | `chrislusf/seaweedfs:x.y` |
 | `images.initContainerBusybox` | Init Container Busybox Docker image | string | `busybox:x.y.z` |
+| `alazbackend.replicas` | Number of replicas for the Alaz Backend service. | integer | `3` |
+| `alazbackend.celeryBeatReplicas` | Number of replicas for the Alaz Backend Celery Beat service. | integer | `1` |
+| `alazbackend.celeryWorkerReplicas` | Number of replicas for the Alaz Backend Celery Worker service. | integer | `2` |
+| `backend.replicas` | Number of replicas for the Backend service. | integer | `3` |
+| `backend.celeryBeatReplicas` | Number of replicas for the Backend Celery Beat service. | integer | `1` |
+| `backend.celeryWorkerReplicas` | Number of replicas for the Backend Celery Worker service. | integer | `1` |
+| `frontend.replicas` | Number of replicas for the Frontend service. | integer | `1` |
+| `hammermanager.replicas` | Number of replicas for the Hammer Manager service. | integer | `1` |
+| `hammermanager.celeryBeatReplicas` | Number of replicas for the Hammer Manager Celery Beat service. | integer | `1` |
+| `hammermanager.celeryWorkerReplicas` | Number of replicas for the Hammer Manager Celery Worker service. | integer | `1` |
+| `prometheus.replicas` | Number of replicas for the Prometheus service. | integer | `1` |
+| `rabbitmq.replicas` | Number of replicas for the RabbitMQ service. | integer | `1` |
+| `redisBackend.replicas` | Number of replicas for the Redis Backend service. | integer | `1` |
+| `redisAlazBackend.replicas` | Number of replicas for the Redis Alaz Backend service. | integer | `1` |
+| `seaweedfs.replicas` | Number of replicas for the SeaweedFS service. | integer | `1` |
+
 
 **Note:** The default versions of the `images.*` are placeholders. You can find the current versions of the images on the [values.yaml](./values.yaml) file.
 
@@ -137,7 +157,7 @@ helm repo update
 kubectl create namespace anteon
 
 ENGINE_COUNT=3
-helm upgrade --namespace anteon anteon-selfhosted anteon/anteon --set hammerReplicas=$ENGINE_COUNT --wait
+helm upgrade --namespace anteon anteon-selfhosted anteon/anteon --set hammer.replicas=$ENGINE_COUNT --wait
 ```
 
 ## External Database (Optional):

@@ -5,7 +5,7 @@ metadata:
     service: backend
   name: backend
 spec:
-  replicas: 3
+  replicas: {{ .Values.backend.replicas }}
   selector:
     matchLabels:
       service: backend
@@ -18,7 +18,7 @@ spec:
       initContainers:
         - name: check-dependencies
           image: {{ .Values.images.initContainerBusybox }}
-          command: ['sh', '-c', 'until nc -z postgres {{ .Values.postgres.port }}; do echo waiting for dependencies; sleep 2; done;']
+          command: ['sh', '-c', 'until nc -z -w4 postgres {{ .Values.postgres.port }}; do echo waiting for dependencies; sleep 1; done;']
       containers:
         - args:
             - /workspace/start_scripts/start_app_onprem.sh
@@ -55,7 +55,7 @@ metadata:
     service: backend-celery-beat
   name: backend-celery-beat
 spec:
-  replicas: 1
+  replicas: {{ .Values.backend.celeryBeatReplicas }}
   selector:
     matchLabels:
       service: backend-celery-beat
@@ -68,7 +68,7 @@ spec:
       initContainers:
         - name: check-dependencies
           image: {{ .Values.images.initContainerBusybox }}
-          command: ['sh', '-c', 'until nc -z backend 8008 && nc -z rabbitmq-celery-backend 5672; do echo waiting for dependencies; sleep 2; done;']
+          command: ['sh', '-c', 'until nc -z -w4 backend 8008 && nc -z rabbitmq 5672; do echo waiting for dependencies; sleep 1; done;']
       containers:
         - args:
             - /workspace/start_scripts/start_celery_beat.sh
@@ -89,7 +89,7 @@ metadata:
     service: backend-celery-worker
   name: backend-celery-worker
 spec:
-  replicas: 1
+  replicas: {{ .Values.backend.celeryWorkerReplicas }}
   selector:
     matchLabels:
       service: backend-celery-worker
@@ -102,7 +102,7 @@ spec:
       initContainers:
         - name: check-dependencies
           image: {{ .Values.images.initContainerBusybox }}
-          command: ['sh', '-c', 'until nc -z backend 8008 && nc -z rabbitmq-celery-backend 5672; do echo waiting for dependencies; sleep 2; done;']
+          command: ['sh', '-c', 'until nc -z -w4 backend 8008 && nc -z rabbitmq 5672; do echo waiting for dependencies; sleep 1; done;']
       containers:
         - args:
             - /workspace/start_scripts/start_celery_worker.sh

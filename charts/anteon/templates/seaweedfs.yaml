@@ -5,7 +5,7 @@ metadata:
     service: seaweedfs
   name: seaweedfs
 spec:
-  replicas: 1
+  replicas: {{ .Values.seaweedfs.replicas }}
   selector:
     matchLabels:
       service: seaweedfs
@@ -36,6 +36,7 @@ spec:
             claimName: seaweedfs-data
 status: {}
 ---
+{{- if ne (int .Values.seaweedfs.replicas) 0 -}}
 apiVersion: v1
 kind: Service
 metadata:
@@ -66,3 +67,4 @@ spec:
       storage: {{ .Values.pvc.seaweedfs.size | quote }}
   storageClassName: {{ .Values.pvc.seaweedfs.storageClassName }}
 status: {}
+{{- end -}}

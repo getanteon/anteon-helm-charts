@@ -5,7 +5,7 @@ metadata:
     service: hammerdebug
   name: hammerdebug
 spec:
-  replicas: 1
+  replicas: {{ .Values.hammerdebug.replicas }}
   selector:
     matchLabels:
       service: hammerdebug
@@ -19,7 +19,7 @@ spec:
       initContainers:
         - name: check-dependencies
           image: {{ .Values.images.initContainerBusybox }}
-          command: ['sh', '-c', 'until nc -z hammermanager 8001; do echo waiting for dependencies; sleep 2; done;']
+          command: ['sh', '-c', 'until nc -z -w4 hammermanager 8001; do echo waiting for dependencies; sleep 1; done;']
       containers:
         - env:
             - name: IS_DEBUG
