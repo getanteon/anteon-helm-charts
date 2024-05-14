@@ -18,7 +18,7 @@ spec:
       initContainers:
         - name: check-dependencies
           image: {{ .Values.images.initContainerBusybox }}
-          command: ['sh', '-c', 'until nc -z -w4 postgres {{ .Values.postgres.port }}; do echo waiting for dependencies; sleep 1; done;']
+          command: ['sh', '-c', 'until nc -z -w4 {{ .Values.postgres.host }} {{ .Values.postgres.port }}; do echo waiting for dependencies; sleep 1; done;']
       containers:
         - args:
             - /workspace/start_scripts/start_app.sh

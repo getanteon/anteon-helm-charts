@@ -24,4 +24,4 @@ Anteon is an [open-source](https://github.com/getanteon/anteon) Kubernetes Monit
 
 ## Communication
 
-You can join our [Discord Server](https://discord.gg/9KdnrSUZQg) for discussions, support, and community updates.
+You can join our [Discord Server](https://discord.com/invite/9KdnrSUZQg) for discussions, support, and community updates.
