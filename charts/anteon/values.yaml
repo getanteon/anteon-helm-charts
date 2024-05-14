@@ -93,8 +93,8 @@ hammerdebug:
 
 hammermanager:
   replicas: 1
-  celeryBeatreplicas: 1
-  celeryWorkerreplicas: 1
+  celeryBeatReplicas: 1
+  celeryWorkerReplicas: 1
 
 prometheus:
   replicas: 1
