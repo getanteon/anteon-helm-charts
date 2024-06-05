@@ -12,7 +12,7 @@ resources:
     cpu: 500m
     memory: 400Mi
 
-image: ddosify/alaz:v0.9.0
+image: ddosify/alaz:v0.9.1
 imagePullPolicy: IfNotPresent
 containerPort: 8181
 podAnnotations: {}
