@@ -1,4 +1,4 @@
-🐝 Anteon is an open-source tool for Kubernetes monitoring and performance testing. It uses eBPF technology to gather metrics without needing code changes, service restarts, or adding sidecars. For more information and options, visit the Anteon GitHub repository: https://github.com/getanteon/anteon
+Anteon is an open-source tool for Kubernetes monitoring and performance testing. It uses eBPF technology to gather metrics without needing code changes, service restarts, or adding sidecars. For more information and options, visit the Anteon GitHub repository: https://github.com/getanteon/anteon
 
 Quick Start Guide:
 
@@ -12,3 +12,4 @@ kubectl port-forward --namespace anteon service/nginx-service $LOCAL_PORT:80
 Open a browser and go to: http://localhost:8014 to view the application.
 
 🌟 If you like Anteon, please give us a star 🌟 on GitHub: https://github.com/getanteon/anteon
+🌟
