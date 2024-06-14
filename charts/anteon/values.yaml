@@ -113,8 +113,8 @@ seaweedfs:
 
 images:
   alazBackend: ddosify/selfhosted_alaz_backend:2.2.0
-  backend: ddosify/selfhosted_backend:3.2.2
-  frontend: ddosify/selfhosted_frontend:3.2.1
+  backend: ddosify/selfhosted_backend:3.2.3
+  frontend: ddosify/selfhosted_frontend:3.2.2
   hammer: ddosify/selfhosted_hammer:2.0.0
   hammermanager: ddosify/selfhosted_hammermanager:2.0.1
   influxdb: influxdb:2.6.1-alpine
