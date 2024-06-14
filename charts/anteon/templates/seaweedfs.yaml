@@ -59,6 +59,8 @@ metadata:
   labels:
     service: seaweedfs-data
   name: seaweedfs-data
+  annotations:
+    "helm.sh/hook": "pre-install"
 spec:
   accessModes:
     - ReadWriteOnce

@@ -78,6 +78,8 @@ metadata:
   labels:
     service: postgres-data
   name: postgres-data
+  annotations:
+    "helm.sh/hook": "pre-install"
 spec:
   accessModes:
     - ReadWriteOnce

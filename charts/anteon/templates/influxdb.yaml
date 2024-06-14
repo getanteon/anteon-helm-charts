@@ -77,6 +77,8 @@ metadata:
   labels:
     service: influxdb-data
   name: influxdb-data
+  annotations:
+    "helm.sh/hook": "pre-install"
 spec:
   accessModes:
     - ReadWriteOnce
