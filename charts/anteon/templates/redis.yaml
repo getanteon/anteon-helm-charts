@@ -19,6 +19,7 @@ spec:
       containers:
         - name: redis-backend
           image: {{ .Values.images.redis }}
+          command: ["redis-server", "--save", "''", "--appendonly", "no"]
           resources: {}
       restartPolicy: Always
 status: {}
@@ -62,6 +63,7 @@ spec:
       containers:
         - name: redis-alaz-backend
           image: {{ .Values.images.redis }}
+          command: ["redis-server", "--save", "''", "--appendonly", "no"]
           resources: {}
       restartPolicy: Always
 status: {}
