@@ -2,6 +2,7 @@ namespace: anteon
 
 backendHost: https://api-alaz.getanteon.com:443
 monitoringID: ""  # required
+criRuntimeEndpoint: "" # optional, specifies an additional CRI Runtime Endpoint, e.g. rke2 + containerd via k3s: unix:///run/k3s/containerd/containerd.sock
 logLevel: 1   # zero log levels: -1: trace, 0: debug, 1: info, 2: warn, 3: error, 4: fatal, 5: panic
 
 resources:
@@ -26,7 +27,7 @@ tracingEnabled: true
 # enable logs
 logsEnabled: true
 
-# exclude namespaces from tracing, metrics and logs. 
+# exclude namespaces from tracing, metrics and logs.
 # Regex pattern to exclude namespaces.
-# Example: "^anteon.*" 
+# Example: "^anteon.*"
 excludedNamespaces: ""
