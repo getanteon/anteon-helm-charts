@@ -19,6 +19,10 @@
         "type": "string",
         "description": "Monitoring ID (required). You can get it from Anteon Platform"
       },
+      "criRuntimeEndpoint": {
+        "type": "string",
+        "description": "Custom CRI runtime endpoint (optional)"
+      },
       "logLevel": {
         "type": "integer",
         "description": "Zero log level",
@@ -105,4 +109,3 @@
     },
     "required": ["namespace", "backendHost", "monitoringID", "logLevel", "resources", "image", "imagePullPolicy", "containerPort", "metricsEnabled", "tracingEnabled", "logsEnabled"]
   }
-  
