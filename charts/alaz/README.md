@@ -35,7 +35,6 @@ The following table lists the configurable parameters of the Alaz chart and thei
 | `logLevel` | [Zero log](https://github.com/rs/zerolog) level (0: trace, 1: debug, 2: info, 3: warn, 4: error, 5: fatal, 6: panic) | int | `1` |
 | `resources.limits.cpu` | CPU limit | string | `1` |
 | `resources.limits.memory` | Memory limit | string | `1Gi` |
-| `resources.requests.cpu` | CPU request | string | `500m` |
 | `resources.requests.memory` | Memory request | string | `400Mi` |
 | `image` | Alaz Docker image | string | - |
 | `imagePullPolicy` | Image pull policy | string | `IfNotPresent` |
