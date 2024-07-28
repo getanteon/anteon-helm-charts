@@ -41,7 +41,7 @@ influxDB:
 
 postgres:
   # If you set external to true, this means that you will manage the postgres server yourself
-  # Recommended postgres version: 13.6
+  # Recommended postgres version: 16.2
   # You must set host, port, username and password
   # and you must create the databases manually
   #   - backend
@@ -59,7 +59,7 @@ pvc:
     size: 5Gi
   postgres:
     storageClassName: ""
-    size: 5Gi
+    size: 50Gi
   seaweedfs:
     storageClassName: ""
     size: 30Gi
@@ -112,9 +112,9 @@ seaweedfs:
   replicas: 1
 
 images:
-  alazBackend: ddosify/selfhosted_alaz_backend:2.2.3
-  backend: ddosify/selfhosted_backend:3.2.6
-  frontend: ddosify/selfhosted_frontend:3.3.1
+  alazBackend: ddosify/selfhosted_alaz_backend:2.2.4
+  backend: ddosify/selfhosted_backend:3.2.7
+  frontend: ddosify/selfhosted_frontend:4.0.0
   hammer: ddosify/selfhosted_hammer:2.0.0
   hammermanager: ddosify/selfhosted_hammermanager:2.0.2
   influxdb: influxdb:2.6.1-alpine
