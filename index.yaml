@@ -1034,6 +1034,30 @@ entries:
     version: 0.1.0
   anteon:
   - apiVersion: v2
+    appVersion: 2.5.0
+    created: "2024-07-28T22:43:42.251180605Z"
+    description: A Helm chart for Anteon Self Hosted
+    digest: 8445ca2a41f372f77f9c7c504877c2e10635b9cb9204bbe0e08686aaeee20239
+    home: https://getanteon.com
+    keywords:
+    - ebpf
+    - helm
+    - kubernetes
+    - ddosify
+    - anteon
+    - alaz
+    - service map
+    - distributed tracing
+    - observability
+    - monitoring
+    - performance testing
+    - load testing
+    name: anteon
+    type: application
+    urls:
+    - https://github.com/getanteon/anteon-helm-charts/releases/download/anteon-2.5.0/anteon-2.5.0.tgz
+    version: 2.5.0
+  - apiVersion: v2
     appVersion: 2.4.1
     created: "2024-07-22T09:57:34.820250394Z"
     description: A Helm chart for Anteon Self Hosted
@@ -1678,4 +1702,4 @@ entries:
     urls:
     - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.3.3/ddosify-1.3.3.tgz
     version: 1.3.3
-generated: "2024-07-24T13:44:38.715134479Z"
+generated: "2024-07-28T22:43:42.251438998Z"
