@@ -41,7 +41,7 @@ The following table lists the configurable parameters of the Alaz chart and thei
 | `containerPort` | Container port for debugging and profiling Alaz | int | `8181` |
 | `podAnnotations` | Annotations to add to the pod | object | `{}` |
 | `metricsEnabled` | Enable prometheus node exporter metrics (cpu, memory, network, disk, etc.) | bool | `true` |
-| `tracingEnabled` | Enable tracing (service map and distributed tracing) using eBPF | bool | `true` |
+| `tracingEnabled` | Enable tracing (Service Map) using eBPF | bool | `true` |
 | `logsEnabled` | Enable logging | bool | `false` |
 | `excludedNamespaces` | Namespaces to exclude from monitoring with regex format. For example: `"^anteon.*"` to exclude all namespaces starting with "anteon" | string | `""` |
 | `criRuntimeEndpoint` | Custom CRI runtime endpoint (optional) | string | `""` |

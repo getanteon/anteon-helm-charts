@@ -88,7 +88,7 @@
       },
       "tracingEnabled": {
         "type": "boolean",
-        "description": "Enable tracing (service map and distributed tracing) using eBPF",
+        "description": "Enable tracing (Service Map) using eBPF",
         "default": true
       },
       "logsEnabled": {

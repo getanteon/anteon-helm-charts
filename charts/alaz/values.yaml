@@ -7,12 +7,12 @@ logLevel: 1   # zero log levels: -1: trace, 0: debug, 1: info, 2: warn, 3: error
 
 resources:
   limits:
-    cpu: "1"
     memory: 1Gi
   requests:
+    cpu: "1"
     memory: 400Mi
 
-image: ddosify/alaz:v0.11.0
+image: ddosify/alaz:v0.11.1
 imagePullPolicy: IfNotPresent
 containerPort: 8181
 podAnnotations: {}
@@ -20,11 +20,11 @@ podAnnotations: {}
 # enable prometheus node exporter metrics (cpu, memory, network, disk, etc.)
 metricsEnabled: true
 
-# enable tracing (service map and distributed tracing) using eBPF
+# enable tracing (Service Map) using eBPF
 tracingEnabled: true
 
 # enable logs
-logsEnabled: true
+logsEnabled: false
 
 # exclude namespaces from tracing, metrics and logs.
 # Regex pattern to exclude namespaces.
