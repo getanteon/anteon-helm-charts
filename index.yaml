@@ -11,6 +11,43 @@ entries:
         on the agent.
       charts.openshift.io/versions: '>=4.5'
     apiVersion: v2
+    appVersion: v0.11.1
+    created: "2024-08-06T11:53:46.872804687Z"
+    description: Alaz is an open-source Anteon eBPF agent that can inspect and collect
+      Kubernetes (K8s) service traffic without the need for code instrumentation,
+      sidecars, or service restarts. Alaz can create a Service Map that helps identify
+      golden signals and problems like high latencies, 5xx errors, zombie services,
+      SQL queries. Additionally, it can gather system information and resources via
+      the Prometheus Node Exporter, which is readily available on the agent.
+    digest: 40228112f6bc343b0042ab51d6076ed18cb3cc06947246a5d5592044ad7582b5
+    home: https://getanteon.com
+    icon: https://d2uj9largygsoq.cloudfront.net/docker/ddosify-square-icon-db.svg
+    keywords:
+    - ebpf
+    - helm
+    - kubernetes
+    - ddosify
+    - anteon
+    - alaz
+    - service map
+    - observability
+    - monitoring
+    kubeVersion: '>=1.16.0-0'
+    name: alaz
+    type: application
+    urls:
+    - https://github.com/getanteon/anteon-helm-charts/releases/download/alaz-0.11.1/alaz-0.11.1.tgz
+    version: 0.11.1
+  - annotations:
+      charts.openshift.io/name: Alaz is an open-source Anteon eBPF agent that can
+        inspect and collect Kubernetes (K8s) service traffic without the need for
+        code instrumentation, sidecars, or service restarts. Alaz can create a Service
+        Map that helps identify golden signals and problems like high latencies, 5xx
+        errors, zombie services, SQL queries. Additionally, it can gather system information
+        and resources via the Prometheus Node Exporter, which is readily available
+        on the agent.
+      charts.openshift.io/versions: '>=4.5'
+    apiVersion: v2
     appVersion: v0.11.0
     created: "2024-07-24T13:44:38.71480971Z"
     description: Alaz is an open-source Anteon eBPF agent that can inspect and collect
@@ -1702,4 +1739,4 @@ entries:
     urls:
     - https://github.com/ddosify/ddosify-helm-charts/releases/download/ddosify-1.3.3/ddosify-1.3.3.tgz
     version: 1.3.3
-generated: "2024-07-28T22:43:42.251438998Z"
+generated: "2024-08-06T11:53:46.873314227Z"
