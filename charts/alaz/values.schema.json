@@ -23,6 +23,11 @@
         "type": "string",
         "description": "Custom CRI runtime endpoint (optional)"
       },
+      "sendAliveTCPConnections": {
+        "type": "boolean",
+        "description": "Send undetected protocol connections (unknown connections)",
+        "default": false
+      },
       "logLevel": {
         "type": "integer",
         "description": "Zero log level",

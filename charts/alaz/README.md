@@ -45,5 +45,6 @@ The following table lists the configurable parameters of the Alaz chart and thei
 | `logsEnabled` | Enable logging | bool | `false` |
 | `excludedNamespaces` | Namespaces to exclude from monitoring with regex format. For example: `"^anteon.*"` to exclude all namespaces starting with "anteon" | string | `""` |
 | `criRuntimeEndpoint` | Custom CRI runtime endpoint (optional) | string | `""` |
+| `sendAliveTCPConnections` | Send undetected protocol connections (unknown connections) | bool | `false` |
 
 You can override these default values by creating a `values.yaml` file and specifying your own values or using the `--set` flag during installation.

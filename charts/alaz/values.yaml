@@ -3,6 +3,7 @@ namespace: anteon
 backendHost: https://api-alaz.getanteon.com:443
 monitoringID: ""  # required
 criRuntimeEndpoint: "" # optional, specifies an additional CRI Runtime Endpoint, e.g. rke2 + containerd via k3s: unix:///run/k3s/containerd/containerd.sock
+sendAliveTCPConnections: false # Send undetected protocol connections (unknown connections)
 logLevel: 1   # zero log levels: -1: trace, 0: debug, 1: info, 2: warn, 3: error, 4: fatal, 5: panic
 
 resources:
@@ -12,7 +13,7 @@ resources:
     cpu: "1"
     memory: 400Mi
 
-image: ddosify/alaz:v0.11.1
+image: ddosify/alaz:v0.11.2
 imagePullPolicy: IfNotPresent
 containerPort: 8181
 podAnnotations: {}
