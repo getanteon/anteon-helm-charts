@@ -17,7 +17,7 @@ icon: https://d2uj9largygsoq.cloudfront.net/docker/ddosify-square-icon-db.svg
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.11.2
+version: 0.11.2-rv
 
 redhatVersion: 0.5.0
 

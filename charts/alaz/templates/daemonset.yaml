@@ -38,7 +38,7 @@ spec:
         - name: CRI_RUNTIME_ENDPOINT
           value: {{ .Values.criRuntimeEndpoint }}
         - name: SEND_ALIVE_TCP_CONNECTIONS
-          value: {{ .Values.sendAliveTCPConnections }}
+          value: "{{ .Values.sendAliveTCPConnections }}"
         - name: NODE_NAME
           valueFrom:
             fieldRef:
