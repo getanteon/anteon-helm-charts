@@ -80,6 +80,7 @@ metadata:
   name: postgres-data
   annotations:
     "helm.sh/hook": "pre-install"
+    "helm.sh/resource-policy": "keep"
 spec:
   accessModes:
     - ReadWriteOnce

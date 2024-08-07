@@ -112,9 +112,9 @@ seaweedfs:
   replicas: 1
 
 images:
-  alazBackend: ddosify/selfhosted_alaz_backend:2.2.4
-  backend: ddosify/selfhosted_backend:3.2.7
-  frontend: ddosify/selfhosted_frontend:4.0.0
+  alazBackend: ddosify/selfhosted_alaz_backend:2.3.5
+  backend: ddosify/selfhosted_backend:3.2.9
+  frontend: ddosify/selfhosted_frontend:4.1.2
   hammer: ddosify/selfhosted_hammer:2.0.0
   hammermanager: ddosify/selfhosted_hammermanager:2.0.2
   influxdb: influxdb:2.6.1-alpine
