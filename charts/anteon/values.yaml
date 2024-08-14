@@ -35,7 +35,7 @@ influxDB:
   org: "ddosify"
   username: "admin" # only used if external is false
   password: "ChangeMe" # only used if external is false
-  initBuckerName: "hammerBucket"
+  initBucketName: "hammerBucket"
   initMode: "setup"
   replicas: 1
 
