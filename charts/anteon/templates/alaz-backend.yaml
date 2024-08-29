@@ -115,3 +115,37 @@ spec:
           resources: {}
       restartPolicy: Always
 status: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: alaz-backend-request-writer
+  name: alaz-backend-request-writer
+spec:
+  replicas: {{ .Values.alazBackend.requestWriterReplicas }}
+  selector:
+    matchLabels:
+      service: alaz-backend-request-writer
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        service: alaz-backend-request-writer
+    spec:
+      initContainers:
+        - name: check-dependencies
+          image: {{ .Values.images.initContainerBusybox }}
+          command: ['sh', '-c', 'until nc -z -w4 alaz-backend 8008 && nc -z rabbitmq 5672; do echo waiting for dependencies; sleep 1; done;']
+      containers:
+        - args:
+            - /workspace/start_scripts/start_request_writer.sh
+          envFrom:
+            - configMapRef:
+                name: env
+          image: {{ .Values.images.alazBackend }}
+          name: alaz-backend-request-writer
+          imagePullPolicy: IfNotPresent
+          resources: {}
+      restartPolicy: Always
+status: {}

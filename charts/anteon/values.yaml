@@ -68,6 +68,7 @@ alazBackend:
   replicas: 3
   celeryBeatReplicas: 1
   celeryWorkerReplicas: 2
+  requestWriterReplicas: 1
 
 backend:
   replicas: 3
@@ -112,9 +113,9 @@ seaweedfs:
   replicas: 1
 
 images:
-  alazBackend: ddosify/selfhosted_alaz_backend:2.3.7
+  alazBackend: ddosify/selfhosted_alaz_backend:2.3.11
   backend: ddosify/selfhosted_backend:3.2.9
-  frontend: ddosify/selfhosted_frontend:4.1.2
+  frontend: ddosify/selfhosted_frontend:4.1.4
   hammer: ddosify/selfhosted_hammer:2.0.0
   hammermanager: ddosify/selfhosted_hammermanager:2.0.2
   influxdb: influxdb:2.6.1-alpine

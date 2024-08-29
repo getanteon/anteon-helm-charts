@@ -130,6 +130,7 @@ The following table lists the configurable parameters of the Anteon chart and th
 | `alazbackend.replicas` | Number of replicas for the Alaz Backend service. | integer | `3` |
 | `alazbackend.celeryBeatReplicas` | Number of replicas for the Alaz Backend Celery Beat service. | integer | `1` |
 | `alazbackend.celeryWorkerReplicas` | Number of replicas for the Alaz Backend Celery Worker service. | integer | `2` |
+| `alazbackend.requestWriterReplicas` | Number of replicas for the Alaz Backend Request Writer service. | integer | `1` |
 | `backend.replicas` | Number of replicas for the Backend service. | integer | `3` |
 | `backend.celeryBeatReplicas` | Number of replicas for the Backend Celery Beat service. | integer | `1` |
 | `backend.celeryWorkerReplicas` | Number of replicas for the Backend Celery Worker service. | integer | `1` |
