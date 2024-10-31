@@ -24,3 +24,5 @@ For more information about each chart, please refer to the respective README fil
 ## Communication
 
 You can join our [Discord Server](https://discord.com/invite/9KdnrSUZQg) for discussions, support, and community updates.
+
+Badge: [![Gurubase](https://img.shields.io/badge/Gurubase-Ask%20Anteon%20Guru-006BFF)](https://gurubase.io/g/anteon) [![Sample Badge](https://img.shields.io/badge/Sample-Badge-FF69B4)](https://example.com)
